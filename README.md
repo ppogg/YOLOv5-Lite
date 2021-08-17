@@ -16,6 +16,7 @@ Perform a series of ablation experiments on yolov5 to make it lighter (smaller F
 006| yolov4-tiny| 416×416| 5.62G|8.86M| 33.7|40.2|21.7
 007| yolov3-tiny| 416×416| 6.96G|6.06M|23.0| 33.1|16.6
 
+### Comparison on different platforms
 
 Equipment|Computing backend|System|Framework|Input|Speed{our}|Map{yolov5s}
 :---:|:---:|:---:|:---:|:---:|:---:|:---:
@@ -26,18 +27,22 @@ Raspberrypi 4B|@ARM Cortex-A72|Linux(arm64)|320×320|ncnn|97ms|371ms
 ### Detection effect
 
 Pytorch{640×640}：
+
 ![image](https://user-images.githubusercontent.com/82716366/129720114-5af73bf9-77d3-4f5b-9cec-ab37e4d25fde.png)
 ![image](https://user-images.githubusercontent.com/82716366/129720121-d921cae8-29db-4028-90ed-821869dd3d9a.png)
 
 NCNN{FP16}@{640×640}:
+
 ![image](https://user-images.githubusercontent.com/82716366/129720264-ca6403c4-188b-4dd1-8372-c9a18c915fd8.png)
 ![image](https://user-images.githubusercontent.com/82716366/129720290-6862a7a5-d92f-4071-95f0-6ebd547592b6.png)
 
 NCNN{Int8}@{640×640}:
+
 ![image](https://user-images.githubusercontent.com/82716366/129720338-5ce1ee2e-46ab-4e82-a2d1-2d8faf6c5661.png)
 ![image](https://user-images.githubusercontent.com/82716366/129720363-78deb83f-ceb5-4726-9395-5ed6cf817918.png)
 
 ### Base on YOLOv5
+
 ![image](https://user-images.githubusercontent.com/82716366/129720466-728043a3-5af7-40be-9cb4-f96d42d5bdaf.png)
 
 ### 10FPS can be used with yolov5 on the Raspberry Pi with only 0.1T computing power
