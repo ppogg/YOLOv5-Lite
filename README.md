@@ -1,170 +1,133 @@
-<a href="https://apps.apple.com/app/id1452689527" target="_blank">
-<img src="https://user-images.githubusercontent.com/26833433/98699617-a1595a00-2377-11eb-8145-fc674eb9b1a7.jpg" width="1000"></a>
-&nbsp
+# shufflev2-yolov5：lighter, faster and easier to deploy
 
-<a href="https://github.com/ultralytics/yolov5/actions"><img src="https://github.com/ultralytics/yolov5/workflows/CI%20CPU%20testing/badge.svg" alt="CI CPU testing"></a>
+![0023](https://user-images.githubusercontent.com/82716366/129719706-e4708bed-17b0-4c5a-93bd-c4512e1794c2.jpg)
 
-This repository represents Ultralytics open-source research into future object detection methods, and incorporates lessons learned and best practices evolved over thousands of hours of training and evolution on anonymized client datasets. **All code and models are under active development, and are subject to modification or deletion without notice.** Use at your own risk.
+Perform a series of ablation experiments on yolov5 to make it lighter (smaller Flops, lower memory, and fewer parameters) and faster (add shuffle channel, yolov5 head for channel reduce. On the Raspberry Pi 4B with input_size of 320×320 can be  infers 10 frames per second at least) and is easier to deploy (removal of the Focus layer and four slice operations to reduce the model quantization accuracy within an acceptable range).
 
-<p align="center"><img width="800" src="https://user-images.githubusercontent.com/26833433/114313216-f0a5e100-9af5-11eb-8445-c682b60da2e3.png"></p>
-<details>
-  <summary>YOLOv5-P5 640 Figure (click to expand)</summary>
-  
-<p align="center"><img width="800" src="https://user-images.githubusercontent.com/26833433/114313219-f1d70e00-9af5-11eb-9973-52b1f98d321a.png"></p>
-</details>
-<details>
-  <summary>Figure Notes (click to expand)</summary>
-  
-  * GPU Speed measures end-to-end time per image averaged over 5000 COCO val2017 images using a V100 GPU with batch size 32, and includes image preprocessing, PyTorch FP16 inference, postprocessing and NMS. 
-  * EfficientDet data from [google/automl](https://github.com/google/automl) at batch size 8.
-  * **Reproduce** by `python test.py --task study --data coco.yaml --iou 0.7 --weights yolov5s6.pt yolov5m6.pt yolov5l6.pt yolov5x6.pt`
-</details>
+### Comparison of ablation experiment results
 
-- **April 11, 2021**: [v5.0 release](https://github.com/ultralytics/yolov5/releases/tag/v5.0): YOLOv5-P6 1280 models, [AWS](https://github.com/ultralytics/yolov5/wiki/AWS-Quickstart), [Supervise.ly](https://github.com/ultralytics/yolov5/issues/2518) and [YouTube](https://github.com/ultralytics/yolov5/pull/2752) integrations.
-- **January 5, 2021**: [v4.0 release](https://github.com/ultralytics/yolov5/releases/tag/v4.0): nn.SiLU() activations, [Weights & Biases](https://wandb.ai/site?utm_campaign=repo_yolo_readme) logging, [PyTorch Hub](https://pytorch.org/hub/ultralytics_yolov5/) integration.
-- **August 13, 2020**: [v3.0 release](https://github.com/ultralytics/yolov5/releases/tag/v3.0): nn.Hardswish() activations, data autodownload, native AMP.
-- **July 23, 2020**: [v2.0 release](https://github.com/ultralytics/yolov5/releases/tag/v2.0): improved model definition, training and mAP.
+  ID|Model | Input_size|Flops| Params | Size（M） |Map@0.5|Map@.5:0.95
+ :-----:|:-----:|:-----:|:----------:|:----:|:----:|:----:|:----:|
+001| yolo-faster| 320×320|0.25G|0.35M|1.4| 24.4| -
+002| nanodet-m| 320×320| 0.72G|0.95M|1.8|- |20.6
+003| shufflev2-yolov5| 320×320|1.43G |1.62M|3.3| 35.5|-| 
+004| nanodet-m| 416×416| 1.2G	|0.95M|1.8|- |23.5
+005| shufflev2-yolov5| 416×416|2.42G |1.62M|3.3| 40.5|23.5| 
+006| yolov4-tiny| 416×416| 5.62G|8.86M| 33.7|40.2|21.7
+007| yolov3-tiny| 416×416| 6.96G|6.06M|23.0| 33.1|16.6
 
 
-## Pretrained Checkpoints
+Equipment|Computing backend|System|Framework|Input|Speed{our}|Map{yolov5s}
+:---:|:---:|:---:|:---:|:---:|:---:|:---:
+Inter|@i5-10210U|window(x86)|640×640|torch-cpu|112ms|179ms
+Nvidia|@RTX 2080Ti|Linux(x86)|640×640|torch-gpu|11ms|13ms
+Raspberrypi 4B|@ARM Cortex-A72|Linux(arm64)|320×320|ncnn|97ms|371ms
 
-[assets]: https://github.com/ultralytics/yolov5/releases
+### Detection effect
 
-Model |size<br><sup>(pixels) |mAP<sup>val<br>0.5:0.95 |mAP<sup>test<br>0.5:0.95 |mAP<sup>val<br>0.5 |Speed<br><sup>V100 (ms) | |params<br><sup>(M) |FLOPS<br><sup>640 (B)
----   |---  |---        |---         |---             |---                |---|---              |---
-[YOLOv5s][assets]    |640  |36.7     |36.7     |55.4     |**2.0** | |7.3   |17.0
-[YOLOv5m][assets]    |640  |44.5     |44.5     |63.3     |2.7     | |21.4  |51.3
-[YOLOv5l][assets]    |640  |48.2     |48.2     |66.9     |3.8     | |47.0  |115.4
-[YOLOv5x][assets]    |640  |**50.4** |**50.4** |**68.8** |6.1     | |87.7  |218.8
-| | | | | | || |
-[YOLOv5s6][assets]   |1280 |43.3     |43.3     |61.9     |**4.3** | |12.7  |17.4
-[YOLOv5m6][assets]   |1280 |50.5     |50.5     |68.7     |8.4     | |35.9  |52.4
-[YOLOv5l6][assets]   |1280 |53.4     |53.4     |71.1     |12.3    | |77.2  |117.7
-[YOLOv5x6][assets]   |1280 |**54.4** |**54.4** |**72.0** |22.4    | |141.8 |222.9
-| | | | | | || |
-[YOLOv5x6][assets] TTA |1280 |**55.0** |**55.0** |**72.0** |70.8 | |-  |-
+Pytorch{640×640}：
+![image](https://user-images.githubusercontent.com/82716366/129720114-5af73bf9-77d3-4f5b-9cec-ab37e4d25fde.png)
+![image](https://user-images.githubusercontent.com/82716366/129720121-d921cae8-29db-4028-90ed-821869dd3d9a.png)
 
-<details>
-  <summary>Table Notes (click to expand)</summary>
-  
-  * AP<sup>test</sup> denotes COCO [test-dev2017](http://cocodataset.org/#upload) server results, all other AP results denote val2017 accuracy.  
-  * AP values are for single-model single-scale unless otherwise noted. **Reproduce mAP** by `python test.py --data coco.yaml --img 640 --conf 0.001 --iou 0.65`  
-  * Speed<sub>GPU</sub> averaged over 5000 COCO val2017 images using a GCP [n1-standard-16](https://cloud.google.com/compute/docs/machine-types#n1_standard_machine_types) V100 instance, and includes FP16 inference, postprocessing and NMS. **Reproduce speed** by `python test.py --data coco.yaml --img 640 --conf 0.25 --iou 0.45`  
-  * All checkpoints are trained to 300 epochs with default settings and hyperparameters (no autoaugmentation). 
-  * Test Time Augmentation ([TTA](https://github.com/ultralytics/yolov5/issues/303)) includes reflection and scale augmentation. **Reproduce TTA** by `python test.py --data coco.yaml --img 1536 --iou 0.7 --augment`
-</details>
+NCNN{FP16}@{640×640}:
+![image](https://user-images.githubusercontent.com/82716366/129720264-ca6403c4-188b-4dd1-8372-c9a18c915fd8.png)
+![image](https://user-images.githubusercontent.com/82716366/129720290-6862a7a5-d92f-4071-95f0-6ebd547592b6.png)
 
+NCNN{Int8}@{640×640}:
+![image](https://user-images.githubusercontent.com/82716366/129720338-5ce1ee2e-46ab-4e82-a2d1-2d8faf6c5661.png)
+![image](https://user-images.githubusercontent.com/82716366/129720363-78deb83f-ceb5-4726-9395-5ed6cf817918.png)
 
-## Requirements
+### Base on YOLOv5
+![image](https://user-images.githubusercontent.com/82716366/129720466-728043a3-5af7-40be-9cb4-f96d42d5bdaf.png)
 
-Python 3.8 or later with all [requirements.txt](https://github.com/ultralytics/yolov5/blob/master/requirements.txt) dependencies installed, including `torch>=1.7`. To install run:
-```bash
-$ pip install -r requirements.txt
+### 10FPS can be used with yolov5 on the Raspberry Pi with only 0.1T computing power
+
+Excluding the first three warm-ups, the device temperature is stable above 45°, the forward reasoning framework is ncnn, and the two benchmark comparisons are recorded
+
 ```
+# 第四次
+pi@raspberrypi:~/Downloads/ncnn/build/benchmark $ ./benchncnn 8 4 0
+loop_count = 8
+num_threads = 4
+powersave = 0
+gpu_device = -1
+cooling_down = 1
+    shufflev2-yolov5  min =   90.86  max =   93.53  avg =   91.56
+shufflev2-yolov5-int8  min =   83.15  max =   84.17  avg =   83.65
+shufflev2-yolov5-416  min =  154.51  max =  155.59  avg =  155.09
+         yolov4-tiny  min =  298.94  max =  302.47  avg =  300.69
+           nanodet_m  min =   86.19  max =  142.79  avg =   99.61
+          squeezenet  min =   59.89  max =   60.75  avg =   60.41
+     squeezenet_int8  min =   50.26  max =   51.31  avg =   50.75
+           mobilenet  min =   73.52  max =   74.75  avg =   74.05
+      mobilenet_int8  min =   40.48  max =   40.73  avg =   40.63
+        mobilenet_v2  min =   72.87  max =   73.95  avg =   73.31
+        mobilenet_v3  min =   57.90  max =   58.74  avg =   58.34
+          shufflenet  min =   40.67  max =   41.53  avg =   41.15
+       shufflenet_v2  min =   30.52  max =   31.29  avg =   30.88
+             mnasnet  min =   62.37  max =   62.76  avg =   62.56
+     proxylessnasnet  min =   62.83  max =   64.70  avg =   63.90
+     efficientnet_b0  min =   94.83  max =   95.86  avg =   95.35
+   efficientnetv2_b0  min =  103.83  max =  105.30  avg =  104.74
+        regnety_400m  min =   76.88  max =   78.28  avg =   77.46
+           blazeface  min =   13.99  max =   21.03  avg =   15.37
+           googlenet  min =  144.73  max =  145.86  avg =  145.19
+      googlenet_int8  min =  123.08  max =  124.83  avg =  123.96
+            resnet18  min =  181.74  max =  183.07  avg =  182.37
+       resnet18_int8  min =  103.28  max =  105.02  avg =  104.17
+             alexnet  min =  162.79  max =  164.04  avg =  163.29
+               vgg16  min =  867.76  max =  911.79  avg =  889.88
+          vgg16_int8  min =  466.74  max =  469.51  avg =  468.15
+            resnet50  min =  333.28  max =  338.97  avg =  335.71
+       resnet50_int8  min =  239.71  max =  243.73  avg =  242.54
+      squeezenet_ssd  min =  179.55  max =  181.33  avg =  180.74
+ squeezenet_ssd_int8  min =  131.71  max =  133.34  avg =  132.54
+       mobilenet_ssd  min =  151.74  max =  152.67  avg =  152.32
+  mobilenet_ssd_int8  min =   85.51  max =   86.19  avg =   85.77
+      mobilenet_yolo  min =  327.67  max =  332.85  avg =  330.36
+  mobilenetv2_yolov3  min =  221.17  max =  224.84  avg =  222.60
 
-
-## Tutorials
-
-* [Train Custom Data](https://github.com/ultralytics/yolov5/wiki/Train-Custom-Data)&nbsp; 🚀 RECOMMENDED
-* [Tips for Best Training Results](https://github.com/ultralytics/yolov5/wiki/Tips-for-Best-Training-Results)&nbsp; ☘️ RECOMMENDED
-* [Weights & Biases Logging](https://github.com/ultralytics/yolov5/issues/1289)&nbsp; 🌟 NEW
-* [Supervisely Ecosystem](https://github.com/ultralytics/yolov5/issues/2518)&nbsp; 🌟 NEW
-* [Multi-GPU Training](https://github.com/ultralytics/yolov5/issues/475)
-* [PyTorch Hub](https://github.com/ultralytics/yolov5/issues/36)&nbsp; ⭐ NEW
-* [ONNX and TorchScript Export](https://github.com/ultralytics/yolov5/issues/251)
-* [Test-Time Augmentation (TTA)](https://github.com/ultralytics/yolov5/issues/303)
-* [Model Ensembling](https://github.com/ultralytics/yolov5/issues/318)
-* [Model Pruning/Sparsity](https://github.com/ultralytics/yolov5/issues/304)
-* [Hyperparameter Evolution](https://github.com/ultralytics/yolov5/issues/607)
-* [Transfer Learning with Frozen Layers](https://github.com/ultralytics/yolov5/issues/1314)&nbsp; ⭐ NEW
-* [TensorRT Deployment](https://github.com/wang-xinyu/tensorrtx)
-
-
-## Environments
-
-YOLOv5 may be run in any of the following up-to-date verified environments (with all dependencies including [CUDA](https://developer.nvidia.com/cuda)/[CUDNN](https://developer.nvidia.com/cudnn), [Python](https://www.python.org/) and [PyTorch](https://pytorch.org/) preinstalled):
-
-- **Google Colab and Kaggle** notebooks with free GPU: <a href="https://colab.research.google.com/github/ultralytics/yolov5/blob/master/tutorial.ipynb"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"></a> <a href="https://www.kaggle.com/ultralytics/yolov5"><img src="https://kaggle.com/static/images/open-in-kaggle.svg" alt="Open In Kaggle"></a>
-- **Google Cloud** Deep Learning VM. See [GCP Quickstart Guide](https://github.com/ultralytics/yolov5/wiki/GCP-Quickstart)
-- **Amazon** Deep Learning AMI. See [AWS Quickstart Guide](https://github.com/ultralytics/yolov5/wiki/AWS-Quickstart)
-- **Docker Image**. See [Docker Quickstart Guide](https://github.com/ultralytics/yolov5/wiki/Docker-Quickstart) <a href="https://hub.docker.com/r/ultralytics/yolov5"><img src="https://img.shields.io/docker/pulls/ultralytics/yolov5?logo=docker" alt="Docker Pulls"></a>
-
-
-## Inference
-
-`detect.py` runs inference on a variety of sources, downloading models automatically from the [latest YOLOv5 release](https://github.com/ultralytics/yolov5/releases) and saving results to `runs/detect`.
-```bash
-$ python detect.py --source 0  # webcam
-                            file.jpg  # image 
-                            file.mp4  # video
-                            path/  # directory
-                            path/*.jpg  # glob
-                            'https://youtu.be/NUsoVlDFqZg'  # YouTube video
-                            'rtsp://example.com/media.mp4'  # RTSP, RTMP, HTTP stream
+# 第八次
+pi@raspberrypi:~/Downloads/ncnn/build/benchmark $ ./benchncnn 8 4 0
+loop_count = 8
+num_threads = 4
+powersave = 0
+gpu_device = -1
+cooling_down = 1
+           nanodet_m  min =   84.03  max =   87.68  avg =   86.32
+       nanodet_m-416  min =  143.89  max =  145.06  avg =  144.67
+    shufflev2-yolov5  min =   84.30  max =   86.34  avg =   85.79
+shufflev2-yolov5-int8  min =   80.98  max =   82.80  avg =   81.25
+shufflev2-yolov5-416  min =  142.75  max =  146.10  avg =  144.34
+         yolov4-tiny  min =  276.09  max =  289.83  avg =  285.99
+           nanodet_m  min =   81.15  max =   81.71  avg =   81.33
+          squeezenet  min =   59.37  max =   61.19  avg =   60.35
+     squeezenet_int8  min =   49.30  max =   49.66  avg =   49.43
+           mobilenet  min =   72.40  max =   74.13  avg =   73.37
+      mobilenet_int8  min =   39.92  max =   40.23  avg =   40.07
+        mobilenet_v2  min =   71.57  max =   73.07  avg =   72.29
+        mobilenet_v3  min =   54.75  max =   56.00  avg =   55.40
+          shufflenet  min =   40.07  max =   41.13  avg =   40.58
+       shufflenet_v2  min =   29.39  max =   30.25  avg =   29.86
+             mnasnet  min =   59.54  max =   60.18  avg =   59.96
+     proxylessnasnet  min =   61.06  max =   62.63  avg =   61.75
+     efficientnet_b0  min =   91.86  max =   95.01  avg =   92.84
+   efficientnetv2_b0  min =  101.03  max =  102.61  avg =  101.71
+        regnety_400m  min =   76.75  max =   78.58  avg =   77.60
+           blazeface  min =   13.18  max =   14.67  avg =   13.79
+           googlenet  min =  136.56  max =  138.05  avg =  137.14
+      googlenet_int8  min =  118.30  max =  120.17  avg =  119.23
+            resnet18  min =  164.78  max =  166.80  avg =  165.70
+       resnet18_int8  min =   98.58  max =   99.23  avg =   98.96
+             alexnet  min =  155.06  max =  156.28  avg =  155.56
+               vgg16  min =  817.64  max =  832.21  avg =  827.37
+          vgg16_int8  min =  457.04  max =  465.19  avg =  460.64
+            resnet50  min =  318.57  max =  323.19  avg =  320.06
+       resnet50_int8  min =  237.46  max =  238.73  avg =  238.06
+      squeezenet_ssd  min =  171.61  max =  173.21  avg =  172.10
+ squeezenet_ssd_int8  min =  128.01  max =  129.58  avg =  128.84
+       mobilenet_ssd  min =  145.60  max =  149.44  avg =  147.39
+  mobilenet_ssd_int8  min =   82.86  max =   83.59  avg =   83.22
+      mobilenet_yolo  min =  311.95  max =  374.33  avg =  330.15
+  mobilenetv2_yolov3  min =  211.89  max =  286.28  avg =  228.01
 ```
-
-To run inference on example images in `data/images`:
-```bash
-$ python detect.py --source data/images --weights yolov5s.pt --conf 0.25
-
-Namespace(agnostic_nms=False, augment=False, classes=None, conf_thres=0.25, device='', exist_ok=False, img_size=640, iou_thres=0.45, name='exp', project='runs/detect', save_conf=False, save_txt=False, source='data/images/', update=False, view_img=False, weights=['yolov5s.pt'])
-YOLOv5 v4.0-96-g83dc1b4 torch 1.7.0+cu101 CUDA:0 (Tesla V100-SXM2-16GB, 16160.5MB)
-
-Fusing layers... 
-Model Summary: 224 layers, 7266973 parameters, 0 gradients, 17.0 GFLOPS
-image 1/2 /content/yolov5/data/images/bus.jpg: 640x480 4 persons, 1 bus, Done. (0.010s)
-image 2/2 /content/yolov5/data/images/zidane.jpg: 384x640 2 persons, 1 tie, Done. (0.011s)
-Results saved to runs/detect/exp2
-Done. (0.103s)
-```
-<img src="https://user-images.githubusercontent.com/26833433/97107365-685a8d80-16c7-11eb-8c2e-83aac701d8b9.jpeg" width="500">  
-
-### PyTorch Hub
-
-To run **batched inference** with YOLOv5 and [PyTorch Hub](https://github.com/ultralytics/yolov5/issues/36):
-```python
-import torch
-
-# Model
-model = torch.hub.load('ultralytics/yolov5', 'yolov5s')
-
-# Images
-dir = 'https://github.com/ultralytics/yolov5/raw/master/data/images/'
-imgs = [dir + f for f in ('zidane.jpg', 'bus.jpg')]  # batch of images
-
-# Inference
-results = model(imgs)
-results.print()  # or .show(), .save()
-```
-
-
-## Training
-
-Run commands below to reproduce results on [COCO](https://github.com/ultralytics/yolov5/blob/master/data/scripts/get_coco.sh) dataset (dataset auto-downloads on first use). Training times for YOLOv5s/m/l/x are 2/4/6/8 days on a single V100 (multi-GPU times faster). Use the largest `--batch-size` your GPU allows (batch sizes shown for 16 GB devices).
-```bash
-$ python train.py --data coco.yaml --cfg yolov5s.yaml --weights '' --batch-size 64
-                                         yolov5m                                40
-                                         yolov5l                                24
-                                         yolov5x                                16
-```
-<img src="https://user-images.githubusercontent.com/26833433/90222759-949d8800-ddc1-11ea-9fa1-1c97eed2b963.png" width="900">
-
-
-## Citation
-
-[![DOI](https://zenodo.org/badge/264818686.svg)](https://zenodo.org/badge/latestdoi/264818686)
-
-
-## About Us
-
-Ultralytics is a U.S.-based particle physics and AI startup with over 6 years of expertise supporting government, academic and business clients. We offer a wide range of vision AI services, spanning from simple expert advice up to delivery of fully customized, end-to-end production solutions, including:
-- **Cloud-based AI** systems operating on **hundreds of HD video streams in realtime.**
-- **Edge AI** integrated into custom iOS and Android apps for realtime **30 FPS video inference.**
-- **Custom data training**, hyperparameter evolution, and model exportation to any destination.
-
-For business inquiries and professional support requests please visit us at https://www.ultralytics.com. 
-
-
-## Contact
-
-**Issues should be raised directly in the repository.** For business inquiries or professional support requests please visit https://www.ultralytics.com or email Glenn Jocher at glenn.jocher@ultralytics.com. 
