@@ -18,7 +18,7 @@ Perform a series of ablation experiments on yolov5 to make it lighter (smaller F
 
 ### Comparison on different platforms
 
-Equipment|Computing backend|System|Framework|Input|Speed{our}|Map{yolov5s}
+Equipment|Computing backend|System|Framework|Input|Speed{our}|Speed{yolov5s}
 :---:|:---:|:---:|:---:|:---:|:---:|:---:
 Inter|@i5-10210U|window(x86)|640×640|torch-cpu|112ms|179ms
 Nvidia|@RTX 2080Ti|Linux(x86)|640×640|torch-gpu|11ms|13ms
