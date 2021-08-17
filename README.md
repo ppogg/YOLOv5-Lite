@@ -29,7 +29,7 @@ Raspberrypi 4B|@ARM Cortex-A72|Linux(arm64)|320×320|ncnn|97ms|371ms
 
 Pytorch{640×640}：
 
-![image](https://user-images.githubusercontent.com/82716366/129720114-5af73bf9-77d3-4f5b-9cec-ab37e4d25fde.png)
+![image](https://pic3.zhimg.com/80/v2-5f11584ea98eeb3ca767c9128198eda6_720w.jpg)
 ![image](https://user-images.githubusercontent.com/82716366/129720121-d921cae8-29db-4028-90ed-821869dd3d9a.png)
 
 NCNN{FP16}@{640×640}:
@@ -137,3 +137,5 @@ shufflev2-yolov5-416  min =  142.75  max =  146.10  avg =  144.34
       mobilenet_yolo  min =  311.95  max =  374.33  avg =  330.15
   mobilenetv2_yolov3  min =  211.89  max =  286.28  avg =  228.01
 ```
+### More detailed explanation
+https://zhuanlan.zhihu.com/p/400545131
