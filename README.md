@@ -35,7 +35,7 @@ Pytorch{640×640}：
 NCNN{FP16}@{640×640}:
 
 ![image](https://user-images.githubusercontent.com/82716366/129720264-ca6403c4-188b-4dd1-8372-c9a18c915fd8.png)
-<img src="hhttps://pic3.zhimg.com/v2-449185dd08bce8a5a801d9bde0e9aa16_b.jpeg" width="800" height="600"/><br/>
+<img src="https://pic3.zhimg.com/v2-449185dd08bce8a5a801d9bde0e9aa16_b.jpeg" width="800" height="600"/><br/>
 
 NCNN{Int8}@{640×640}:
 
