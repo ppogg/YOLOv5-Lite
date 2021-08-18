@@ -30,7 +30,7 @@ Raspberrypi 4B|@ARM Cortex-A72|Linux(arm64)|320×320|ncnn|97ms|371ms
 Pytorch{640×640}：
 
 ![person](https://user-images.githubusercontent.com/82716366/129822414-56ad3bf3-1005-47aa-9bd9-c4117227a981.jpg)
-![image](https://user-images.githubusercontent.com/82716366/129822110-c7e494f0-e6db-4b2e-b710-2859f3e8557a.jpg)
+<img src="https://pic1.zhimg.com/v2-f2fc4c403b53e14205addff38403ed30_b.jpeg" width="800" height="600"/><br/>
 
 NCNN{FP16}@{640×640}:
 
