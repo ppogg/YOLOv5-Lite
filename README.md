@@ -145,3 +145,5 @@ https://zhuanlan.zhihu.com/p/400545131
 https://github.com/Tencent/ncnn
 
 https://github.com/ultralytics/yolov5
+
+https://github.com/megvii-model/ShuffleNet-Series
