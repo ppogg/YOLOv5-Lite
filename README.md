@@ -29,7 +29,7 @@ Raspberrypi 4B|@ARM Cortex-A72|Linux(arm64)|320×320|ncnn|97ms|371ms
 
 Pytorch{640×640}：
 
-![image](https://pic3.zhimg.com/80/v2-5f11584ea98eeb3ca767c9128198eda6_720w.jpg)
+![person](https://user-images.githubusercontent.com/82716366/129822414-56ad3bf3-1005-47aa-9bd9-c4117227a981.jpg)
 ![image](https://user-images.githubusercontent.com/82716366/129822110-c7e494f0-e6db-4b2e-b710-2859f3e8557a.jpg)
 
 NCNN{FP16}@{640×640}:
@@ -40,7 +40,7 @@ NCNN{FP16}@{640×640}:
 NCNN{Int8}@{640×640}:
 
 ![image](https://user-images.githubusercontent.com/82716366/129720338-5ce1ee2e-46ab-4e82-a2d1-2d8faf6c5661.png)
-![image](https://user-images.githubusercontent.com/82716366/129822133-d269cefc-4705-4aa2-9b00-5ecd630da969.jpg)
+<img src="https://user-images.githubusercontent.com/82716366/129822133-d269cefc-4705-4aa2-9b00-5ecd630da969.jpg" width="800" height="600"/><br/>
 
 ### Base on YOLOv5
 
