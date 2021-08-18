@@ -139,3 +139,7 @@ shufflev2-yolov5-416  min =  142.75  max =  146.10  avg =  144.34
 ```
 ### More detailed explanation
 https://zhuanlan.zhihu.com/p/400545131
+
+## Reference
+https://github.com/Tencent/ncnn
+https://github.com/ultralytics/yolov5
