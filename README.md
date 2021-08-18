@@ -138,7 +138,10 @@ shufflev2-yolov5-416  min =  142.75  max =  146.10  avg =  144.34
   mobilenetv2_yolov3  min =  211.89  max =  286.28  avg =  228.01
 ```
 ### More detailed explanation
-https://zhuanlan.zhihu.com/p/400545131
+
+Detailed model link: https://zhuanlan.zhihu.com/p/400545131
+
+NCNN deployment and int8 quantization：https://zhuanlan.zhihu.com/p/400975662
 
 ## Reference
 
