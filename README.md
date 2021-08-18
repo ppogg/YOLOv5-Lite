@@ -40,7 +40,7 @@ NCNN{FP16}@{640×640}:
 NCNN{Int8}@{640×640}:
 
 ![image](https://user-images.githubusercontent.com/82716366/129720338-5ce1ee2e-46ab-4e82-a2d1-2d8faf6c5661.png)
-![image](![person1](https://user-images.githubusercontent.com/82716366/129822133-d269cefc-4705-4aa2-9b00-5ecd630da969.jpg)
+![image](https://user-images.githubusercontent.com/82716366/129822133-d269cefc-4705-4aa2-9b00-5ecd630da969.jpg)
 
 ### Base on YOLOv5
 
