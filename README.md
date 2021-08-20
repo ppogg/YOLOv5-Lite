@@ -137,6 +137,22 @@ shufflev2-yolov5-416  min =  142.75  max =  146.10  avg =  144.34
       mobilenet_yolo  min =  311.95  max =  374.33  avg =  330.15
   mobilenetv2_yolov3  min =  211.89  max =  286.28  avg =  228.01
 ```
+
+### NCNN_Android_demo
+
+This is a Redmi phone that has been used for two years, the processor is Snapdragon 730G, and shufflev2-yolov5 is used for detection. The performance is as follows:
+
+![mmexport1629451185220](https://user-images.githubusercontent.com/82716366/130217501-6db77073-7727-4ed8-89fe-e644c4bf8cf9.jpg)
+
+This is the quantized int8 model:
+
+![mmexport1629451003685](https://user-images.githubusercontent.com/82716366/130217583-d645ae5b-4f48-49dc-8672-dd60a055a67e.jpg)
+
+This is the type of model:
+
+![qq_pic_merged_1629451239810](https://user-images.githubusercontent.com/82716366/130217718-15700cc4-3954-448c-a943-c74e1cfa95ea.jpg)
+
+
 ### More detailed explanation
 
 Detailed model link: https://zhuanlan.zhihu.com/p/400545131
