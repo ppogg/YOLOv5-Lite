@@ -140,7 +140,7 @@ shufflev2-yolov5-416  min =  142.75  max =  146.10  avg =  144.34
 
 ### NCNN_Android_demo
 
-This is a Redmi phone that has been used for two years, the processor is Snapdragon 730G, and shufflev2-yolov5 is used for detection. The performance is as follows:
+This is a Redmi phone, the processor is Snapdragon 730G, and shufflev2-yolov5 is used for detection. The performance is as follows:
 
 <img src="https://user-images.githubusercontent.com/82716366/130217501-6db77073-7727-4ed8-89fe-e644c4bf8cf9.jpg" width="700" height="350"/><br/>
 
