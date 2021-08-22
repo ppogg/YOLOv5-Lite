@@ -150,7 +150,7 @@ This is the quantized int8 model:
 
 Outdoor scene example:
 
-![Screenshot_2021-08-22-18-20-58-771_com tencent nc](https://user-images.githubusercontent.com/82716366/130356630-c06cd45a-1e83-4481-933a-a9be49ffb815.jpg)
+![Screenshot_2021-08-22-18-20-58-771_com tencent nc](https://user-images.githubusercontent.com/82716366/130356677-91fda2a5-103b-4c05-b1c5-e88fbdca35a2.jpg)
 
 ### More detailed explanation
 
@@ -160,7 +160,8 @@ Detailed model link: https://zhuanlan.zhihu.com/p/400545131
 
 NCNN deployment and int8 quantization：https://zhuanlan.zhihu.com/p/400975662
 
-![Screenshot_2021-08-22-18-20-58-771_com tencent nc](https://user-images.githubusercontent.com/82716366/130356677-91fda2a5-103b-4c05-b1c5-e88fbdca35a2.jpg)
+![image](https://user-images.githubusercontent.com/82716366/130356723-da6f91ff-8b22-483a-b5fe-5b469f07b85c.png)
+
 
 ## Reference
 
