@@ -160,7 +160,7 @@ Detailed model link: https://zhuanlan.zhihu.com/p/400545131
 
 NCNN deployment and int8 quantization：https://zhuanlan.zhihu.com/p/400975662
 
-![image](https://user-images.githubusercontent.com/82716366/129892035-4a814109-1daa-4d74-bf3c-d1e74463240e.png)
+![Screenshot_2021-08-22-18-20-58-771_com tencent nc](https://user-images.githubusercontent.com/82716366/130356677-91fda2a5-103b-4c05-b1c5-e88fbdca35a2.jpg)
 
 ## Reference
 
