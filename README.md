@@ -150,7 +150,7 @@ This is the quantized int8 model:
 
 Outdoor scene example:
 
-<img src="https://user-images.githubusercontent.com/82716366/130356677-91fda2a5-103b-4c05-b1c5-e88fbdca35a2.jpg" width="400"/><br/>
+<img src="https://user-images.githubusercontent.com/82716366/130356792-d86ea019-4384-4ea9-b253-6bf568eb495f.jpg" width="400"/><br/>
 
 ### More detailed explanation
 
