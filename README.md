@@ -148,9 +148,9 @@ This is the quantized int8 model:
 
 <img src="https://user-images.githubusercontent.com/82716366/130217583-d645ae5b-4f48-49dc-8672-dd60a055a67e.jpg" width="700" height="350"/><br/>
 
-This is the type of model:
+Outdoor scene example:
 
-<img src="https://user-images.githubusercontent.com/82716366/130217718-15700cc4-3954-448c-a943-c74e1cfa95ea.jpg" width="400" height="350"/><br/>
+![Screenshot_2021-08-22-18-20-58-771_com tencent nc](https://user-images.githubusercontent.com/82716366/130356630-c06cd45a-1e83-4481-933a-a9be49ffb815.jpg)
 
 ### More detailed explanation
 
