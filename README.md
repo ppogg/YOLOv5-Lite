@@ -3,7 +3,7 @@
 ![0111](https://user-images.githubusercontent.com/82716366/129756605-a0cba66c-b296-43f1-b83e-39f5f10cd1c2.jpg)
 
 
-在yolov5上进行一系列的消融实验，使其更轻（Flops更小，内存更低，参数更少）和更快（添加shuffle channel，yolov5 head for channel reduce。在input_size为320×320的树莓派4B上可以推断至少每秒 10 帧）并且更容易部署（去除 Focus 层和四次切片操作，将模型量化精度降低到可接受的范围内）。
+Perform a series of ablation experiments on yolov5 to make it lighter (smaller Flops, lower memory, and fewer parameters) and faster (add shuffle channel, yolov5 head for channel reduce. It can infer at least 10 FPS On the Raspberry Pi 4B per second when input the frame with 320×320) and is easier to deploy (removing the Focus layer and four slice operations, reducing the model quantization accuracy to an acceptable range).
 
 ### Comparison of ablation experiment results
 
