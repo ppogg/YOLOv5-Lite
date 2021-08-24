@@ -48,6 +48,8 @@ Outdoor scene example:
 
 ## reference  
 https://github.com/nihui/ncnn-android-yolov5
+
 https://github.com/FeiGeChuanShu/ncnn-android-yolox  
+
 https://github.com/ppogg/shufflev2-yolov5 
 
