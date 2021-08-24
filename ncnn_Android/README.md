@@ -29,9 +29,16 @@ https://github.com/nihui/opencv-mobile
 * All models are manually modified to accept dynamic input shape
 * Most small models run slower on GPU than on CPU, this is common
 * FPS may be lower in dark environment because of longer camera exposure time
-
+* Phone heating or insufficient battery will cause the detection speed to decrease
+* Prone to misdetection under low light conditions
+* 
 ## screenshot
-![](screenshot.png)
+This is a Redmi phone, the processor is Snapdragon 730G, and shufflev2-yolov5 is used for detection. The performance is as follows:
+![](https://user-images.githubusercontent.com/82716366/130217501-6db77073-7727-4ed8-89fe-e644c4bf8cf9.jpg)
+This is the quantized int8 model:
+![](https://user-images.githubusercontent.com/82716366/130217583-d645ae5b-4f48-49dc-8672-dd60a055a67e.jpg)
+Outdoor scene example:
+![](https://user-images.githubusercontent.com/82716366/130357030-c4131b64-55e4-40c9-9f66-c17b42d2409b.jpg)
 
 ## reference  
 https://github.com/nihui/ncnn-android-yolov5
