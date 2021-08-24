@@ -1,4 +1,4 @@
-The yolox object detection
+The YOLOv5（shufflev2-yolov5） object detection
 
 This is a sample ncnn android project, it depends on ncnn library and opencv
 
@@ -34,6 +34,7 @@ https://github.com/nihui/opencv-mobile
 ![](screenshot.png)
 
 ## reference  
-https://github.com/nihui/ncnn-android-nanodet  
-https://github.com/Megvii-BaseDetection/YOLOX  
+https://github.com/nihui/ncnn-android-yolov5
+https://github.com/FeiGeChuanShu/ncnn-android-yolox  
+https://github.com/ppogg/shufflev2-yolov5 
 
