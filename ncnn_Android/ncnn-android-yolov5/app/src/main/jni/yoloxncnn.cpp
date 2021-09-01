@@ -183,8 +183,8 @@ JNIEXPORT jboolean JNICALL Java_com_tencent_ncnnyolox_NcnnYolox_loadModel(JNIEnv
 
     const char* modeltypes[] =
             {
-                    "yolov5ss",
-                    "yolov5i8",
+                    "yolov5-lite",
+                    "yolov5-lite-i8",
             };
 
 
