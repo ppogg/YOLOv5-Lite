@@ -102,13 +102,12 @@ num_threads = 4
 powersave = 0
 gpu_device = -1
 cooling_down = 1
-           nanodet_m  min =   84.03  max =   87.68  avg =   86.32
+           nanodet_m  min =   81.15  max =   81.71  avg =   81.33
        nanodet_m-416  min =  143.89  max =  145.06  avg =  144.67
          yolov5-lite  min =   84.30  max =   86.34  avg =   85.79
     yolov5-lite-int8  min =   80.98  max =   82.80  avg =   81.25
      yolov5-lite-416  min =  142.75  max =  146.10  avg =  144.34
          yolov4-tiny  min =  276.09  max =  289.83  avg =  285.99
-           nanodet_m  min =   81.15  max =   81.71  avg =   81.33
           squeezenet  min =   59.37  max =   61.19  avg =   60.35
      squeezenet_int8  min =   49.30  max =   49.66  avg =   49.43
            mobilenet  min =   72.40  max =   74.13  avg =   73.37
