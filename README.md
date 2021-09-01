@@ -1,4 +1,4 @@
-# shufflev2-yolov5：lighter, faster and easier to deploy   ![](https://zenodo.org/badge/DOI/10.5281/zenodo.5241425.svg)
+# YOLOv5-Lite：lighter, faster and easier to deploy   ![](https://zenodo.org/badge/DOI/10.5281/zenodo.5241425.svg)
 
 ![0111](https://user-images.githubusercontent.com/82716366/129756605-a0cba66c-b296-43f1-b83e-39f5f10cd1c2.jpg)
 
@@ -58,9 +58,9 @@ num_threads = 4
 powersave = 0
 gpu_device = -1
 cooling_down = 1
-    shufflev2-yolov5  min =   90.86  max =   93.53  avg =   91.56
-shufflev2-yolov5-int8  min =   83.15  max =   84.17  avg =   83.65
-shufflev2-yolov5-416  min =  154.51  max =  155.59  avg =  155.09
+    yolov5-lite  min =   90.86  max =   93.53  avg =   91.56
+yolov5-lite-int8  min =   83.15  max =   84.17  avg =   83.65
+yolov5-lite-416  min =  154.51  max =  155.59  avg =  155.09
          yolov4-tiny  min =  298.94  max =  302.47  avg =  300.69
            nanodet_m  min =   86.19  max =  142.79  avg =   99.61
           squeezenet  min =   59.89  max =   60.75  avg =   60.41
@@ -102,9 +102,9 @@ gpu_device = -1
 cooling_down = 1
            nanodet_m  min =   84.03  max =   87.68  avg =   86.32
        nanodet_m-416  min =  143.89  max =  145.06  avg =  144.67
-    shufflev2-yolov5  min =   84.30  max =   86.34  avg =   85.79
-shufflev2-yolov5-int8  min =   80.98  max =   82.80  avg =   81.25
-shufflev2-yolov5-416  min =  142.75  max =  146.10  avg =  144.34
+    yolov5-lite  min =   84.30  max =   86.34  avg =   85.79
+yolov5-lite-int8  min =   80.98  max =   82.80  avg =   81.25
+yolov5-lite-416  min =  142.75  max =  146.10  avg =  144.34
          yolov4-tiny  min =  276.09  max =  289.83  avg =  285.99
            nanodet_m  min =   81.15  max =   81.71  avg =   81.33
           squeezenet  min =   59.37  max =   61.19  avg =   60.35
@@ -140,7 +140,7 @@ shufflev2-yolov5-416  min =  142.75  max =  146.10  avg =  144.34
 
 ### NCNN_Android_demo
 
-This is a Redmi phone, the processor is Snapdragon 730G, and shufflev2-yolov5 is used for detection. The performance is as follows:
+This is a Redmi phone, the processor is Snapdragon 730G, and yolov5-lite is used for detection. The performance is as follows:
 
 <img src="https://user-images.githubusercontent.com/82716366/130217501-6db77073-7727-4ed8-89fe-e644c4bf8cf9.jpg" width="700" height="350"/><br/>
 
