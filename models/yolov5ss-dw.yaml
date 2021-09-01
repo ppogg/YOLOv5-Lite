@@ -5,8 +5,9 @@ width_multiple: 1.0  # layer channel multiple
 
 # anchors
 anchors:
-  - [11,16,  28,27,  33,74,  ]  # P3/8
-  - [ 83,61,  107,162,  297,278 ]  # P4/16
+  - [ 4,5,  8,10,  13,16 ]  # P3/8
+  - [ 23,29,  43,55,  73,105 ]  # P4/16
+
 
 # custom backbone
 backbone:
@@ -22,15 +23,15 @@ backbone:
 
 # YOLOv5 head
 head:
-  [ [ -1, 1, Conv, [ 128, 1, 1 ] ],  # 7
-    [ -1, 1, nn.Upsample, [ None, 2, 'nearest' ] ],  # 8
-    [ [ -1, 4 ], 1, Concat, [ 1 ] ],  # cat backbone P4  9
-    [ -1, 1, Light_C3, [ 128, False ] ],  # 10
+  [ [ -1, 1, Conv, [ 192, 1, 1 ] ],
+    [ -1, 1, nn.Upsample, [ None, 2, 'nearest' ] ],
+    [ [ -1, 4 ], 1, ADD, [ 1 ] ],  # cat backbone P4
+    [ -1, 1, DWConvblock, [ 192 ] ],  # 10
 
-    [ -1, 1, Conv, [ 128, 1, 1 ] ],   # 11
-    [ -1, 1, nn.Upsample, [ None, 2, 'nearest' ] ],  # 12
-    [ [ -1, 2 ], 1, Concat, [ 1 ] ],  # cat backbone P3  # 13
-    [ -1, 1, Light_C3, [ 128, False ] ],  # 14 (P3/8-small)
+    [ -1, 1, Conv, [ 96, 1, 1 ] ],
+    [ -1, 1, nn.Upsample, [ None, 2, 'nearest' ] ],
+    [ [ -1, 2 ], 1, ADD, [ 1 ] ],  # cat backbone P3
+    [ -1, 1, DWConvblock, [ 96 ] ],  # 14
 
     [ [ 14, 10 ], 1, Detect, [ nc, anchors ] ],  # Detect(P3, P4, P5)
   ]

@@ -4,8 +4,8 @@ import argparse
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()
-    parser.add_argument("-g", "--gt", type=str, default=r"D:\Dataset\coco\annotations/instances_val2017.json", help="Assign the groud true path.")
-    parser.add_argument("-d", "--dt", type=str, default=r"D:\coding\YOLOv5\runs\val\val640/last_predictions.json",
+    parser.add_argument("-g", "--gt", type=str, default=r"", help="Assign the groud true path.")
+    parser.add_argument("-d", "--dt", type=str, default=r"",
                         help="Assign the detection result path.")
     args = parser.parse_args()
 
