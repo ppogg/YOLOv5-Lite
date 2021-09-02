@@ -227,7 +227,7 @@ static int detect_yolov5(const cv::Mat& bgr, std::vector<Object>& objects)
     yolov5.load_model("yolov5-lite-int8.bin");
 
     const int target_size = 640;
-    const float prob_threshold = 0.45f;
+    const float prob_threshold = 0.55f;
     const float nms_threshold = 0.5f;
 
     int img_w = bgr.cols;
