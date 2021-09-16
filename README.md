@@ -30,6 +30,7 @@ Equipment|Computing backend|System|Framework|Input|Speed{our}|Speed{yolov5s}
 :---:|:---:|:---:|:---:|:---:|:---:|:---:
 Inter|@i5-10210U|window(x86)|640×640|torch-cpu|112ms|179ms
 Nvidia|@RTX 2080Ti|Linux(x86)|640×640|torch-gpu|11ms|13ms
+Redmi K30|@Snapdragon 730G|Android(arm64)|320×320|ncnn|36ms|-
 Raspberrypi 4B|@ARM Cortex-A72|Linux(arm64)|320×320|ncnn|97ms|371ms
 
 ## Detection effect 
@@ -54,8 +55,8 @@ Detailed model link: https://zhuanlan.zhihu.com/p/400545131
 
 ## Reference
 
-https://github.com/Tencent/ncnn
-
 https://github.com/ultralytics/yolov5
 
 https://github.com/megvii-model/ShuffleNet-Series
+
+https://github.com/Tencent/ncnn
