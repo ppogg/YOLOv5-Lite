@@ -9,7 +9,7 @@
 
 Perform a series of ablation experiments on yolov5 to make it lighter (smaller Flops, lower memory, and fewer parameters) and faster (add shuffle channel, yolov5 head for channel reduce. It can infer at least 10+ FPS On the Raspberry Pi 4B when input the frame with 320×320) and is easier to deploy (removing the Focus layer and four slice operations, reducing the model quantization accuracy to an acceptable range).
 
-### Comparison of ablation experiment results
+## Comparison of ablation experiment results
 
   ID|Model | Input_size|Flops| Params | Size（M） |Map@0.5|Map@.5:0.95
  :-----:|:-----:|:-----:|:----------:|:----:|:----:|:----:|:----:|
@@ -24,7 +24,7 @@ Perform a series of ablation experiments on yolov5 to make it lighter (smaller F
 009| yolov5-lite| 640×640|4.12G |1.62M|3.3| 45.7|27.1| 
 010| yolov5s| 640×640| 17.0G|7.3M|14.2| 55.9|36.2
 
-### Comparison on different platforms
+## Comparison on different platforms
 
 Equipment|Computing backend|System|Framework|Input|Speed{our}|Speed{yolov5s}
 :---:|:---:|:---:|:---:|:---:|:---:|:---:
@@ -32,6 +32,9 @@ Inter|@i5-10210U|window(x86)|640×640|torch-cpu|112ms|179ms
 Nvidia|@RTX 2080Ti|Linux(x86)|640×640|torch-gpu|11ms|13ms
 Redmi K30|@Snapdragon 730G|Android(arm64)|320×320|ncnn|36ms|-
 Raspberrypi 4B|@ARM Cortex-A72|Linux(arm64)|320×320|ncnn|97ms|371ms
+
+* The above is a 4-thread test benchmark
+* Raspberrypi 4B enable bf16s optimization，[Raspberrypi 64 Bit OS](http://downloads.raspberrypi.org/raspios_arm64/images/raspios_arm64-2020-08-24/)
 
 ## Detection effect 
 
