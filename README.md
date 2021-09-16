@@ -168,9 +168,6 @@ Detailed model link: https://zhuanlan.zhihu.com/p/400545131
 
 ![image](https://user-images.githubusercontent.com/82716366/129891972-31f230e3-6e30-4392-820e-6aef08a51ab1.png)
 
-NCNN deployment and int8 quantization：https://zhuanlan.zhihu.com/p/400975662
-
-![int8](https://user-images.githubusercontent.com/82716366/130357075-a64466b9-502b-43d2-98fc-e7f695c319b0.jpg)
 
 
 ## Reference
