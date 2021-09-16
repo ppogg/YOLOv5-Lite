@@ -34,20 +34,7 @@ Raspberrypi 4B|@ARM Cortex-A72|Linux(arm64)|320×320|ncnn|97ms|371ms
 
 ### Detection effect
 
-Pytorch{640×640}：
-
-![person](https://user-images.githubusercontent.com/82716366/129822414-56ad3bf3-1005-47aa-9bd9-c4117227a981.jpg)
-<img src="https://pic1.zhimg.com/v2-f2fc4c403b53e14205addff38403ed30_b.jpeg" width="700" height="500"/><br/>
-
-NCNN{FP16}@{640×640}:
-
-![image](https://user-images.githubusercontent.com/82716366/129720264-ca6403c4-188b-4dd1-8372-c9a18c915fd8.png)
-<img src="https://pic3.zhimg.com/v2-449185dd08bce8a5a801d9bde0e9aa16_b.jpeg" width="700" height="500"/><br/>
-
-NCNN{Int8}@{640×640}:
-
-![image](https://user-images.githubusercontent.com/82716366/129720338-5ce1ee2e-46ab-4e82-a2d1-2d8faf6c5661.png)
-<img src="https://user-images.githubusercontent.com/82716366/129822133-d269cefc-4705-4aa2-9b00-5ecd630da969.jpg" width="700" height="500"/><br/>
+![129822414-56ad3bf3-1005-47aa-9bd9-c4117227a981](https://user-images.githubusercontent.com/82716366/133584299-32c19883-2eb2-48ef-a22c-34e244d0ffbe.jpg)
 
 ### Base on YOLOv5
 
