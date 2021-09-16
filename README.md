@@ -32,30 +32,26 @@ Inter|@i5-10210U|window(x86)|640×640|torch-cpu|112ms|179ms
 Nvidia|@RTX 2080Ti|Linux(x86)|640×640|torch-gpu|11ms|13ms
 Raspberrypi 4B|@ARM Cortex-A72|Linux(arm64)|320×320|ncnn|97ms|371ms
 
-### Detection effect
+### Detection effect -----------------
 
-![129822414-56ad3bf3-1005-47aa-9bd9-c4117227a981](https://user-images.githubusercontent.com/82716366/133584299-32c19883-2eb2-48ef-a22c-34e244d0ffbe.jpg)
+<img src="https://user-images.githubusercontent.com/82716366/133584299-32c19883-2eb2-48ef-a22c-34e244d0ffbe.jpg" width="700" /><br/>
 
-### Base on YOLOv5
+### Base on YOLOv5 -------------------
 
-![labels](https://user-images.githubusercontent.com/82716366/133585711-22368708-09d6-4a1e-bda8-546139392434.jpg)
+<img src="https://user-images.githubusercontent.com/82716366/133585711-22368708-09d6-4a1e-bda8-546139392434.jpg" width="700" /><br/>
 
-### NCNN_Android_demo
+### Android_demo ---------------------
 
 This is a Redmi phone, the processor is Snapdragon 730G, and yolov5-lite is used for detection. The performance is as follows:
 
 <img src="https://user-images.githubusercontent.com/82716366/130217501-6db77073-7727-4ed8-89fe-e644c4bf8cf9.jpg" width="700" height="350"/><br/>
-
-This is the quantized int8 model:
-
-<img src="https://user-images.githubusercontent.com/82716366/130217583-d645ae5b-4f48-49dc-8672-dd60a055a67e.jpg" width="700" height="350"/><br/>
 
 Outdoor scene example:
 
 <img src="https://user-images.githubusercontent.com/82716366/130357030-c4131b64-55e4-40c9-9f66-c17b42d2409b.jpg" width="400"/><br/>
 
 
-### More detailed explanation
+### More detailed explanation ----------------------
 
 Detailed model link: https://zhuanlan.zhihu.com/p/400545131
 
