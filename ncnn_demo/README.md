@@ -16,14 +16,9 @@ NCNN{Int8}@{640×640}:
 ![image](https://user-images.githubusercontent.com/82716366/129720338-5ce1ee2e-46ab-4e82-a2d1-2d8faf6c5661.png)
 <img src="https://user-images.githubusercontent.com/82716366/129822133-d269cefc-4705-4aa2-9b00-5ecd630da969.jpg" width="700" height="500"/><br/>
 
-### Base on YOLOv5
-
-![image](https://user-images.githubusercontent.com/82716366/129720466-728043a3-5af7-40be-9cb4-f96d42d5bdaf.png)
-
 ### 10FPS can be used with yolov5 on the Raspberry Pi with only 0.1T computing power
 
 Excluding the first three warm-ups, the device temperature is stable above 45°, the forward reasoning framework is ncnn, and the two benchmark comparisons are recorded
-
 
 ```
 # 第四次
