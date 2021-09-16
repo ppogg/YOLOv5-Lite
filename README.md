@@ -1,4 +1,4 @@
-### Update on 2021-09-16 [YOLOv5 fuse Repvgg Block]
+### Update on 2021-09-16 [YOLOv5 add Repvgg Block]
 
 ![repyolov5](https://user-images.githubusercontent.com/82716366/133568390-918822c8-ff7c-43bd-bd54-c999d3e57f01.png)
 
