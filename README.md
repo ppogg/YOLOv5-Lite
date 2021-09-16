@@ -36,28 +36,21 @@ Raspberrypi 4B|@ARM Cortex-A72|Linux(arm64)|320×320|ncnn|97ms|371ms
 
 <img src="https://user-images.githubusercontent.com/82716366/133584299-32c19883-2eb2-48ef-a22c-34e244d0ffbe.jpg" width="900" /><br/>
 
-## Base on YOLOv5 -------------------
+## Base on YOLOv5 
 
 <img src="https://user-images.githubusercontent.com/82716366/133585711-22368708-09d6-4a1e-bda8-546139392434.jpg" width="900" /><br/>
 
-## Android_demo ---------------------
+## Android_demo 
 
 This is a Redmi phone, the processor is Snapdragon 730G, and yolov5-lite is used for detection. The performance is as follows:
 
-<img src="https://user-images.githubusercontent.com/82716366/130217501-6db77073-7727-4ed8-89fe-e644c4bf8cf9.jpg" width="600" /><br/>
-
-Outdoor scene example:
-
-<img src="https://user-images.githubusercontent.com/82716366/130357030-c4131b64-55e4-40c9-9f66-c17b42d2409b.jpg" width="400"/><br/>
-
+<img src="https://user-images.githubusercontent.com/82716366/130357030-c4131b64-55e4-40c9-9f66-c17b42d2409b.jpg" width="350"/><br/>
 
 ### More detailed explanation ----------------------
 
 Detailed model link: https://zhuanlan.zhihu.com/p/400545131
 
 ![image](https://user-images.githubusercontent.com/82716366/129891972-31f230e3-6e30-4392-820e-6aef08a51ab1.png)
-
-
 
 ## Reference
 
