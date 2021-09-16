@@ -34,11 +34,11 @@ Raspberrypi 4B|@ARM Cortex-A72|Linux(arm64)|320×320|ncnn|97ms|371ms
 
 ## Detection effect 
 
-<img src="https://user-images.githubusercontent.com/82716366/133584299-32c19883-2eb2-48ef-a22c-34e244d0ffbe.jpg" width="900" /><br/>
+<img src="https://user-images.githubusercontent.com/82716366/133584299-32c19883-2eb2-48ef-a22c-34e244d0ffbe.jpg" width="1200" /><br/>
 
 ## Base on YOLOv5 
 
-<img src="https://user-images.githubusercontent.com/82716366/133585711-22368708-09d6-4a1e-bda8-546139392434.jpg" width="900" /><br/>
+<img src="https://user-images.githubusercontent.com/82716366/133585711-22368708-09d6-4a1e-bda8-546139392434.jpg" width="800" /><br/>
 
 ## Android_demo 
 
