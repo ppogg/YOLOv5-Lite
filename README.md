@@ -104,7 +104,7 @@ $ python -m torch.distributed.launch --nproc_per_node 4 train.py
 
 This is a Redmi phone, the processor is Snapdragon 730G, and yolov5-lite is used for detection. The performance is as follows:
 
-<img src="https://user-images.githubusercontent.com/82716366/130357030-c4131b64-55e4-40c9-9f66-c17b42d2409b.jpg" width="350"/><br/>
+<img src="https://user-images.githubusercontent.com/82716366/130357030-c4131b64-55e4-40c9-9f66-c17b42d2409b.jpg" width="300"/><br/>
 
 ### More detailed explanation ----------------------
 
