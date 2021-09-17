@@ -47,8 +47,8 @@ Raspberrypi 4B|@ARM Cortex-A72|Linux(arm64)|320×320|ncnn|97ms|371ms
 <!-- $ sudo apt update && apt install -y libgl1-mesa-glx libsm6 libxext6 libxrender-dev -->
 
 ```bash
-$ git clone https://github.com/ultralytics/yolov5
-$ cd yolov5
+$ git clone https://github.com/ppogg/YOLOv5-Lite
+$ cd YOLOv5-Lite
 $ pip install -r requirements.txt
 ```
 
