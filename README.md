@@ -58,7 +58,7 @@ $ pip install -r requirements.txt
 <summary>Inference with detect.py</summary>
 
 `detect.py` runs inference on a variety of sources, downloading models automatically from
-the [latest YOLOv5 release](https://github.com/ultralytics/yolov5/releases) and saving results to `runs/detect`.
+the [latest YOLOv5 release](https://github.com/ppogg/YOLOv5-Lite/releases) and saving results to `runs/detect`.
 
 ```bash
 $ python detect.py --source 0  # webcam
@@ -75,11 +75,6 @@ $ python detect.py --source 0  # webcam
 <details>
 <summary>Training</summary>
 
-Run commands below to reproduce results
-on [COCO](https://github.com/ultralytics/yolov5/blob/master/data/scripts/get_coco.sh) dataset (dataset auto-downloads on
-first use). Training times for YOLOv5s/m/l/x are 2/4/6/8 days on a single V100 (multi-GPU times faster). Use the
-largest `--batch-size` your GPU allows (batch sizes shown for 16 GB devices).
-
 ```bash
 $ python train.py --data coco.yaml --cfg yolov5s.yaml --weights '' --batch-size 64
                                          yolov5m                                40
@@ -89,6 +84,12 @@ $ python train.py --data coco.yaml --cfg yolov5s.yaml --weights '' --batch-size 
 
 <img width="800" src="https://user-images.githubusercontent.com/26833433/90222759-949d8800-ddc1-11ea-9fa1-1c97eed2b963.png">
 
+ Maybe you should use multi-gpu. It's faster several times~
+  
+ ```bash
+$ python -m torch.distributed.launch --nproc_per_node 4 train.py
+```
+  
 </details>  
 
 ## Detection effect 
