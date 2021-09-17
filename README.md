@@ -39,7 +39,7 @@ Raspberrypi 4B|@ARM Cortex-A72|Linux(arm64)|320×320|ncnn|97ms|371ms
 ## <div>How to use</div>
 
 <details open>
-### <summary>Install</summary>
+<summary>Install</summary>
 
 [**Python>=3.6.0**](https://www.python.org/) is required with all
 [requirements.txt](https://github.com/ppogg/YOLOv5-Lite/master/requirements.txt) installed including
