@@ -76,10 +76,12 @@ $ python detect.py --source 0  # webcam
 <summary>Training</summary>
 
 ```bash
-$ python train.py --data coco.yaml --cfg yolov5s.yaml --weights '' --batch-size 64
-                                         yolov5m                                40
-                                         yolov5l                                24
-                                         yolov5x                                16
+$ python train.py --data coco.yaml --cfg yolov5-lite.yaml --weights yolov5-lite.pt --batch-size 128
+                                         rep-yolov5                                             64
+                                         yolov5s                                                64
+                                         yolov5m                                                40
+                                         yolov5l                                                24
+                                         yolov5x                                                16
 ```
 
 <img width="800" src="https://user-images.githubusercontent.com/26833433/90222759-949d8800-ddc1-11ea-9fa1-1c97eed2b963.png">
