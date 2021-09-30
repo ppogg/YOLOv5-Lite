@@ -95,7 +95,7 @@ This is a Redmi phone, the processor is Snapdragon 730G, and yolov5-lite is used
 
 <img src="https://user-images.githubusercontent.com/82716366/130357030-c4131b64-55e4-40c9-9f66-c17b42d2409b.jpg" width="300"/><br/>
 
-### More detailed explanation ----------------------
+## More detailed explanation
 
 ![repyolov5](https://user-images.githubusercontent.com/82716366/133568390-918822c8-ff7c-43bd-bd54-c999d3e57f01.png)
 
