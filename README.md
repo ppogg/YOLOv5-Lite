@@ -85,9 +85,39 @@ $ python -m torch.distributed.launch --nproc_per_node 4 train.py
   
 </details>  
 
-## Detection effect 
+</details>
 
-<img src="https://user-images.githubusercontent.com/82716366/133584299-32c19883-2eb2-48ef-a22c-34e244d0ffbe.jpg" width="1200" /><br/>
+<details>
+<summary>DataSet</summary>
+
+Training set and test set distribution （the path with xx.jpg）
+  
+ ```bash
+train: ../coco/images/train2017/
+val: ../coco/images/val2017/
+  
+├── images
+│   ├── train2017        # TrainSet example
+│   │   ├── 000050.jpg
+│   │   ├── 000051.jpg
+│   │   └── 000052.jpg
+│   └── val2017          # ValSet example
+│       ├── 001800.jpg
+│       ├── 001801.jpg
+│       └── 001802.jpg
+└── labels               
+    ├── train2017       # .txt with TrainSet
+    │   ├── 000050.txt
+    │   ├── 000051.txt
+    │   └── 000052.txt
+    └── val2017         # .txt with ValSet
+        ├── 001800.txt
+        ├── 001801.txt
+        └── 001802.txt
+
+```
+  
+</details>  
 
 ## Android_demo 
 
