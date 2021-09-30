@@ -77,7 +77,7 @@ $ python train.py --data coco.yaml --cfg v5lite-s.yaml --weights v5lite-s.pt --b
                                          v5lite-g.yaml           v5lite-g.pt               64
 ```
 
- Maybe you should use multi-gpu. It's faster several times~
+ If you use multi-gpu. It's faster several times:
   
  ```bash
 $ python -m torch.distributed.launch --nproc_per_node 4 train.py
