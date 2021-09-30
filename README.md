@@ -97,7 +97,7 @@ train: ../coco/images/train2017/
 val: ../coco/images/val2017/
   
 ```
-  
+```bash
 ├── images
 │   ├── train2017        # TrainSet example
 │   │   ├── 000050.jpg
@@ -116,7 +116,7 @@ val: ../coco/images/val2017/
         ├── 001800.txt
         ├── 001801.txt
         └── 001802.txt
-
+```
   
 </details>  
 
