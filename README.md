@@ -95,7 +95,6 @@ Training set and test set distribution （the path with xx.jpg）
  ```bash
 train: ../coco/images/train2017/
 val: ../coco/images/val2017/
-  
 ```
 ```bash
 ├── images
