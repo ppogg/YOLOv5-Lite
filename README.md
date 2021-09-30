@@ -125,6 +125,10 @@ This is a Redmi phone, the processor is Snapdragon 730G, and yolov5-lite is used
 
 link: https://github.com/ppogg/YOLOv5-Lite/tree/master/ncnn_Android
 
+Android_v5Lite-s: https://drive.google.com/file/d/1CtohY68N2B9XYuqFLiTp-Nd2kuFWgAUR/view?usp=sharing
+
+Android_v5Lite-g: https://drive.google.com/file/d/1FnvkWxxP_aZwhi000xjIuhJ_OhqOUJcj/view?usp=sharing
+
 ## More detailed explanation
 
 Detailed model link:
