@@ -87,7 +87,7 @@ $ python -m torch.distributed.launch --nproc_per_node 4 train.py
 
 </details>
 
-<details>
+<details open>
 <summary>DataSet</summary>
 
 Training set and test set distribution （the path with xx.jpg）
