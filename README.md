@@ -16,22 +16,24 @@ Perform a series of ablation experiments on yolov5 to make it lighter (smaller F
 001| yolo-fastest| 320×320|0.25G|0.35M|1.4| 24.4| -
 002| nanodet-m| 320×320| 0.72G|0.95M|1.8|- |20.6
 003| yolo-fastest-xl| 320×320|0.72G|0.92M|3.5| 34.3| -
-004| yolov5-lite| 320×320|1.43G |1.62M|3.3| 36.2|20.8| 
+004| YOLOv5-Lite-s| 320×320|1.43G |1.62M|3.3| 36.2|20.8| 
 005| yolov3-tiny| 416×416| 6.96G|6.06M|23.0| 33.1|16.6
 006| yolov4-tiny| 416×416| 5.62G|8.86M| 33.7|40.2|21.7
 007| nanodet-m| 416×416| 1.2G	|0.95M|1.8|- |23.5
-008| yolov5-lite| 416×416|2.42G |1.62M|3.3| 41.3|24.4| 
-009| yolov5-lite| 640×640|5.2G |1.62M|3.3| 45.7|27.1| 
+008| YOLOv5-Lite-s| 416×416|2.42G |1.62M|3.3| 41.3|24.4| 
+009| YOLOv5-Lite-g| 416×416|7.3G |5.3M|10.9| 53.1|34.7| 
 010| yolov5s| 640×640| 17.0G|7.3M|14.2| 55.8|35.9
+011| YOLOv5-Lite-g| 640×640|15.7G |5.3M|10.9| 56.9|38.1| 
 
 ## Comparison on different platforms
 
-Equipment|Computing backend|System|Framework|Input|Speed{our}|Speed{yolov5s}
-:---:|:---:|:---:|:---:|:---:|:---:|:---:
-Inter|@i5-10210U|window(x86)|640×640|torch-cpu|112ms|179ms
-Nvidia|@RTX 2080Ti|Linux(x86)|640×640|torch-gpu|11ms|13ms
-Redmi K30|@Snapdragon 730G|Android(arm64)|320×320|ncnn|36ms|-
-Raspberrypi 4B|@ARM Cortex-A72|Linux(arm64)|320×320|ncnn|97ms|371ms
+Equipment|Computing backend|System|Framework|Input|YOLOv5-Lite-s|YOLOv5-Lite-g|YOLOv5s
+:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:
+Inter|@i5-10210U|window(x86)|640×640|torch-cpu|112ms|183ms|179ms
+Nvidia|@RTX 2080Ti|Linux(x86)|640×640|torch-gpu|11ms|16ms|14ms
+Redmi K30|@Snapdragon 730G|Android(arm64)|320×320|ncnn|36ms|-|-
+Raspberrypi 4B|@ARM Cortex-A72|Linux(arm64)|320×320|ncnn|97ms|415ms|371ms
+Raspberrypi 4B|@ARM Cortex-A72|Linux(arm64)|320×320|mnn|88ms|393ms|356ms
 
 * The above is a 4-thread test benchmark
 * Raspberrypi 4B enable bf16s optimization，[Raspberrypi 64 Bit OS](http://downloads.raspberrypi.org/raspios_arm64/images/raspios_arm64-2020-08-24/)
