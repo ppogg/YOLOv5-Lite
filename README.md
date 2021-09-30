@@ -1,10 +1,6 @@
-### Update on 2021-09-16 [YOLOv5 add Repvgg Block]
-
-![repyolov5](https://user-images.githubusercontent.com/82716366/133568390-918822c8-ff7c-43bd-bd54-c999d3e57f01.png)
-
 # YOLOv5-Lite：lighter, faster and easier to deploy   ![](https://zenodo.org/badge/DOI/10.5281/zenodo.5241425.svg)
 
-![0111](https://user-images.githubusercontent.com/82716366/129756605-a0cba66c-b296-43f1-b83e-39f5f10cd1c2.jpg)
+![image](https://user-images.githubusercontent.com/82716366/135463046-736fa670-da91-48d2-98a4-b7d8d27388a9.png)
 
 
 Perform a series of ablation experiments on yolov5 to make it lighter (smaller Flops, lower memory, and fewer parameters) and faster (add shuffle channel, yolov5 head for channel reduce. It can infer at least 10+ FPS On the Raspberry Pi 4B when input the frame with 320×320) and is easier to deploy (removing the Focus layer and four slice operations, reducing the model quantization accuracy to an acceptable range).
@@ -104,9 +100,11 @@ This is a Redmi phone, the processor is Snapdragon 730G, and yolov5-lite is used
 
 ### More detailed explanation ----------------------
 
-Detailed model link: https://zhuanlan.zhihu.com/p/400545131
+![repyolov5](https://user-images.githubusercontent.com/82716366/133568390-918822c8-ff7c-43bd-bd54-c999d3e57f01.png)
 
-![image](https://user-images.githubusercontent.com/82716366/129891972-31f230e3-6e30-4392-820e-6aef08a51ab1.png)
+Detailed model link:[1] https://zhuanlan.zhihu.com/p/400545131
+                    [2] https://zhuanlan.zhihu.com/p/400545131
+                    [3] https://blog.csdn.net/weixin_45829462/article/details/119787840
 
 ## Reference
 
