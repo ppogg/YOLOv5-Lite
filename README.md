@@ -60,7 +60,7 @@ $ pip install -r requirements.txt
 <summary>Inference with detect.py</summary>
 
 `detect.py` runs inference on a variety of sources, downloading models automatically from
-the [latest YOLOv5 release](https://github.com/ppogg/YOLOv5-Lite/releases) and saving results to `runs/detect`.
+the [latest YOLOv5-Lite release](https://github.com/ppogg/YOLOv5-Lite/releases) and saving results to `runs/detect`.
 
 ```bash
 $ python detect.py --source 0  # webcam
@@ -74,16 +74,12 @@ $ python detect.py --source 0  # webcam
 
 </details>
 
-<details>
+<details open>
 <summary>Training</summary>
 
 ```bash
-$ python train.py --data coco.yaml --cfg yolov5-lite.yaml --weights yolov5-lite.pt --batch-size 128
-                                         rep-yolov5                                             64
-                                         yolov5s                                                64
-                                         yolov5m                                                40
-                                         yolov5l                                                24
-                                         yolov5x                                                16
+$ python train.py --data coco.yaml --cfg v5lite-s.yaml --weights v5lite-s.pt --batch-size 128
+                                         v5lite-g.yaml           v5lite-g.pt               64
 ```
 
 <img width="800" src="https://user-images.githubusercontent.com/26833433/90222759-949d8800-ddc1-11ea-9fa1-1c97eed2b963.png">
