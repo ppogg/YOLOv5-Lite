@@ -22,7 +22,7 @@ Perform a series of ablation experiments on yolov5 to make it lighter (smaller F
 
 ## Comparison on different platforms
 
-Equipment|Computing backend|System|Framework|Input|[v5Lite-s](https://drive.google.com/file/d/1by8_RZFHGcHB70nHSANXTPVtgDHZalPn/view?usp=sharing)|[v5Lite-g](https://drive.google.com/file/d/1epLouWuSLMMFcbEjAqtWLBPjNJXKi7sb/view?usp=sharing)|YOLOv5s
+Equipment|Computing backend|System|Framework|Input|[v5Lite-s](https://drive.google.com/file/d/70nHSANXTPVtgDHZalPn/view?usp=sharing)|[v5Lite-g](https://drive.google.com/file/d/1qtWLBPjNJXKi7sb/view?usp=sharing)|YOLOv5s
 :---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:
 Inter|@i5-10210U|window(x86)|640×640|torch-cpu|112ms|183ms|179ms
 Nvidia|@RTX 2080Ti|Linux(x86)|640×640|torch-gpu|11ms|16ms|14ms
