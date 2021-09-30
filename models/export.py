@@ -21,7 +21,7 @@ from utils.torch_utils import select_device
 
 if __name__ == '__main__':
     parser = argparse.ArgumentParser()
-    parser.add_argument('--weights', type=str, default='./train/exp6/weights/last.pt', help='weights path')  # from yolov5/models/
+    parser.add_argument('--weights', type=str, default=r'D:\coding\YOLOv5\weights/yolov5s.pt', help='weights path')  # from yolov5/models/
     parser.add_argument('--img-size', nargs='+', type=int, default=[640, 640], help='image size')  # height, width
     parser.add_argument('--batch-size', type=int, default=1, help='batch size')
     parser.add_argument('--dynamic', action='store_true', help='dynamic ONNX axes')
@@ -102,3 +102,6 @@ if __name__ == '__main__':
 
     # Finish
     print('\nExport complete (%.2fs). Visualize with https://github.com/lutzroeder/netron.' % (time.time() - t))
+
+
+

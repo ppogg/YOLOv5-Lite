@@ -9,6 +9,7 @@ import pandas as pd
 import requests
 import torch
 import torch.nn as nn
+import torch.nn.functional as F
 from PIL import Image
 from torch.cuda import amp
 
@@ -16,8 +17,6 @@ from utils.datasets import letterbox
 from utils.general import non_max_suppression, make_divisible, scale_coords, increment_path, xyxy2xywh
 from utils.plots import color_list, plot_one_box
 from utils.torch_utils import time_synchronized
-from torch import Tensor
-from typing import Callable, Any, List
 
 
 def autopad(k, p=None):  # kernel, padding
@@ -27,11 +26,6 @@ def autopad(k, p=None):  # kernel, padding
     return p
 
 
-def DWConv(c1, c2, k=1, s=1, act=True):
-    # Depthwise convolution
-    return Conv(c1, c2, k, s, g=math.gcd(c1, c2), act=act)
-
-
 class Conv(nn.Module):
     # Standard convolution
     def __init__(self, c1, c2, k=1, s=1, p=None, g=1, act=True):  # ch_in, ch_out, kernel, stride, padding, groups
@@ -39,7 +33,8 @@ class Conv(nn.Module):
         self.conv = nn.Conv2d(c1, c2, k, s, autopad(k, p), groups=g, bias=False)
         self.bn = nn.BatchNorm2d(c2)
         # self.act = nn.SiLU() if act is True else (act if isinstance(act, nn.Module) else nn.Identity())
-        self.act = nn.ReLU(inplace=True)
+        # self.act = nn.ReLU(inplace=True)
+        self.act = nn.LeakyReLU(0.1, inplace=True) if act else nn.Identity()
 
     def forward(self, x):
         return self.act(self.bn(self.conv(x)))
@@ -389,6 +384,7 @@ class Classify(nn.Module):
         return self.flat(self.conv(z))  # flatten to x(b,c2)
 
 
+# build shuffle block
 # -------------------------------------------------------------------------
 
 def channel_shuffle(x, groups):
@@ -468,3 +464,286 @@ class Shuffle_Block(nn.Module):
 
         return out
 
+
+# build DWConvblock
+# -------------------------------------------------------------------------
+class DWConvblock(nn.Module):
+    "Depthwise conv + Pointwise conv"
+
+    def __init__(self, in_channels, out_channels):
+        super(DWConvblock, self).__init__()
+        self.conv1 = nn.Conv2d(in_channels, in_channels, kernel_size=5, stride=1, padding=2, groups=in_channels,
+                               bias=False)
+        self.bn1 = nn.BatchNorm2d(in_channels)
+        self.conv2 = nn.Conv2d(in_channels, out_channels, kernel_size=1, stride=1, padding=0, bias=False)
+        self.bn2 = nn.BatchNorm2d(out_channels)
+
+    def forward(self, x):
+        x = self.conv1(x)
+        x = self.bn1(x)
+        x = F.relu(x)
+        x = self.conv2(x)
+        x = self.bn2(x)
+        x = F.relu(x)
+        return x
+
+
+# build Efficient-lite
+# -------------------------------------------------------------------------
+def round_filters(filters, multiplier, divisor=8, min_width=None):
+    """Calculate and round number of filters based on width multiplier."""
+    if not multiplier:
+        return filters
+    filters *= multiplier
+    min_width = min_width or divisor
+    new_filters = max(min_width, int(filters + divisor / 2) // divisor * divisor)
+    # Make sure that round down does not go down by more than 10%.
+    if new_filters < 0.9 * filters:
+        new_filters += divisor
+    return int(new_filters)
+
+
+def round_repeats(repeats, multiplier):
+    """Round number of filters based on depth multiplier."""
+    if not multiplier:
+        return repeats
+    return int(math.ceil(multiplier * repeats))
+
+
+def drop_connect(x, drop_connect_rate, training):
+    if not training:
+        return x
+    keep_prob = 1.0 - drop_connect_rate
+    batch_size = x.shape[0]
+    random_tensor = keep_prob
+    random_tensor += torch.rand([batch_size, 1, 1, 1], dtype=x.dtype, device=x.device)
+    binary_mask = torch.floor(random_tensor)
+    x = (x / keep_prob) * binary_mask
+    return x
+
+
+class stem(nn.Module):
+    def __init__(self, c1, c2):  # ch_in, ch_out
+        super(stem, self).__init__()
+        self.conv = nn.Sequential(
+            nn.Conv2d(3, c2, kernel_size=3, stride=2, padding=1, bias=False),
+            nn.BatchNorm2d(num_features=c2, momentum=0.01, eps=1e-3),
+            nn.ReLU(inplace=True),
+        )
+
+    def forward(self, x):
+        return self.conv(x)
+
+
+class MBConvBlock(nn.Module):
+    def __init__(self, inp, oup, k, s):
+        super(MBConvBlock, self).__init__()
+
+        self._momentum = 0.01
+        self._epsilon = 1e-3
+        self.input_filters = inp
+        self.output_filters = oup
+        self.stride = s
+        self.id_skip = True  # skip connection and drop connect
+
+        # Depthwise convolution phase
+        self._depthwise_conv = nn.Conv2d(
+            in_channels=oup,
+            out_channels=oup,
+            groups=oup,  # groups makes it depthwise
+            kernel_size=k,
+            padding=(k - 1) // 2,
+            stride=s,
+            bias=False,
+        )
+
+        self._bn1 = nn.BatchNorm2d(
+            num_features=oup, momentum=self._momentum, eps=self._epsilon
+        )
+
+        # Output phase
+        self._project_conv = nn.Conv2d(
+            in_channels=oup, out_channels=oup, kernel_size=1, bias=False
+        )
+        self._bn2 = nn.BatchNorm2d(
+            num_features=oup, momentum=self._momentum, eps=self._epsilon
+        )
+        self._relu = nn.ReLU(inplace=True)
+
+    def forward(self, x, drop_connect_rate=None):
+        """
+        :param x: input tensor
+        :param drop_connect_rate: drop connect rate (float, between 0 and 1)
+        :return: output of block
+        """
+
+        # Expansion and Depthwise Convolution
+        identity = x
+
+        x = self._relu(self._bn1(self._depthwise_conv(x)))
+
+        x = self._bn2(self._project_conv(x))
+
+        # Skip connection and drop connect
+        if (
+                self.id_skip
+                and self.stride == 1
+                and self.input_filters == self.output_filters
+        ):
+            if drop_connect_rate:
+                x = drop_connect(x, drop_connect_rate, training=self.training)
+            x += identity  # skip connection
+        return x
+
+
+class Light_C3(nn.Module):
+    # CSP Bottleneck with 3 convolutions
+    def __init__(self, c1, c2, n=1, shortcut=True, g=1, e=0.5):  # ch_in, ch_out, number, shortcut, groups, expansion
+        super(Light_C3, self).__init__()
+        # 这里使用轻量化的C3 Block模块,使用add操作替换cat
+        c_ = int(c2 * e)  # hidden channels
+        self.cv1 = Conv(c1, c_, 1, 1)
+        self.cv2 = Conv(c1, c_, 1, 1)
+        self.cv3 = Conv(c_, c2, 1)  # act=FReLU(c2)
+        self.m = nn.Sequential(*[Bottleneck(c_, c_, shortcut, g, e=1.0) for _ in range(n)])
+        # self.m = nn.Sequential(*[CrossConv(c_, c_, 3, 1, g, 1.0, shortcut) for _ in range(n)])
+
+    def forward(self, x):
+        return self.cv3(torch.add(self.m(self.cv1(x)), self.cv2(x)))
+
+class ADD(nn.Module):
+    # Concatenate a list of tensors along dimension
+    def __init__(self, alpha=0.5):
+        super(ADD, self).__init__()
+        self.a = alpha
+
+    def forward(self, x):
+        return torch.add(x, self.a)
+
+
+# repvgg block
+# -----------------------------
+def conv_bn(in_channels, out_channels, kernel_size, stride, padding, groups=1):
+    result = nn.Sequential()
+    result.add_module('conv', nn.Conv2d(in_channels=in_channels, out_channels=out_channels,
+                                        kernel_size=kernel_size, stride=stride, padding=padding, groups=groups,
+                                        bias=False))
+    result.add_module('bn', nn.BatchNorm2d(num_features=out_channels))
+
+    return result
+
+
+class SEBlock(nn.Module):
+
+    def __init__(self, input_channels, internal_neurons):
+        super(SEBlock, self).__init__()
+        self.down = nn.Conv2d(in_channels=input_channels, out_channels=internal_neurons, kernel_size=1, stride=1,
+                              bias=True)
+        self.up = nn.Conv2d(in_channels=internal_neurons, out_channels=input_channels, kernel_size=1, stride=1,
+                            bias=True)
+        self.input_channels = input_channels
+
+    def forward(self, inputs):
+        x = F.avg_pool2d(inputs, kernel_size=inputs.size(3))
+        x = self.down(x)
+        x = F.relu(x)
+        x = self.up(x)
+        x = torch.sigmoid(x)
+        x = x.view(-1, self.input_channels, 1, 1)
+        return inputs * x
+
+
+class RepVGGBlock(nn.Module):
+
+    def __init__(self, in_channels, out_channels, kernel_size=3,
+                 stride=1, padding=1, dilation=1, groups=1, padding_mode='zeros', deploy=False, use_se=False):
+        super(RepVGGBlock, self).__init__()
+        self.deploy = deploy
+        self.groups = groups
+        self.in_channels = in_channels
+
+        padding_11 = padding - kernel_size // 2
+
+        self.nonlinearity = nn.SiLU()
+
+        # self.nonlinearity = nn.ReLU()
+
+        if use_se:
+            self.se = SEBlock(out_channels, internal_neurons=out_channels // 16)
+        else:
+            self.se = nn.Identity()
+
+        if deploy:
+            self.rbr_reparam = nn.Conv2d(in_channels=in_channels, out_channels=out_channels, kernel_size=kernel_size,
+                                         stride=stride,
+                                         padding=padding, dilation=dilation, groups=groups, bias=True,
+                                         padding_mode=padding_mode)
+
+        else:
+            self.rbr_identity = nn.BatchNorm2d(
+                num_features=in_channels) if out_channels == in_channels and stride == 1 else None
+            self.rbr_dense = conv_bn(in_channels=in_channels, out_channels=out_channels, kernel_size=kernel_size,
+                                     stride=stride, padding=padding, groups=groups)
+            self.rbr_1x1 = conv_bn(in_channels=in_channels, out_channels=out_channels, kernel_size=1, stride=stride,
+                                   padding=padding_11, groups=groups)
+            # print('RepVGG Block, identity = ', self.rbr_identity)
+
+
+    def get_equivalent_kernel_bias(self):
+        kernel3x3, bias3x3 = self._fuse_bn_tensor(self.rbr_dense)
+        kernel1x1, bias1x1 = self._fuse_bn_tensor(self.rbr_1x1)
+        kernelid, biasid = self._fuse_bn_tensor(self.rbr_identity)
+        return kernel3x3 + self._pad_1x1_to_3x3_tensor(kernel1x1) + kernelid, bias3x3 + bias1x1 + biasid
+
+    def _pad_1x1_to_3x3_tensor(self, kernel1x1):
+        if kernel1x1 is None:
+            return 0
+        else:
+            return torch.nn.functional.pad(kernel1x1, [1, 1, 1, 1])
+
+    def _fuse_bn_tensor(self, branch):
+        if branch is None:
+            return 0, 0
+        if isinstance(branch, nn.Sequential):
+            kernel = branch.conv.weight
+            running_mean = branch.bn.running_mean
+            running_var = branch.bn.running_var
+            gamma = branch.bn.weight
+            beta = branch.bn.bias
+            eps = branch.bn.eps
+        else:
+            assert isinstance(branch, nn.BatchNorm2d)
+            if not hasattr(self, 'id_tensor'):
+                input_dim = self.in_channels // self.groups
+                kernel_value = np.zeros((self.in_channels, input_dim, 3, 3), dtype=np.float32)
+                for i in range(self.in_channels):
+                    kernel_value[i, i % input_dim, 1, 1] = 1
+                self.id_tensor = torch.from_numpy(kernel_value).to(branch.weight.device)
+            kernel = self.id_tensor
+            running_mean = branch.running_mean
+            running_var = branch.running_var
+            gamma = branch.weight
+            beta = branch.bias
+            eps = branch.eps
+        std = (running_var + eps).sqrt()
+        t = (gamma / std).reshape(-1, 1, 1, 1)
+        return kernel * t, beta - running_mean * gamma / std
+
+
+
+    def forward(self, inputs):
+        if hasattr(self, 'rbr_reparam'):
+            return self.nonlinearity(self.se(self.rbr_reparam(inputs)))
+
+        if self.rbr_identity is None:
+            id_out = 0
+        else:
+            id_out = self.rbr_identity(inputs)
+
+        return self.nonlinearity(self.se(self.rbr_dense(inputs) + self.rbr_1x1(inputs) + id_out))
+
+        # RepVGGBlock(in_channels=self.in_planes, out_channels=planes, kernel_size=3,
+        #                           stride=stride, padding=1, groups=1, deploy=self.deploy, use_se=self.use_se))
+
+    def fusevggforward(self, x):
+        return self.nonlinearity(self.rbr_dense(x))

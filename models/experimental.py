@@ -4,7 +4,7 @@ import numpy as np
 import torch
 import torch.nn as nn
 
-from models.common import Conv, DWConv
+from models.common import Conv
 from utils.google_utils import attempt_download
 
 
@@ -126,6 +126,7 @@ def attempt_load(weights, map_location=None):
             m._non_persistent_buffers_set = set()  # pytorch 1.6.0 compatibility
 
     if len(model) == 1:
+        # torch.save(ckpt, 'v5-vgg.pt')
         return model[-1]  # return model
     else:
         print('Ensemble created with %s\n' % weights)
