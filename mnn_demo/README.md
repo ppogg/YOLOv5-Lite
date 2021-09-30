@@ -1,21 +1,32 @@
 ## 使用MNN部署YoloV5模型  
 
-### 一. 将 ONNX 模型转换为 MNN 模型  
+step1：  
+```
+install opecv
+install protobuf
+install cmake
+```
 
-执行命令：  
+step2：  
 ```
-./MNN-1.1.0/build/MNNConvert -f ONNX --modelFile yolov5-sort-cpp/yolov5ss.onnx --MNNModel yolov5ss.mnn --bizCode MNN
+git clone https://github.com/alibaba/MNN.git
+cd MNN
+mkdir bulid && cd build
+sudo cmake ..
+sudo make
 ```
-转换成功，输出以下信息：  
-```
-MNNConverter Version: 0.2.1.5git - MNN @ 2018
 
-Start to Convert Other Model Format To MNN Model...
-[16:42:51] /media/lihongjie/Windows/work/code/MNN-1.1.0/tools/converter/source/onnx/onnxConverter.cpp:31: ONNX Model ir version: 6
-Start to Optimize the MNN Net...
-[16:42:51] /media/lihongjie/Windows/work/code/MNN-1.1.0/tools/converter/source/optimizer/PostConverter.cpp:64: Inputs: images
-[16:42:51] /media/lihongjie/Windows/work/code/MNN-1.1.0/tools/converter/source/optimizer/PostConverter.cpp:69: Outputs: 415
-[16:42:51] /media/lihongjie/Windows/work/code/MNN-1.1.0/tools/converter/source/optimizer/PostConverter.cpp:69: Outputs: output
-[16:42:51] /media/lihongjie/Windows/work/code/MNN-1.1.0/tools/converter/source/optimizer/PostConverter.cpp:69: Outputs: 395
-Converted Done!
+step3：  
 ```
+cd mnn_demo
+mkdir bulid && cd build
+sudo cmake ..
+sudo make
+```
+
+step4：  
+```
+./yolov5
+```
+![output](https://user-images.githubusercontent.com/82716366/135485823-d22486ac-ee5a-41a6-bec5-74116f0bcb47.jpg)
+
