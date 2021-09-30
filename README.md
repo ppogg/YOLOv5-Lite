@@ -99,8 +99,11 @@ This is a Redmi phone, the processor is Snapdragon 730G, and yolov5-lite is used
 
 ![repyolov5](https://user-images.githubusercontent.com/82716366/133568390-918822c8-ff7c-43bd-bd54-c999d3e57f01.png)
 
-Detailed model link:[1] https://zhuanlan.zhihu.com/p/400545131
+Detailed model link:
+                    [1] https://zhuanlan.zhihu.com/p/400545131
+                    
                     [2] https://zhuanlan.zhihu.com/p/400545131
+                    
                     [3] https://blog.csdn.net/weixin_45829462/article/details/119787840
 
 ## Reference
