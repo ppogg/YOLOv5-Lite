@@ -1,6 +1,6 @@
 # YOLOv5-Lite：lighter, faster and easier to deploy   ![](https://zenodo.org/badge/DOI/10.5281/zenodo.5241425.svg)
 
-![01111](https://user-images.githubusercontent.com/82716366/135464047-9a66eb1a-38d6-4585-aacb-552c70b18457.jpg)
+![image](https://user-images.githubusercontent.com/82716366/135564043-eed2cf5e-6e77-4197-b8ad-3d1c94efb821.png)
 
 Perform a series of ablation experiments on yolov5 to make it lighter (smaller Flops, lower memory, and fewer parameters) and faster (add shuffle channel, yolov5 head for channel reduce. It can infer at least 10+ FPS On the Raspberry Pi 4B when input the frame with 320×320) and is easier to deploy (removing the Focus layer and four slice operations, reducing the model quantization accuracy to an acceptable range).
 
