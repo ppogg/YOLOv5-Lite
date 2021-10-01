@@ -122,7 +122,7 @@ val: ../coco/images/val2017/
 <details>
 <summary>model hub</summary>
 
-Here, the original components of YOLOv5 and the reproduced components of YOLOv5-Lite are organized and stored in the model hub：
+Here, the original components of YOLOv5 and the reproduced components of YOLOv5-Lite are organized and stored in the [model hub](https://github.com/ppogg/YOLOv5-Lite/tree/master/models/model_hub)：
 
   ![image](https://user-images.githubusercontent.com/82716366/135563400-2b6082c5-d0c2-49b8-9235-748950df30b8.png)
 
