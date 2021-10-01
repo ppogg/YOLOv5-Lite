@@ -97,24 +97,24 @@ train: ../coco/images/train2017/
 val: ../coco/images/val2017/
 ```
 ```bash
-├── images
-│   ├── train2017        # TrainSet example
-│   │   ├── 000050.jpg
-│   │   ├── 000051.jpg
-│   │   └── 000052.jpg
-│   └── val2017          # ValSet example
-│       ├── 001800.jpg
-│       ├── 001801.jpg
-│       └── 001802.jpg
-└── labels               
-    ├── train2017       # .txt with TrainSet
-    │   ├── 000050.txt
-    │   ├── 000051.txt
-    │   └── 000052.txt
-    └── val2017         # .txt with ValSet
-        ├── 001800.txt
-        ├── 001801.txt
-        └── 001802.txt
+├── images            # xx.jpg example
+│   ├── train2017        
+│   │   ├── 000001.jpg
+│   │   ├── 000002.jpg
+│   │   └── 000003.jpg
+│   └── val2017         
+│       ├── 100001.jpg
+│       ├── 100002.jpg
+│       └── 100003.jpg
+└── labels             # xx.txt example      
+    ├── train2017       
+    │   ├── 000001.txt
+    │   ├── 000002.txt
+    │   └── 000003.txt
+    └── val2017         
+        ├── 100001.txt
+        ├── 100002.txt
+        └── 100003.txt
 ```
   
 </details> 
