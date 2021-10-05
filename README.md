@@ -145,8 +145,8 @@ Android_v5Lite-g: https://drive.google.com/file/d/1FnvkWxxP_aZwhi000xjIuhJ_OhOUJ
 Detailed model link:
  [1] https://zhuanlan.zhihu.com/p/400545131
  
- [2] https://zhuanlan.zhihu.com/p/400545131
- 
+ [2] https://zhuanlan.zhihu.com/p/410874403
+
  [3] https://blog.csdn.net/weixin_45829462/article/details/119787840
 
 ## Reference
