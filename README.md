@@ -22,7 +22,7 @@ Perform a series of ablation experiments on yolov5 to make it lighter (smaller F
 
 ## Comparison on different platforms
 
-Equipment|Computing backend|System|Framework|Input|[v5Lite-s](https://drive.google.com/file/d/70nHSANXTPVtgDHZalPn/view?usp=sharing)|[v5Lite-g](https://drive.google.com/file/d/1qtWLBPjNJXKi7sb/view?usp=sharing)|YOLOv5s
+Equipment|Computing backend|System|Framework|Input|[v5Lite-s](https://drive.google.com/file/d/1by8_RZFHGcHB70nHSANXTPVtgDHZalPn/view?usp=sharing)|[v5Lite-g](https://drive.google.com/file/d/1epLouWuSLMMFcbEjAqtWLBPjNJXKi7sb/view?usp=sharing)|YOLOv5s
 :---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:
 Inter|@i5-10210U|window(x86)|640×640|torch-cpu|112ms|183ms|179ms
 Nvidia|@RTX 2080Ti|Linux(x86)|640×640|torch-gpu|11ms|16ms|14ms
@@ -136,9 +136,9 @@ This is a Redmi phone, the processor is Snapdragon 730G, and yolov5-lite is used
 
 link: https://github.com/ppogg/YOLOv5-Lite/tree/master/ncnn_Android
 
-Android_v5Lite-s: https://drive.google.com/file/d/1CtohY68N2B9XYuqFLiTp-Nd2kFWgAUR/view?us=sharing
+Android_v5Lite-s: https://drive.google.com/file/d/1CtohY68N2B9XYuqFLiTp-Nd2kuFWgAUR/view?usp=sharing
 
-Android_v5Lite-g: https://drive.google.com/file/d/1FnvkWxxP_aZwhi000xjIuhJ_OhOUJcj/view?us=sharing
+Android_v5Lite-g: https://drive.google.com/file/d/1FnvkWxxP_aZwhi000xjIuhJ_OhqOUJcj/view?usp=sharing
 
 ## More detailed explanation
 
