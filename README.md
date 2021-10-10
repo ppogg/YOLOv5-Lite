@@ -14,11 +14,10 @@ Perform a series of ablation experiments on yolov5 to make it lighter (smaller F
 004| YOLOv5-Lite-s| 320×320|1.43G |1.62M|3.3| 36.2|20.8| 
 005| yolov3-tiny| 416×416| 6.96G|6.06M|23.0| 33.1|16.6
 006| yolov4-tiny| 416×416| 5.62G|8.86M| 33.7|40.2|21.7
-007| nanodet-m| 416×416| 1.2G	|0.95M|1.8|- |23.5
-008| YOLOv5-Lite-s| 416×416|2.42G |1.62M|3.3| 41.3|24.4| 
-009| YOLOv5-Lite-g| 416×416|7.3G |5.3M|10.9| 53.1|34.7| 
-010| yolov5s| 640×640| 17.0G|7.3M|14.2| 55.8|35.9
-011| YOLOv5-Lite-g| 640×640|15.7G |5.3M|10.9| 56.9|38.1| 
+007| NanoDet-EfficientLite1| 416×416|4.1G |4.01M|15.6| - |30.3| 
+008| YOLOv5-Lite-c| 416×416|3.9G |4.3M|9.2| 49.1|30.4| 
+009| YOLOv5s| 640×640| 17.0G|7.3M|14.2| 55.8|35.9
+010| YOLOv5-Lite-g| 640×640|15.7G |5.3M|10.9| 56.9|38.1| 
 
 ## Comparison on different platforms
 
