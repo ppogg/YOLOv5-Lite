@@ -22,7 +22,7 @@ Perform a series of ablation experiments on yolov5 to make it lighter (smaller F
 
 ## Comparison on different platforms
 
-Equipment|Computing backend|System|Input|Framework|[v5Lite-s](https://drive.google.com/file/d/1by8_RZFHGcHB70nHSANXTPVtgDHZalPn/view?usp=sharing)|v5Lite-c|[v5Lite-g](https://drive.google.com/file/d/1epLouWuSLMMFcbEjAqtWLBPjNJXKi7sb/view?usp=sharing)|YOLOv5s
+Equipment|Computing backend|System|Input|Framework|[v5Lite-s]|v5Lite-c|v5Lite-g|YOLOv5s
 :---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:
 Inter|@i5-10210U|window(x86)|640×640|torch-cpu|-|121ms|-|179ms
 Nvidia|@RTX 2080Ti|Linux(x86)|640×640|torch-gpu|-|-|15ms|14ms
@@ -32,6 +32,29 @@ Raspberrypi 4B|@ARM Cortex-A72|Linux(arm64)|320×320|mnn|88ms|-|-|356ms
 
 * The above is a 4-thread test benchmark
 * Raspberrypi 4B enable bf16s optimization，[Raspberrypi 64 Bit OS](http://downloads.raspberrypi.org/raspios_arm64/images/raspios_arm64-2020-08-24/)
+
+## [ ·Model Zoo· ]
+
+#### YOLOv5-Lites
+Model|Size|Backbone|Head|Framework|Design for|
+:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:
+[v5Lite-s.pt](https://drive.google.com/file/d/1by8_RZFHGcHB70nHSANXTPVtgDHZalPn/view?usp=sharing)|3.3m|shufflenetv2（Megvii）|v5Lites-head|Pytorch|Arm-cpu
+v5Lite-s.bin<br />v5Lite-s.param|3.3m|shufflenetv2|v5Lites-head|ncnn|Arm-cpu
+v5Lite-s-int8.bin<br />v5Lite-s-int8.param|1.7m|shufflenetv2|v5Lites-head|ncnn|Arm-cpu
+v5Lite-s.mnn|3.3m|shufflenetv2|v5Lites-head|mnn|Arm-cpu
+v5Lite-s-int4.mnn|987k|shufflenetv2|v5Lites-head|mnn|Arm-cpu
+
+#### YOLOv5-Litec
+Model|Size|Backbone|Head|Framework|Design for|
+:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:
+v5Lite-c.pt|9.2m|PPLcnet（Baidu）|v5Litec-head|Pytorch|x86-cpu
+v5Lite-c.bin<br />v5Lite-c.xml|9.3m|PPLcnet|v5Litec-head|openvivo|x86-cpu
+
+#### YOLOv5-Liteg
+Model|Size|Backbone|Head|Framework|Design for|
+:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:
+[v5Lite-g.pt](https://drive.google.com/file/d/1epLouWuSLMMFcbEjAqtWLBPjNJXKi7sb/view?usp=sharing)|10.9m|Repvgg（Tsinghua）|v5Liteg-head|Pytorch|x86-gpu / arm-gpu / arm-npu
+v5Lite-g-int8.trt|8.7m|Repvgg|v5Liteg-head|Tensorrt|x86-gpu / arm-gpu / arm-npu
 
 ## <div>How to use</div>
 
@@ -119,7 +142,7 @@ val: ../coco/images/val2017/
   
 </details> 
 
-<details>
+<details open>
 <summary>model hub</summary>
 
 Here, the original components of YOLOv5 and the reproduced components of YOLOv5-Lite are organized and stored in the [model hub](https://github.com/ppogg/YOLOv5-Lite/tree/master/models/model_hub)：
