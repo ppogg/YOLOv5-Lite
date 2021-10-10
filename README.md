@@ -38,7 +38,7 @@ Raspberrypi 4B|@ARM Cortex-A72|Linux(arm64)|320×320|mnn|88ms|-|-|356ms
 #### YOLOv5-Lites
 
 Model|Size|Backbone|Head|Framework|Design for
-:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:
+:---:|:---:|:---:|:---:|:---:|:---:|:---:
 [v5Lite-s.pt](https://drive.google.com/file/d/1by8_RZFHGcHB70nHSANXTPVtgDHZalPn/view?usp=sharing)|3.3m|shufflenetv2（Megvii）|v5Lites-head|Pytorch|Arm-cpu
 v5Lite-s.bin<br />v5Lite-s.param|3.3m|shufflenetv2|v5Lites-head|ncnn|Arm-cpu
 v5Lite-s-int8.bin<br />v5Lite-s-int8.param|1.7m|shufflenetv2|v5Lites-head|ncnn|Arm-cpu
@@ -48,14 +48,14 @@ v5Lite-s-int4.mnn|987k|shufflenetv2|v5Lites-head|mnn|Arm-cpu
 #### YOLOv5-Litec
 
 Model|Size|Backbone|Head|Framework|Design for
-:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:
+:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:
 v5Lite-c.pt|9.2m|PPLcnet（Baidu）|v5Litec-head|Pytorch|x86-cpu
 v5Lite-c.bin<br />v5Lite-c.xml|9.3m|PPLcnet|v5Litec-head|openvivo|x86-cpu
 
 #### YOLOv5-Liteg
 
 Model|Size|Backbone|Head|Framework|Design for
-:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:
+:---:|:---:|:---:|:---:|:---:|:---:|:---:
 [v5Lite-g.pt](https://drive.google.com/file/d/1epLouWuSLMMFcbEjAqtWLBPjNJXKi7sb/view?usp=sharing)|10.9m|Repvgg（Tsinghua）|v5Liteg-head|Pytorch|x86-gpu / arm-gpu / arm-npu
 v5Lite-g-int8.trt|8.7m|Repvgg|v5Liteg-head|Tensorrt|x86-gpu / arm-gpu / arm-npu
 
