@@ -35,7 +35,7 @@ Raspberrypi 4B|@ARM Cortex-A72|Linux(arm64)|320×320|mnn|88ms|-|-|356ms
 
 ## [ ·Model Zoo· ]
 
-#### @YOLOv5-Lites
+#### @YOLOv5-Lites:
 
 Model|Size|Backbone|Head|Framework|Design for
 :---:|:---:|:---:|:---:|:---:|:---:
@@ -45,14 +45,14 @@ v5Lite-s-int8.bin<br />v5Lite-s-int8.param|1.7m|shufflenetv2|v5Lites-head|ncnn|A
 v5Lite-s.mnn|3.3m|shufflenetv2|v5Lites-head|mnn|Arm-cpu
 v5Lite-s-int4.mnn|987k|shufflenetv2|v5Lites-head|mnn|Arm-cpu
 
-#### @YOLOv5-Litec
+#### @YOLOv5-Litec:
 
 Model|Size|Backbone|Head|Framework|Design for
 :---:|:---:|:---:|:---:|:---:|:---:
 v5Lite-c.pt|9.2m|PPLcnet（Baidu）|v5Litec-head|Pytorch|x86-cpu
 v5Lite-c.bin<br />v5Lite-c.xml|9.3m|PPLcnet|v5Litec-head|openvivo|x86-cpu
 
-#### @YOLOv5-Liteg
+#### @YOLOv5-Liteg:
 
 Model|Size|Backbone|Head|Framework|Design for
 :---:|:---:|:---:|:---:|:---:|:---:
