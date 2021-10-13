@@ -48,7 +48,7 @@ v5Lite-s-int4.mnn|987k|shufflenetv2|v5Lites-head|mnn|Arm-cpu
 
 Model|Size|Backbone|Head|Framework|Design for
 :---:|:---:|:---:|:---:|:---:|:---:
-v5Lite-c.pt|9.2m|PPLcnet（Baidu）|v5Litec-head|Pytorch|x86-cpu / x86-vpu
+v5Lite-c.pt|9m|PPLcnet（Baidu）|v5Litec-head|Pytorch|x86-cpu / x86-vpu
 v5Lite-c.bin<br />v5Lite-c.xml|8.7m|PPLcnet|v5Litec-head|openvivo|x86-cpu / x86-vpu
 
 #### @YOLOv5-Liteg:
