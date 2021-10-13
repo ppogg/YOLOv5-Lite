@@ -30,8 +30,9 @@ mkdir model_zoo && cd model_zoo
 wget v5lite-s.mnn or v5lite-s-int4.mnn into model_zoo
 ```
 
-[v5lite-s.mnn](https://drive.google.com/file/d/10dBsY0T19Kyz2sZ4ebfpsb6dnG58pmYq/view?usp=sharing)
-[v5lite-s-int4.mnn](https://drive.google.com/file/d/1v90z5sWx6rTnrF9jejugZup2YuIuXObR/view?usp=sharing)
+v5lite-s.mnn: [https://drive.google.com/file/d/10dBsY0T19Kyz2sZ4ebfpsb6dnG58pmYq/view?usp=sharing](https://drive.google.com/file/d/10dBsY0T19Kyz2sZ4ebfpsb6dnG58pmYq/view?usp=sharing)
+
+v5lite-s-int4.mnn: [https://drive.google.com/file/d/1v90z5sWx6rTnrF9jejugZup2YuIuXObR/view?usp=sharing](https://drive.google.com/file/d/1v90z5sWx6rTnrF9jejugZup2YuIuXObR/view?usp=sharing)
 
 step5：  
 ```
