@@ -1,11 +1,15 @@
 
-The yolox object detection
+The yolov5-lite object detection
 
 This is a sample ncnn android project, it depends on ncnn library and opencv
 
 https://github.com/Tencent/ncnn
 
 https://github.com/nihui/opencv-mobile
+
+v5lite-s.bin: [https://drive.google.com/file/d/1pR_hFmhmI19Pev_t1i75z7btfJTY3m2f/view?usp=sharing](https://drive.google.com/file/d/1pR_hFmhmI19Pev_t1i75z7btfJTY3m2f/view?usp=sharing)
+
+v5lite-s-int8.bin: [https://drive.google.com/file/d/1U4Vt6Oqa7ER0CahaMIdHcn0eagv1iOcw/view?usp=sharing](https://drive.google.com/file/d/1U4Vt6Oqa7ER0CahaMIdHcn0eagv1iOcw/view?usp=sharing)
 
 
 ## how to build and run
@@ -22,6 +26,12 @@ https://github.com/nihui/opencv-mobile
 * Extract opencv-mobile-XYZ-android.zip into **app/src/main/jni** and change the **OpenCV_DIR** path to yours in **app/src/main/jni/CMakeLists.txt**
 
 ### step3
+```
+cd ncnn_Android/ncnn-android-yolov5/app/src/main/assets
+wget yolov5-lite-i8.bin or yolov5-lite.bin into assets
+```
+
+### step4
 * Open this project with Android Studio, build it and enjoy!
 
 ## some notes
