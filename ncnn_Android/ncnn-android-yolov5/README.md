@@ -1,4 +1,3 @@
-
 The yolov5-lite object detection
 
 This is a sample ncnn android project, it depends on ncnn library and opencv
@@ -44,8 +43,9 @@ wget yolov5-lite-i8.bin or yolov5-lite.bin into assets
 * FPS may be lower in dark environment because of longer camera exposure time
 
 ## screenshot
-![](screenshot.png)
+<img src="https://user-images.githubusercontent.com/82716366/130357030-c4131b64-55e4-40c9-9f66-c17b42d2409b.jpg" width="300"/><br/>
 
 ## reference  
-https://github.com/nihui/ncnn-android-nanodet  
-https://github.com/Megvii-BaseDetection/YOLOX  
+https://github.com/nihui/ncnn-android-yolov5
+https://github.com/FeiGeChuanShu/ncnn-android-yolox  
+https://github.com/ppogg/YOLOv5-Lite
