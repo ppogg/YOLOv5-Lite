@@ -68,7 +68,7 @@ cv::Mat draw_box(cv::Mat & cv_mat, std::vector<BoxInfo> &boxes)
 int main()
 {
 
-    std::string model_name = "checkpoints/v5lite-s.mnn";
+    std::string model_name = "model_zoo/v5lite-s.mnn";
     int num_classes=80;
     std::vector<YoloLayerData> yolov5s_layers{
             {"937",    32, {{146, 217}, {231, 300}, {335, 433}}},
