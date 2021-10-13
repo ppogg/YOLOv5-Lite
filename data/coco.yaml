@@ -9,9 +9,9 @@
 # download command/URL (optional)
 
 # train and val data as 1) directory: path/images/, 2) file: path/images.txt, or 3) list: [path1/images/, path2/images/]
-train: /root/yolov5/data/coco/images/train2017  # 118287 images
-val: /root/yolov5/data/coco/images/val2017  # 5000 images
-test: /root/yolov5/data/coco/images/test2017  # 20288 of 40670 images, submit to https://competitions.codalab.org/competitions/20794
+train: /root/YOLOv5-Lite/data/coco/images/train2017  # 118287 images
+val: /root/YOLOv5-Lite/data/coco/images/val2017  # 5000 images
+test: /root/YOLOv5-Lite/data/coco/images/test2017  # 20288 of 40670 images, submit to https://competitions.codalab.org/competitions/20794
 
 # number of classes
 nc: 80
