@@ -99,13 +99,14 @@ $ python detect.py --source 0  # webcam
 
 ```bash
 $ python train.py --data coco.yaml --cfg v5lite-s.yaml --weights v5lite-s.pt --batch-size 128
+                                         v5lite-c.yaml           v5lite-c.pt               96
                                          v5lite-g.yaml           v5lite-g.pt               64
 ```
 
  If you use multi-gpu. It's faster several times:
   
  ```bash
-$ python -m torch.distributed.launch --nproc_per_node 4 train.py
+$ python -m torch.distributed.launch --nproc_per_node 2 train.py
 ```
   
 </details>  
