@@ -1,5 +1,5 @@
 # parameters
-nc: 1  # number of classes
+nc: 80  # number of classes
 depth_multiple: 1.0  # dont change this otherwise InvertedResidual will be affected
 width_multiple: 1.0  # dont change this otherwise InvertedResidual will be affected
 
@@ -12,26 +12,23 @@ anchors:
 # YOLOv5 backbone
 backbone:
   # MobileNetV3-small
-  # [from, number, InvertedResidual module, [in, out, filter, hidden, stride, use_se, use_hs]]
+  # [from, number, mobilev3_bneck module, [in, out, filter, hidden, stride, use_se, use_hs]]
   # [from, number, module, args]
   [[-1, 1, Conv, [16, 3, 2]],  # 0-P1/2
-   [-1, 1, InvertedResidual, [16,  16, 3, 2, 1, 0]],  # 1-p2/4
-   [-1, 1, InvertedResidual, [24,  72, 3, 2, 0, 0]],  # 2-p3/8
-   [-1, 1, InvertedResidual, [24,  88, 3, 1, 0, 0]],  # 3-p3/8
-   [-1, 1, InvertedResidual, [40,  96, 5, 2, 1, 1]],  # 4-p4/16
-   [-1, 1, InvertedResidual, [40, 240, 5, 1, 1, 1]],  # 5-p4/16
-   [-1, 1, InvertedResidual, [40, 240, 5, 1, 1, 1]],  # 6-p4/16
-   [-1, 1, InvertedResidual, [48, 120, 5, 1, 1, 1]],  # 7-p4/16
-   [-1, 1, InvertedResidual, [48, 144, 5, 1, 1, 1]],  # 8-p4/16
-   [-1, 1, InvertedResidual, [96, 288, 5, 2, 1, 1]],  # 9-p5/32
-   [-1, 1, InvertedResidual, [96, 576, 5, 1, 1, 1]],  # 10-p5/32
-   [-1, 1, InvertedResidual, [96, 576, 5, 1, 1, 1]],  # 11-p5/32
+   [-1, 1, mobilev3_bneck, [16,  16, 3, 2, 1, 0]],  # 1-p2/4
+   [-1, 1, mobilev3_bneck, [24,  72, 3, 2, 0, 0]],  # 2-p3/8
+   [-1, 1, mobilev3_bneck, [24,  88, 3, 1, 0, 0]],  # 3-p3/8
+   [-1, 1, mobilev3_bneck, [40,  96, 5, 2, 1, 1]],  # 4-p4/16
+   [-1, 1, mobilev3_bneck, [40, 240, 5, 1, 1, 1]],  # 5-p4/16
+   [-1, 1, mobilev3_bneck, [40, 240, 5, 1, 1, 1]],  # 6-p4/16
+   [-1, 1, mobilev3_bneck, [48, 120, 5, 1, 1, 1]],  # 7-p4/16
+   [-1, 1, mobilev3_bneck, [48, 144, 5, 1, 1, 1]],  # 8-p4/16
+   [-1, 1, mobilev3_bneck, [96, 288, 5, 2, 1, 1]],  # 9-p5/32
+   [-1, 1, mobilev3_bneck, [96, 576, 5, 1, 1, 1]],  # 10-p5/32
+   [-1, 1, mobilev3_bneck, [96, 576, 5, 1, 1, 1]],  # 11-p5/32
   ]
 
-# YOLOv5 head
-# the head is still yolov5s, but depth_multiple and width_multiple are set to 1.0, so Conv and C3 need to be changed
-# depth_multiple of yolov5s: 0.33, i.e., number of C3: 3 -> 1
-# width_multiple of yolov5s: 0.50, i.e., halve the ch_out
+# v5Lite-s head
 head:
   [[-1, 1, Conv, [256, 1, 1]],
    [-1, 1, nn.Upsample, [None, 2, 'nearest']],

@@ -1,6 +1,7 @@
 # YOLOv5 common modules
 
 import math
+import warnings
 from copy import copy
 from pathlib import Path
 
@@ -32,9 +33,9 @@ class Conv(nn.Module):
         super(Conv, self).__init__()
         self.conv = nn.Conv2d(c1, c2, k, s, autopad(k, p), groups=g, bias=False)
         self.bn = nn.BatchNorm2d(c2)
-        # self.act = nn.SiLU() if act is True else (act if isinstance(act, nn.Module) else nn.Identity())
+        self.act = nn.SiLU() if act is True else (act if isinstance(act, nn.Module) else nn.Identity())
         # self.act = nn.ReLU(inplace=True)
-        self.act = nn.LeakyReLU(0.1, inplace=True) if act else nn.Identity()
+        # self.act = nn.LeakyReLU(0.1, inplace=True) if act else nn.Identity()
 
     def forward(self, x):
         return self.act(self.bn(self.conv(x)))
@@ -157,6 +158,23 @@ class SPP(nn.Module):
         x = self.cv1(x)
         return self.cv2(torch.cat([x] + [m(x) for m in self.m], 1))
 
+
+class SPPF(nn.Module):
+    # Spatial Pyramid Pooling - Fast (SPPF) layer for YOLOv5 by Glenn Jocher
+    def __init__(self, c1, c2, k=5):  # equivalent to SPP(k=(5, 9, 13))
+        super().__init__()
+        c_ = c1 // 2  # hidden channels
+        self.cv1 = Conv(c1, c_, 1, 1)
+        self.cv2 = Conv(c_ * 4, c2, 1, 1)
+        self.m = nn.MaxPool2d(kernel_size=k, stride=1, padding=k // 2)
+
+    def forward(self, x):
+        x = self.cv1(x)
+        with warnings.catch_warnings():
+            warnings.simplefilter('ignore')  # suppress torch 1.9.0 max_pool2d() warning
+            y1 = self.m(x)
+            y2 = self.m(y1)
+            return self.cv2(torch.cat([x, y1, y2, self.m(y2)], 1))
 
 class Focus(nn.Module):
     # Focus wh information into c-space
@@ -384,6 +402,35 @@ class Classify(nn.Module):
         return self.flat(self.conv(z))  # flatten to x(b,c2)
 
 
+# build attention module
+# -------------------------------------------------------------------------
+class Hswish(nn.Module):
+    def __init__(self, inplace=True):
+        super(Hswish, self).__init__()
+        self.relu = nn.ReLU6(inplace=inplace)
+
+    def forward(self, x):
+        return self.relu(x + 3) / 6
+
+
+class SELayer(nn.Module):
+    def __init__(self, channel, reduction=4):
+        super(SELayer, self).__init__()
+        self.avg_pool = nn.AdaptiveAvgPool2d(1)
+        self.fc = nn.Sequential(
+            nn.Linear(channel, channel // reduction),
+            nn.ReLU(inplace=True),
+            nn.Linear(channel // reduction, channel),
+            Hswish())
+
+    def forward(self, x):
+        b, c, _, _ = x.size()
+        y = self.avg_pool(x)
+        y = y.view(b, c)
+        y = self.fc(y).view(b, c, 1, 1)
+        return x * y
+
+
 # build shuffle block
 # -------------------------------------------------------------------------
 
@@ -465,6 +512,9 @@ class Shuffle_Block(nn.Module):
         return out
 
 
+# shuffle block end
+# -------------------------------------------------------------------------
+
 # build DWConvblock
 # -------------------------------------------------------------------------
 class DWConvblock(nn.Module):
@@ -488,8 +538,24 @@ class DWConvblock(nn.Module):
         return x
 
 
+# DWConvblock end
+# -------------------------------------------------------------------------
+
 # build Efficient-lite
 # -------------------------------------------------------------------------
+class stem(nn.Module):
+    def __init__(self, c1, c2):  # ch_in, ch_out
+        super(stem, self).__init__()
+        self.conv = nn.Sequential(
+            nn.Conv2d(3, c2, kernel_size=3, stride=2, padding=1, bias=False),
+            nn.BatchNorm2d(num_features=c2, momentum=0.01, eps=1e-3),
+            nn.ReLU(inplace=True),
+        )
+
+    def forward(self, x):
+        return self.conv(x)
+
+
 def round_filters(filters, multiplier, divisor=8, min_width=None):
     """Calculate and round number of filters based on width multiplier."""
     if not multiplier:
@@ -520,19 +586,6 @@ def drop_connect(x, drop_connect_rate, training):
     binary_mask = torch.floor(random_tensor)
     x = (x / keep_prob) * binary_mask
     return x
-
-
-class stem(nn.Module):
-    def __init__(self, c1, c2):  # ch_in, ch_out
-        super(stem, self).__init__()
-        self.conv = nn.Sequential(
-            nn.Conv2d(3, c2, kernel_size=3, stride=2, padding=1, bias=False),
-            nn.BatchNorm2d(num_features=c2, momentum=0.01, eps=1e-3),
-            nn.ReLU(inplace=True),
-        )
-
-    def forward(self, x):
-        return self.conv(x)
 
 
 class MBConvBlock(nn.Module):
@@ -596,6 +649,8 @@ class MBConvBlock(nn.Module):
         return x
 
 
+# Efficient-lite end
+# -------------------------------------------------------------------------
 class Light_C3(nn.Module):
     # CSP Bottleneck with 3 convolutions
     def __init__(self, c1, c2, n=1, shortcut=True, g=1, e=0.5):  # ch_in, ch_out, number, shortcut, groups, expansion
@@ -611,6 +666,7 @@ class Light_C3(nn.Module):
     def forward(self, x):
         return self.cv3(torch.add(self.m(self.cv1(x)), self.cv2(x)))
 
+
 class ADD(nn.Module):
     # Concatenate a list of tensors along dimension
     def __init__(self, alpha=0.5):
@@ -621,7 +677,7 @@ class ADD(nn.Module):
         return torch.add(x, self.a)
 
 
-# repvgg block
+# build repvgg block
 # -----------------------------
 def conv_bn(in_channels, out_channels, kernel_size, stride, padding, groups=1):
     result = nn.Sequential()
@@ -688,7 +744,6 @@ class RepVGGBlock(nn.Module):
                                    padding=padding_11, groups=groups)
             # print('RepVGG Block, identity = ', self.rbr_identity)
 
-
     def get_equivalent_kernel_bias(self):
         kernel3x3, bias3x3 = self._fuse_bn_tensor(self.rbr_dense)
         kernel1x1, bias1x1 = self._fuse_bn_tensor(self.rbr_1x1)
@@ -729,8 +784,6 @@ class RepVGGBlock(nn.Module):
         t = (gamma / std).reshape(-1, 1, 1, 1)
         return kernel * t, beta - running_mean * gamma / std
 
-
-
     def forward(self, inputs):
         if hasattr(self, 'rbr_reparam'):
             return self.nonlinearity(self.se(self.rbr_reparam(inputs)))
@@ -747,3 +800,173 @@ class RepVGGBlock(nn.Module):
 
     def fusevggforward(self, x):
         return self.nonlinearity(self.rbr_dense(x))
+
+
+# repvgg block end
+# -----------------------------
+
+# build mbv3 block
+# -----------------------------
+class mobilev3_bneck(nn.Module):
+    def __init__(self, inp, oup, hidden_dim, kernel_size, stride, use_se, use_hs):
+        super(mobilev3_bneck, self).__init__()
+        assert stride in [1, 2]
+
+        self.identity = stride == 1 and inp == oup
+
+        if inp == hidden_dim:
+            self.conv = nn.Sequential(
+                # dw
+                nn.Conv2d(hidden_dim, hidden_dim, kernel_size, stride, (kernel_size - 1) // 2, groups=hidden_dim,
+                          bias=False),
+                nn.BatchNorm2d(hidden_dim),
+                Hswish() if use_hs else nn.ReLU(inplace=True),
+                # Squeeze-and-Excite
+                SELayer(hidden_dim) if use_se else nn.Sequential(),
+                # pw-linear
+                nn.Conv2d(hidden_dim, oup, 1, 1, 0, bias=False),
+                nn.BatchNorm2d(oup),
+            )
+        else:
+            self.conv = nn.Sequential(
+                nn.Conv2d(inp, hidden_dim, 1, 1, 0, bias=False),
+                nn.BatchNorm2d(hidden_dim),
+                Hswish() if use_hs else nn.ReLU(inplace=True),
+                nn.Conv2d(hidden_dim, hidden_dim, kernel_size, stride, (kernel_size - 1) // 2, groups=hidden_dim,
+                          bias=False),
+                nn.BatchNorm2d(hidden_dim),
+                # Squeeze-and-Excite
+                SELayer(hidden_dim) if use_se else nn.Sequential(),
+                Hswish() if use_hs else nn.ReLU(inplace=True),
+                # pw-linear
+                nn.Conv2d(hidden_dim, oup, 1, 1, 0, bias=False),
+                nn.BatchNorm2d(oup),
+            )
+
+    def forward(self, x):
+        y = self.conv(x)
+        if self.identity:
+            return x + y
+        else:
+            return y
+
+
+# mbv3 block end
+# -----------------------------
+
+# build Lcnet
+# -----------------------------
+class CBH(nn.Module):
+    def __init__(self, num_channels, num_filters, filter_size, stride, num_groups=1):
+        super().__init__()
+        self.conv = nn.Conv2d(
+            num_channels,
+            num_filters,
+            filter_size,
+            stride,
+            padding=(filter_size - 1) // 2,
+            groups=num_groups,
+            bias=False)
+        self.bn = nn.BatchNorm2d(num_filters)
+        self.hardswish = nn.Hardswish()
+
+    def forward(self, x):
+        x = self.conv(x)
+        x = self.bn(x)
+        x = self.hardswish(x)
+        return x
+
+    def fuseforward(self, x):
+        return self.hardswish(self.conv(x))
+
+# class Hardsigmoid(nn.Module):
+#     def forward(self, x):
+#         out = F.relu6(x + 3, inplace=True) / 6
+#         return out
+
+
+class LC_SEModule(nn.Module):
+    def __init__(self, channel, reduction=4):
+        super().__init__()
+        self.avg_pool = nn.AdaptiveAvgPool2d(1)
+        self.conv1 = nn.Conv2d(
+            in_channels=channel,
+            out_channels=channel // reduction,
+            kernel_size=1,
+            stride=1,
+            padding=0)
+        self.relu = nn.ReLU()
+        self.conv2 = nn.Conv2d(
+            in_channels=channel // reduction,
+            out_channels=channel,
+            kernel_size=1,
+            stride=1,
+            padding=0)
+        self.SiLU = nn.SiLU()
+        # self.hardsigmoid = nn.Hardsigmoid()
+
+    def forward(self, x):
+        identity = x
+        x = self.avg_pool(x)
+        x = self.conv1(x)
+        x = self.relu(x)
+        x = self.conv2(x)
+        # x = self.hardsigmoid(x)
+        x = self.SiLU(x)
+        out = identity * x
+        return out
+
+
+class LC_Block(nn.Module):
+    def __init__(self, num_channels, num_filters, stride, dw_size, use_se=False):
+        super().__init__()
+        self.use_se = use_se
+        self.dw_conv = CBH(
+            num_channels=num_channels,
+            num_filters=num_channels,
+            filter_size=dw_size,
+            stride=stride,
+            num_groups=num_channels)
+        if use_se:
+            self.se = LC_SEModule(num_channels)
+        self.pw_conv = CBH(
+            num_channels=num_channels,
+            filter_size=1,
+            num_filters=num_filters,
+            stride=1)
+
+    def forward(self, x):
+        x = self.dw_conv(x)
+        if self.use_se:
+            x = self.se(x)
+        x = self.pw_conv(x)
+        return x
+
+
+class Dense(nn.Module):
+    def __init__(self, num_channels, num_filters, filter_size, dropout_prob):
+        super().__init__()
+        # self.avg_pool = nn.AdaptiveAvgPool2d(1)
+        self.dense_conv = nn.Conv2d(
+            in_channels=num_channels,
+            out_channels=num_filters,
+            kernel_size=filter_size,
+            stride=1,
+            padding=0,
+            bias=False)
+        self.hardswish = nn.Hardswish()
+        self.dropout = nn.Dropout(p=dropout_prob)
+        # self.flatten = nn.Flatten(start_dim=1, end_dim=-1)
+        # self.fc = nn.Linear(num_filters, num_filters)
+
+    def forward(self, x):
+        # x = self.avg_pool(x)
+        # b, _, w, h = x.shape
+        x = self.dense_conv(x)
+        # b, _, w, h = x.shape
+        x = self.hardswish(x)
+        x = self.dropout(x)
+        # x = self.flatten(x)
+        # x = self.fc(x)
+        # x = x.reshape(b, self.c2, w, h)
+        return x

@@ -203,10 +203,14 @@ class Model(nn.Module):
                         m.__delattr__('id_tensor')
                     m.deploy = True
                     m.forward = m.fusevggforward  # update forward
-                continue
+                # continue
                 # print(m)
             if type(m) is Conv and hasattr(m, 'bn'):
                 # print(m)
+                m.conv = fuse_conv_and_bn(m.conv, m.bn)  # update conv
+                delattr(m, 'bn')  # remove batchnorm
+                m.forward = m.fuseforward  # update forward
+            if type(m) is CBH and hasattr(m, 'bn'):
                 m.conv = fuse_conv_and_bn(m.conv, m.bn)  # update conv
                 delattr(m, 'bn')  # remove batchnorm
                 m.forward = m.fuseforward  # update forward
@@ -255,9 +259,9 @@ def parse_model(d, ch):  # model_dict, input_channels(3)
                 pass
 
         n = max(round(n * gd), 1) if n > 1 else n  # depth gain
-        if m in [Conv, GhostConv, Bottleneck, GhostBottleneck, SPP, MixConv2d, Focus, CrossConv, BottleneckCSP,
-                 C3, C3TR, Shuffle_Block, conv_bn_relu_maxpool, DWConvblock, stem, MBConvBlock, Light_C3, ADD,
-                 RepVGGBlock, SEBlock]:
+        if m in [Conv, GhostConv, Bottleneck, GhostBottleneck, SPP, SPPF, MixConv2d, Focus, CrossConv, BottleneckCSP,
+                 C3, C3TR, Shuffle_Block, conv_bn_relu_maxpool, DWConvblock, MBConvBlock, Light_C3, ADD,
+                 RepVGGBlock, SEBlock, mobilev3_bneck, Hswish, SELayer, stem, CBH, LC_Block, Dense]:
             c1, c2 = ch[f], args[0]
             if c2 != no:  # if not output
                 c2 = make_divisible(c2 * gw, 8)
