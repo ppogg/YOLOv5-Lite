@@ -159,9 +159,13 @@ Here, the original components of YOLOv5 and the reproduced components of YOLOv5-
 ## How to deploy
 
 [**ncnn**](https://github.com/ppogg/YOLOv5-Lite/blob/master/ncnn/README.md)  for arm-cpu
+
 [**mnn**](https://github.com/ppogg/YOLOv5-Lite/blob/master/mnn/README.md) for arm-cpu
+
 [**openvino**](https://github.com/ppogg/YOLOv5-Lite/blob/master/openvino/README.md) x86-cpu or x86-vpu 
+
 [**tensorrt**](https://github.com/ppogg/YOLOv5-Lite/tree/master/tensorrt) for arm-gpu or arm-npu or x86-gpu
+
 [**Android**](https://github.com/ppogg/YOLOv5-Lite/blob/master/Android/ncnn-android-yolov5/README.md) for arm-cpu
 
 ## Android_demo 
@@ -177,6 +181,7 @@ Android_v5Lite-g: https://drive.google.com/file/d/1FnvkWxxP_aZwhi000xjIuhJ_OhqOU
 ## More detailed explanation
 
 Detailed model link:
+
  [1] https://zhuanlan.zhihu.com/p/400545131
  
  [2] https://zhuanlan.zhihu.com/p/410874403
