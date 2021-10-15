@@ -158,6 +158,10 @@ Here, the original components of YOLOv5 and the reproduced components of YOLOv5-
 
 ## Android_demo 
 
+[ncnn](https://github.com/ppogg/YOLOv5-Lite/blob/master/ncnn/README.md)  [mnn](https://github.com/ppogg/YOLOv5-Lite/blob/master/mnn/README.md)   [openvino](https://github.com/ppogg/YOLOv5-Lite/blob/master/openvino/README.md)  [tensorrt](https://github.com/ppogg/YOLOv5-Lite/tree/master/tensorrt)  (Android)[https://github.com/ppogg/YOLOv5-Lite/blob/master/Android/ncnn-android-yolov5/README.md]
+
+## Android_demo 
+
 This is a Redmi phone, the processor is Snapdragon 730G, and yolov5-lite is used for detection. The performance is as follows:
 
 link: https://github.com/ppogg/YOLOv5-Lite/tree/master/ncnn_Android
