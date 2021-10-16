@@ -37,8 +37,8 @@ Raspberrypi 4B|@ARM Cortex-A72|Linux(arm64)|320×320|mnn|88ms|-|-|356ms
 #### @YOLOv5-Lites:
 
 Model|Size|Backbone|Head|Framework|Design for
-:---:|:---:|:---:|:---:|:---:|:---:
-[v5Lite-s.pt](https://drive.google.com/file/d/1by8_R0nHSANXTPVtgDHZalPn/view?usp=sharing)|3.3m|shufflenetv2（Megvii）|v5Lites-head|Pytorch|Arm-cpu
+:---:|:---:|:---:|:---:|:---:|:---
+[v5Lite-s.pt](https://drive.google.com/file/d/1by8_R0nHSANXTPVHZalPn/view?usp=sharing)|3.3m|shufflenetv2（Megvii）|v5Lites-head|Pytorch|Arm-cpu
 v5Lite-s.bin<br />v5Lite-s.param|3.3m|shufflenetv2|v5Lites-head|ncnn|Arm-cpu
 v5Lite-s-int8.bin<br />v5Lite-s-int8.param|1.7m|shufflenetv2|v5Lites-head|ncnn|Arm-cpu
 v5Lite-s.mnn|3.3m|shufflenetv2|v5Lites-head|mnn|Arm-cpu
@@ -48,14 +48,14 @@ v5Lite-s-int4.mnn|987k|shufflenetv2|v5Lites-head|mnn|Arm-cpu
 
 Model|Size|Backbone|Head|Framework|Design for
 :---:|:---:|:---:|:---:|:---:|:---:
-[v5Lite-c.pt](https://drive.google.com/file/d/-GrrN3Y9pH1-BNNO2_dpBjhd2R/view?usp=sharing)|9m|PPLcnet（Baidu）|v5Litec-head|Pytorch|x86-cpu / x86-vpu
+[v5Lite-c.pt](https://drive.google.com/file/d/-GrrN3Y9pH1-BNNO2_dd2R/view?usp=sharing)|9m|PPLcnet（Baidu）|v5Litec-head|Pytorch|x86-cpu / x86-vpu
 v5Lite-c.bin<br />v5Lite-c.xml|8.7m|PPLcnet|v5Litec-head|openvivo|x86-cpu / x86-vpu
 
 #### @YOLOv5-Liteg:
 
 Model|Size|Backbone|Head|Framework|Design for
 :---:|:---:|:---:|:---:|:---:|:---:
-[v5Lite-g.pt](https://drive.google.com/file/d/1ouWuMFcbEjAqtWLBPjNJXKi7sb/view?usp=sharing)|10.9m|Repvgg（Tsinghua）|v5Liteg-head|Pytorch|x86-gpu / arm-gpu / arm-npu
+[v5Lite-g.pt](https://drive.google.com/file/d/1ouWuMFcbEjAqtjNJXKi7sb/view?usp=sharing)|10.9m|Repvgg（Tsinghua）|v5Liteg-head|Pytorch|x86-gpu / arm-gpu / arm-npu
 v5Lite-g-int8.engine|8.5m|Repvgg|v5Liteg-head|Tensorrt|x86-gpu / arm-gpu / arm-npu
 
 ## <div>How to use</div>
