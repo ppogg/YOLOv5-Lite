@@ -8,9 +8,10 @@
 -	Opencv >= 4.2.0
 
 ###	Download Pytorch Weights 
-v5lite-c.pt:  [https://drive.google.com/file/d/1H-GrrxKV0pN3Y9pH1-BNNO2_dpBjhd2R/view?usp=sharing](https://drive.google.com/file/d/1H-GrrxKV0pN3Y9pH1-BNNO2_dpBjhd2R/view?usp=sharing)
+v5lite-c.pt:  [https://drive.google.com/file/d/1H-GrrBNNO2_dpBjhd2R/view?usp=sharing](https://drive.google.com/file/d/1H-GrrxKVY9pH1-BNNO2_dhd2R/view?p=sharing)
 
 ###	Convert to ONNX Weights 
+
 ```bash
 $ python models/export.py --weights v5lite-c.pt --img 640 --batch 1
 $ python -m onnxsim v5lite-c.onnx v5lite-c-sim.onnx
