@@ -268,58 +268,54 @@ static int detect_yolov5(const cv::Mat& bgr, std::vector<Object>& objects)
 
     std::vector<Object> proposals;
 
-    // anchor setting from yolov5/models/yolov5s.yaml
-
     // stride 8
     {
         ncnn::Mat out;
         ex.extract("output", out);
 
         ncnn::Mat anchors(6);
-        anchors[0] = 4.f;
-        anchors[1] = 5.f;
-        anchors[2] = 8.f;
-        anchors[3] = 10.f;
-        anchors[4] = 13.f;
-        anchors[5] = 16.f;
+        anchors[0] = 10.f;
+        anchors[1] = 13.f;
+        anchors[2] = 16.f;
+        anchors[3] = 30.f;
+        anchors[4] = 33.f;
+        anchors[5] = 23.f;
 
         std::vector<Object> objects8;
         generate_proposals(anchors, 8, in_pad, out, prob_threshold, objects8);
 
         proposals.insert(proposals.end(), objects8.begin(), objects8.end());
     }
-
     // stride 16
     {
         ncnn::Mat out;
-        ex.extract("917", out);
+        ex.extract("671", out);
 
         ncnn::Mat anchors(6);
-        anchors[0] = 23.f;
-        anchors[1] = 29.f;
-        anchors[2] = 43.f;
-        anchors[3] = 55.f;
-        anchors[4] = 73.f;
-        anchors[5] = 105.f;
+        anchors[0] = 30.f;
+        anchors[1] = 61.f;
+        anchors[2] = 62.f;
+        anchors[3] = 45.f;
+        anchors[4] = 59.f;
+        anchors[5] = 119.f;
 
         std::vector<Object> objects16;
         generate_proposals(anchors, 16, in_pad, out, prob_threshold, objects16);
 
         proposals.insert(proposals.end(), objects16.begin(), objects16.end());
     }
-
     // stride 32
     {
         ncnn::Mat out;
-        ex.extract("937", out);
+        ex.extract("691", out);
 
         ncnn::Mat anchors(6);
-        anchors[0] = 146.f;
-        anchors[1] = 217.f;
-        anchors[2] = 231.f;
-        anchors[3] = 300.f;
-        anchors[4] = 335.f;
-        anchors[5] = 433.f;
+        anchors[0] = 116.f;
+        anchors[1] = 90.f;
+        anchors[2] = 156.f;
+        anchors[3] = 198.f;
+        anchors[4] = 373.f;
+        anchors[5] = 326.f;
 
         std::vector<Object> objects32;
         generate_proposals(anchors, 32, in_pad, out, prob_threshold, objects32);
