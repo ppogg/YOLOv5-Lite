@@ -11,10 +11,10 @@ Perform a series of ablation experiments on yolov5 to make it lighter (smaller F
 001| yolo-fastest| 320×320|0.25G|0.35M|1.4| 24.4| -
 002| nanodet-m| 320×320| 0.72G|0.95M|1.8|- |20.6
 003| yolo-fastest-xl| 320×320|0.72G|0.92M|3.5| 34.3| -
-004| YOLOv5-Lite<sub>s</sub><sup>ours</sup>| 320×320|1.43G |1.62M|3.3| 36.2|20.8| 
+004| YOLOv5-Lite<sub>s</sub><sup>ours</sup>| 320×320|0.97G |1.54M|3.3| 36.1|20.9| 
 005| yolov3-tiny| 416×416| 6.96G|6.06M|23.0| 33.1|16.6
 006| yolov4-tiny| 416×416| 5.62G|8.86M| 33.7|40.2|21.7
-007| YOLOv5-Lite<sub>s</sub><sup>ours</sup>| 416×416|2.56G |1.62M|3.3| 41.3|24.4
+007| YOLOv5-Lite<sub>s</sub><sup>ours</sup>| 416×416|1.63G |1.54M|3.3| 41.3|24.3
 008| YOLOv5-Lite<sub>c</sub><sup>ours</sup>| 640×640|8.6G |4.37M|9.2| 52.5|33.0| 
 009| YOLOv5s| 640×640| 17.0G|7.3M|14.2| 55.8|35.9
 010| YOLOv5-Lite<sub>g</sub><sup>ours</sup>| 640×640|15.7G |5.3M|10.9| 56.9|38.1| 
@@ -26,8 +26,8 @@ Equipment|Computing backend|System|Input|Framework|v5Lite-s|v5Lite-c|v5Lite-g|YO
 Inter|@i5-10210U|window(x86)|640×640|openvino|-|46ms|-|131ms
 Nvidia|@RTX 2080Ti|Linux(x86)|640×640|torch|-|-|15ms|14ms
 Redmi K30|@Snapdragon 730G|Android(arm64)|320×320|ncnn|36ms|-|-|263ms
-Raspberrypi 4B|@ARM Cortex-A72|Linux(arm64)|320×320|ncnn|97ms|-|-|371ms
-Raspberrypi 4B|@ARM Cortex-A72|Linux(arm64)|320×320|mnn|88ms|-|-|356ms
+Raspberrypi 4B|@ARM Cortex-A72|Linux(arm64)|320×320|ncnn|85ms|-|-|371ms
+Raspberrypi 4B|@ARM Cortex-A72|Linux(arm64)|320×320|mnn|76ms|-|-|356ms
 
 * The above is a 4-thread test benchmark
 * Raspberrypi 4B enable bf16s optimization，[Raspberrypi 64 Bit OS](http://downloads.raspberrypi.org/raspios_arm64/images/raspios_arm64-2020-08-24/)
