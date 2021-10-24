@@ -2,9 +2,6 @@
 v5lite-s.tmfile: [https://drive.google.com/file/d/12HU-lpPxtic5LgbySN7UOY4NqUw0O5SS/view?usp=sharing](https://drive.google.com/file/d/12HU-lpPxtic5LgbySN7UOY4NqUw0O5SS/view?usp=sharing)
 ## Detection effect
 
-NCNN{FP32}@{640×640}:
-
-
 ### 10FPS can be used with yolov5-lite on CPU
 
 Excluding the first three warm-ups, the device temperature is stable above 45°, the forward reasoning framework is ncnn, and the two benchmark comparisons are recorded
