@@ -57,6 +57,8 @@ Model|Size|Backbone|Head|Framework|Design for
 :---:|:---:|:---:|:---:|:---:|:---:
 [v5Lite-g.pt](https://drive.google.com/file/d/1y6R1W9NtqvJgVeUp5VMmiFGn3sOFN2C1/view?usp=sharing)|10.9m|Repvgg（Tsinghua）|v5Liteg-head|Pytorch|x86-gpu / arm-gpu / arm-npu
 v5Lite-g-int8.engine|8.5m|Repvgg|v5Liteg-head|Tensorrt|x86-gpu / arm-gpu / arm-npu
+v5lite-g-int8.tmfile|8.7m|Repvgg|v5Liteg-head|Tengine| arm-npu
+
 
 ## <div>How to use</div>
 
