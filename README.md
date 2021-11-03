@@ -59,6 +59,7 @@ Model|Size|Backbone|Head|Framework|Design for
 v5Lite-g-int8.engine|8.5m|Repvgg|v5Liteg-head|Tensorrt|x86-gpu / arm-gpu / arm-npu
 v5lite-g-int8.tmfile|8.7m|Repvgg|v5Liteg-head|Tengine| arm-npu
 
+baidu downlod：link：[https://pan.baidu.com/s/1EyIcipMxX1TYmvEcSZ-Vzw](https://pan.baidu.com/s/1EyIcipMxX1TYmvEcSZ-Vzw)       key：k7b5
 
 ## <div>How to use</div>
 
