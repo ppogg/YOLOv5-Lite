@@ -70,10 +70,10 @@ v5lite-g-int8.tmfile|8.7m|Repvgg|v5Liteg-head|Tengine| arm-npu
                      |──────`ncnn-int8`: | [Baidu Drive](https://pan.baidu.com/s/1QX6-oNynrW-f3i0P0Hqe4w) | [Google Drive](https://drive.google.com/drive/folders/1YNtNVWlRqN8Dwc_9AtRkN0LFkDeJ92gN?usp=sharing) |<br> 
                      |──────`mnn-fp16`: | [Baidu Drive](https://pan.baidu.com/s/12lOtPTl4xujWm5BbFJh3zA) | [Google Drive](https://drive.google.com/drive/folders/1PpFoZ4b8mVs1GmMxgf0WUtXUWaGK_JZe?usp=sharing) |<br> 
                      |──────`mnn-int4`: | [Baidu Drive](https://pan.baidu.com/s/11fbjFi18xkq4ltAKUKDOCA) | [Google Drive](https://drive.google.com/drive/folders/1mSU8g94c77KKsHC-07p5V3tJOZYPQ-g6?usp=sharing) |<br> 
-                     └──────`tengine-fp32`: | [Baidu Drive](https://pan.baidu.com/s/18p8HAyGJdmo2hham250b4A) | [Google Drive](https://drive.google.com/drive/folders/1VWmI2BC9MjH7BsrOz4VlSDVnZMXaxGOE?usp=sharing) |<br> 
+                     └──────`tengine-fp32`: | [Baidu Drive](https://pan.baidu.com/s/123r630O8Fco7X59wFU1crA) | [Google Drive](https://drive.google.com/drive/folders/1VWmI2BC9MjH7BsrOz4VlSDVnZMXaxGOE?usp=sharing) |<br> 
                      
  - [ ] `YOLOv5—Litec.pt`: [Baidu Drive](https://pan.baidu.com/s/1jSxC7LFKKHToQyg99IlMsw) | [Google Drive](https://drive.google.com/file/d/1BboMouu2-d1zeNa5dOC3jtwK5YxKyAlm/view?usp=sharing) |<br> 
-                          └──────`openvino-fp16`: | [Baidu Drive](https://pan.baidu.com/s/1U7X63893qOml8QQVyKFbPQ) | [Google Drive](https://drive.google.com/drive/folders/1s4KPSC4B0shG0INmQ6kZuPLnlUKAATyv?usp=sharing) |<br> 
+                          └──────`openvino-fp16`: | [Baidu Drive](https://pan.baidu.com/s/18p8HAyGJdmo2hham250b4A) | [Google Drive](https://drive.google.com/drive/folders/1s4KPSC4B0shG0INmQ6kZuPLnlUKAATyv?usp=sharing) |<br> 
  - [ ] `YOLOv5—Liteg.pt`: | [Baidu Drive](https://pan.baidu.com/s/1iHD121BlD286ZS6Rca3jSA) | [Google Drive](https://drive.google.com/file/d/1HKiiaWl7m8cbdXBveqEJvdDu_aoIM1-z/view?usp=sharing) |<br> 
 
 baidu download：
