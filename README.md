@@ -65,7 +65,9 @@ v5Lite-g-int8.engine|8.5m|Repvgg|v5Liteg-head|Tensorrt|x86-gpu / arm-gpu / arm-n
 v5lite-g-int8.tmfile|8.7m|Repvgg|v5Liteg-head|Tengine| arm-npu
 
  - [ ] yolov5x.pt: | Baidu Drive(pw:6666). | Google Drive |
+ 
             ├──
+            
  - [ ] yolov5l.pt: | Baidu Drive(pw:6666). | Google Drive |
  - [ ] yolov5m.pt: | Baidu Drive(pw:6666). | Google Drive |
  - [ ] yolov5s.pt: | Baidu Drive(pw:6666). | Google Drive |
