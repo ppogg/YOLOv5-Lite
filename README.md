@@ -64,6 +64,12 @@ Model|Size|Backbone|Head|Framework|Design for
 v5Lite-g-int8.engine|8.5m|Repvgg|v5Liteg-head|Tensorrt|x86-gpu / arm-gpu / arm-npu
 v5lite-g-int8.tmfile|8.7m|Repvgg|v5Liteg-head|Tengine| arm-npu
 
+ - [ ] yolov5x.pt: | Baidu Drive(pw:6666). | Google Drive |
+yolov5l.pt: | Baidu Drive(pw:6666). | Google Drive |
+yolov5m.pt: | Baidu Drive(pw:6666). | Google Drive |
+yolov5s.pt: | Baidu Drive(pw:6666). | Google Drive |
+YOLOv5_DOTAv1.5_OBB.pt: | Baidu Drive(pw:6666). | Google Drive |
+
 baidu download：
 
 link：[https://pan.baidu.com/s/1EyIcipMxX1TYmvEcSZ-Vzw](https://pan.baidu.com/s/1EyIcipMxX1TYmvEcSZ-Vzw)       
