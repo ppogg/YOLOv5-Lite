@@ -65,16 +65,16 @@ v5Lite-g-int8.engine|8.5m|Repvgg|v5Liteg-head|Tensorrt|x86-gpu / arm-gpu / arm-n
 v5lite-g-int8.tmfile|8.7m|Repvgg|v5Liteg-head|Tengine| arm-npu
 
 #### Download Link：
- - [ ] `yolov5x.pt`: | Baidu Drive(pw:6666). | Google Drive |<br> 
-                     |──────
-                     |──────
+ - [ ] `YOLOv5—Lites.pt`: | Baidu Drive(pw:6666). | Google Drive |<br> 
+                     |──────<br> 
+                     |──────<br> 
                      
- - [ ] `yolov5l.pt`: | Baidu Drive(pw:6666). | Google Drive |<br> 
-                     |──────
-                     |──────
- - [ ] `yolov5m.pt`: | Baidu Drive(pw:6666). | Google Drive |<br> 
-                     |──────
-                     |──────
+ - [ ] `YOLOv5—Litec.pt`: | Baidu Drive(pw:6666). | Google Drive |<br> 
+                     |──────<br> 
+                     |──────<br> 
+ - [ ] `YOLOv5—Liteg.pt`: | Baidu Drive(pw:6666). | Google Drive |<br> 
+                     |──────<br> 
+                     |──────<br> 
 
 baidu download：
 
