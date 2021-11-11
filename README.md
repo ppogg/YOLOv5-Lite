@@ -43,7 +43,7 @@ Raspberrypi 4B|@ARM Cortex-A72|Linux(arm64)|320×320|mnn|76ms|-|-|356ms
 
 Model|Size|Backbone|Head|Framework|Design for
 :---:|:---:|:---:|:---:|:---:|:---
-[v5Lite-s.pt](https://drive.google.com/file/d/1zkKrJsfUx9WVKuFpPQgDemzf2geAHEx-/view?usp=sharing)|3.3m|shufflenetv2（Megvii）|v5Lites-head|Pytorch|Arm-cpu
+v5Lite-s.pt|3.3m|shufflenetv2（Megvii）|v5Lites-head|Pytorch|Arm-cpu
 v5Lite-s.bin<br />v5Lite-s.param|3.3m|shufflenetv2|v5Lites-head|ncnn|Arm-cpu
 v5Lite-s-int8.bin<br />v5Lite-s-int8.param|1.7m|shufflenetv2|v5Lites-head|ncnn|Arm-cpu
 v5Lite-s.mnn|3.3m|shufflenetv2|v5Lites-head|mnn|Arm-cpu
@@ -53,14 +53,14 @@ v5Lite-s-int4.mnn|987k|shufflenetv2|v5Lites-head|mnn|Arm-cpu
 
 Model|Size|Backbone|Head|Framework|Design for
 :---:|:---:|:---:|:---:|:---:|:---:
-[v5Lite-c.pt](https://drive.google.com/file/d/1H-GrrxKV0pN3Y9pH1-BNNO2_dpBjhd2R/view?usp=sharing)|9m|PPLcnet（Baidu）|v5Litec-head|Pytorch|x86-cpu / x86-vpu
+v5Lite-c.pt|9m|PPLcnet（Baidu）|v5Litec-head|Pytorch|x86-cpu / x86-vpu
 v5Lite-c.bin<br />v5Lite-c.xml|8.7m|PPLcnet|v5Litec-head|openvivo|x86-cpu / x86-vpu
 
 #### @YOLOv5-Liteg:
 
 Model|Size|Backbone|Head|Framework|Design for
 :---:|:---:|:---:|:---:|:---:|:---:
-[v5Lite-g.pt](https://drive.google.com/file/d/1y6R1W9NtqvJgVeUp5VMmiFGn3sOFN2C1/view?usp=sharing)|10.9m|Repvgg（Tsinghua）|v5Liteg-head|Pytorch|x86-gpu / arm-gpu / arm-npu
+v5Lite-g.pt|10.9m|Repvgg（Tsinghua）|v5Liteg-head|Pytorch|x86-gpu / arm-gpu / arm-npu
 v5Lite-g-int8.engine|8.5m|Repvgg|v5Liteg-head|Tensorrt|x86-gpu / arm-gpu / arm-npu
 v5lite-g-int8.tmfile|8.7m|Repvgg|v5Liteg-head|Tengine| arm-npu
 
@@ -76,10 +76,7 @@ v5lite-g-int8.tmfile|8.7m|Repvgg|v5Liteg-head|Tengine| arm-npu
                           └──────`openvino-fp16`: | [Baidu Drive](https://pan.baidu.com/s/18p8HAyGJdmo2hham250b4A) | [Google Drive](https://drive.google.com/drive/folders/1s4KPSC4B0shG0INmQ6kZuPLnlUKAATyv?usp=sharing) |<br> 
  - [ ] `YOLOv5—Liteg.pt`: | [Baidu Drive](https://pan.baidu.com/s/1iHD121BlD286ZS6Rca3jSA) | [Google Drive](https://drive.google.com/file/d/1HKiiaWl7m8cbdXBveqEJvdDu_aoIM1-z/view?usp=sharing) |<br> 
 
-baidu download：
-
-link：[https://pan.baidu.com/s/1EyIcipMxX1TYmvEcSZ-Vzw](https://pan.baidu.com/s/1EyIcipMxX1TYmvEcSZ-Vzw)       
-key：k7b5
+Baidu Drive Password: `pogg`
 
 ## <div>How to use</div>
 
