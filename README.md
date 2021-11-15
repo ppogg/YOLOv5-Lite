@@ -32,8 +32,6 @@ Raspberrypi 4B|@ARM Cortex-A72|Linux(arm64)|320×320|mnn|76ms|-|-|356ms
 * The above is a 4-thread test benchmark
 * Raspberrypi 4B enable bf16s optimization，[Raspberrypi 64 Bit OS](http://downloads.raspberrypi.org/raspios_arm64/images/raspios_arm64-2020-08-24/)
 
-<img src="https://user-images.githubusercontent.com/82716366/140846336-0372012c-f70e-4787-a08b-236b3e7ae05c.jpg" width="300"/><br/>
-
 ###  qq交流群：993965802
 
 
