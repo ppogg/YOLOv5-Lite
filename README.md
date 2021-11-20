@@ -46,6 +46,11 @@ v5Lite-s.bin<br />v5Lite-s.param|3.3m|shufflenetv2|v5Lites-head|ncnn|Arm-cpu
 v5Lite-s-int8.bin<br />v5Lite-s-int8.param|1.7m|shufflenetv2|v5Lites-head|ncnn|Arm-cpu
 v5Lite-s.mnn|3.3m|shufflenetv2|v5Lites-head|mnn|Arm-cpu
 v5Lite-s-int4.mnn|987k|shufflenetv2|v5Lites-head|mnn|Arm-cpu
+v5Lite-s-fp16.bin<br />v5Lite-s-fp16.xml|3.4m|shufflenetv2|v5Lites-head|openvivo|x86-cpu
+v5Lite-s-fp32.bin<br />v5Lite-s-fp32.xml|6.8m|shufflenetv2|v5Lites-head|openvivo|x86-cpu
+v5Lite-s-fp16.tflite|3.3m|shufflenetv2|v5Lites-head|tflite|arm-cpu
+v5Lite-s-fp32.tflite|6.7m|shufflenetv2|v5Lites-head|tflite|arm-cpu
+v5Lite-s-int8.tflite|1.8m|shufflenetv2|v5Lites-head|tflite|arm-cpu
 
 #### @YOLOv5-Litec:
 
@@ -75,6 +80,10 @@ v5lite-g-int8.tmfile|8.7m|Repvgg|v5Liteg-head|Tengine| arm-npu
 >> - [ ] `YOLOv5—Liteg.pt`: | [Baidu Drive](https://pan.baidu.com/s/1iHD121BlD286ZS6Rca3jSA) | [Google Drive](https://drive.google.com/file/d/1HKiiaWl7m8cbdXBveqEJvdDu_aoIM1-z/view?usp=sharing) |<br> 
 
 Baidu Drive Password: `pogg`
+
+#### v5lite-s model: TFLite Float32, Float16, INT8, Dynamic range quantization, ONNX, TFJS, TensorRT, OpenVINO IR FP32/FP16, Myriad Inference Engin Blob, CoreML
+[https://github.com/PINTO0309/PINTO_model_zoo/tree/main/180_YOLOv5-Lite](https://github.com/PINTO0309/PINTO_model_zoo/tree/main/180_YOLOv5-Lite)
+Thanks for PINTO0309:[https://github.com/PINTO0309/PINTO_model_zoo/tree/main/180_YOLOv5-Lite](https://github.com/PINTO0309/PINTO_model_zoo/tree/main/180_YOLOv5-Lite)
 
 ## <div>How to use</div>
 
