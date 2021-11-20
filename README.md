@@ -83,7 +83,8 @@ Baidu Drive Password: `pogg`
 
 #### v5lite-s model: TFLite Float32, Float16, INT8, Dynamic range quantization, ONNX, TFJS, TensorRT, OpenVINO IR FP32/FP16, Myriad Inference Engin Blob, CoreML
 [https://github.com/PINTO0309/PINTO_model_zoo/tree/main/180_YOLOv5-Lite](https://github.com/PINTO0309/PINTO_model_zoo/tree/main/180_YOLOv5-Lite)
-Thanks for PINTO0309:[https://github.com/PINTO0309/PINTO_model_zoo/tree/main/180_YOLOv5-Lite](https://github.com/PINTO0309/PINTO_model_zoo/tree/main/180_YOLOv5-Lite)
+
+#### Thanks for PINTO0309:[https://github.com/PINTO0309/PINTO_model_zoo/tree/main/180_YOLOv5-Lite](https://github.com/PINTO0309/PINTO_model_zoo/tree/main/180_YOLOv5-Lite)
 
 ## <div>How to use</div>
 
