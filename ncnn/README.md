@@ -1,8 +1,8 @@
 ## model_zoo
 
-v5lite-s.bin: [https://drive.google.com/file/d/1-cR_brkimJK1HgIcPwTIPZ1KSZRDA3am/view?usp=sharing](https://drive.google.com/file/d/1-cR_brkimJK1HgIcPwTIPZ1KSZRDA3am/view?usp=sharing)
+v5lite-s.bin: [ncnn-fp16](https://drive.google.com/drive/folders/1w4mThJmqjhT1deIXMQAQ5xjWI3JNyzUl)
 
-v5lite-s-int8.bin: [https://drive.google.com/file/d/1U4Vt6Oqa7ER0CahaMIdHcn0eagv1iOcw/view?usp=sharing](https://drive.google.com/file/d/1U4Vt6Oqa7ER0CahaMIdHcn0eagv1iOcw/view?usp=sharing)
+v5lite-s-int8.bin: [ncnn-int8](https://drive.google.com/drive/folders/1YNtNVWlRqN8Dwc_9AtRkN0LFkDeJ92gN)
 
 ## Detection effect
 
