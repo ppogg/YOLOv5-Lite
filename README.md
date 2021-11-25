@@ -34,7 +34,6 @@ Raspberrypi 4B|@ARM Cortex-A72|Linux(arm64)|320×320|mnn|76ms|-|-|356ms
 
 ###  qq交流群：993965802
 
-
 ##  ·Model Zoo· 
 
 #### @YOLOv5-Lites:
