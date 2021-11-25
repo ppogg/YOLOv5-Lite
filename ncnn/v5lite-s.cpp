@@ -25,6 +25,15 @@
 #include <float.h>
 #include <stdio.h>
 #include <vector>
+#include <sys/time.h>
+
+// 0 : FP16
+// 1 : INT8
+#define USE_INT8 0
+
+// 0 : Image
+// 1 : Camera
+#define USE_CAMERA 0
 
 struct Object
 {
@@ -216,15 +225,23 @@ static int detect_yolov5(const cv::Mat& bgr, std::vector<Object>& objects)
 {
     ncnn::Net yolov5;
 
-    yolov5.opt.use_vulkan_compute = true;
-    // yolov5.opt.use_bf16_storage = true;
+#if USE_INT8
     yolov5.opt.use_int8_inference=true;
-
+#else
+    yolov5.opt.use_vulkan_compute = true;
+    yolov5.opt.use_bf16_storage = true;
+#endif
 
     // original pretrained model from https://github.com/ultralytics/yolov5
     // the ncnn model https://github.com/nihui/ncnn-assets/tree/master/models
+
+#if USE_INT8
     yolov5.load_param("yolov5-lite-int8.param");
     yolov5.load_model("yolov5-lite-int8.bin");
+#else
+    yolov5.load_param("yolov5-lite.param");
+    yolov5.load_model("yolov5-lite.bin");
+#endif
 
     const int target_size = 640;
     const float prob_threshold = 0.55f;
@@ -289,7 +306,11 @@ static int detect_yolov5(const cv::Mat& bgr, std::vector<Object>& objects)
     // stride 16
     {
         ncnn::Mat out;
+#if USE_INT8
+        ex.extract("917", out);
+#else
         ex.extract("671", out);
+#endif
 
         ncnn::Mat anchors(6);
         anchors[0] = 30.f;
@@ -307,7 +328,11 @@ static int detect_yolov5(const cv::Mat& bgr, std::vector<Object>& objects)
     // stride 32
     {
         ncnn::Mat out;
+#if USE_INT8
+        ex.extract("937", out);
+#else
         ex.extract("691", out);
+#endif
 
         ncnn::Mat anchors(6);
         anchors[0] = 116.f;
@@ -402,31 +427,35 @@ static void draw_objects(const cv::Mat& bgr, const std::vector<Object>& objects)
         cv::putText(image, text, cv::Point(x, y + label_size.height),
                     cv::FONT_HERSHEY_SIMPLEX, 0.5, cv::Scalar(0, 0, 0));
     }
-
-    cv::imwrite("image.jpg", image);
+#if USE_CAMERA
+    imshow("外接摄像头", image);
+    cv::waitKey(1);
+#else
+    cv::imwrite("result.jpg", image);
+#endif
 }
 
-// int main(int argc, char** argv)
-// {
-//     cv::VideoCapture capture;
-//     capture.open(0);  //修改这个参数可以选择打开想要用的摄像头
+#if USE_CAMERA
+int main(int argc, char** argv)
+{
+    cv::VideoCapture capture;
+    capture.open(0);  //修改这个参数可以选择打开想要用的摄像头
 
-//     cv::Mat frame;
-//     while (true)
-//     {
-//         capture >> frame;
-//         cv::Mat m = frame;
+    cv::Mat frame;
+    while (true)
+    {
+        capture >> frame;
+        cv::Mat m = frame;
 
-//         std::vector<Object> objects;
-//         detect_yolov5(frame, objects);
-    
-//         // imshow("外接摄像头", m);	//remember, imshow() needs a window name for its first parameter
-//         draw_objects(m, objects);
-    
-//         if (cv::waitKey(30) >= 0)
-//             break;
-//     }
-// }
+        std::vector<Object> objects;
+        detect_yolov5(frame, objects);
+
+        draw_objects(m, objects);
+        if (cv::waitKey(30) >= 0)
+            break;
+    }
+}
+#else
 int main(int argc, char** argv)
 {
     if (argc != 2)
@@ -436,6 +465,10 @@ int main(int argc, char** argv)
     }
 
     const char* imagepath = argv[1];
+
+    struct timespec begin, end;
+    long time;
+    clock_gettime(CLOCK_MONOTONIC, &begin);
 
     cv::Mat m = cv::imread(imagepath, 1);
     if (m.empty())
@@ -447,7 +480,12 @@ int main(int argc, char** argv)
     std::vector<Object> objects;
     detect_yolov5(m, objects);
 
+    clock_gettime(CLOCK_MONOTONIC, &end);
+    time = (end.tv_sec - begin.tv_sec) + (end.tv_nsec - begin.tv_nsec);
+    printf(">> Time : %lf ms\n", (double)time/1000000);
+
     draw_objects(m, objects);
 
     return 0;
 }
+#endif
