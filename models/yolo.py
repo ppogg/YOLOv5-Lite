@@ -174,7 +174,7 @@ class Model(nn.Module):
     #     self.info()
     #     return self
 
-# --------------------------repvgg refuse---------------------------------
+# --------------------------repvgg & shuffle refuse---------------------------------
 
     def fuse(self):  # fuse model Conv2d() + BatchNorm2d() layers
         print('Fusing layers... ')
@@ -185,11 +185,11 @@ class Model(nn.Module):
                     # print(m)
                     kernel, bias = m.get_equivalent_kernel_bias()
                     rbr_reparam = nn.Conv2d(in_channels=m.rbr_dense.conv.in_channels,
-                                                 out_channels=m.rbr_dense.conv.out_channels,
-                                                 kernel_size=m.rbr_dense.conv.kernel_size,
-                                                 stride=m.rbr_dense.conv.stride,
-                                                 padding=m.rbr_dense.conv.padding, dilation=m.rbr_dense.conv.dilation,
-                                                 groups=m.rbr_dense.conv.groups, bias=True)
+                                            out_channels=m.rbr_dense.conv.out_channels,
+                                            kernel_size=m.rbr_dense.conv.kernel_size,
+                                            stride=m.rbr_dense.conv.stride,
+                                            padding=m.rbr_dense.conv.padding, dilation=m.rbr_dense.conv.dilation,
+                                            groups=m.rbr_dense.conv.groups, bias=True)
                     rbr_reparam.weight.data = kernel
                     rbr_reparam.bias.data = bias
                     for para in self.parameters():
@@ -209,15 +209,53 @@ class Model(nn.Module):
                 # print(m)
                 m.conv = fuse_conv_and_bn(m.conv, m.bn)  # update conv
                 delattr(m, 'bn')  # remove batchnorm
-                m.forward = m.fuseforward  # update forward
-            if type(m) is CBH and hasattr(m, 'bn'):
+                m.forward = m.forward_fuse  # update forward
+
+            if isinstance(m, (Conv, DWConv)) and hasattr(m, 'bn'):
                 m.conv = fuse_conv_and_bn(m.conv, m.bn)  # update conv
                 delattr(m, 'bn')  # remove batchnorm
-                m.forward = m.fuseforward  # update forward
+                m.forward = m.forward_fuse  # update forward
+
+            if type(m) is Shuffle_Block:
+                if hasattr(m, 'branch1'):
+                    re_branch1 = nn.Sequential(
+                        nn.Conv2d(m.branch1[0].in_channels, m.branch1[0].out_channels,
+                                  kernel_size=m.branch1[0].kernel_size, stride=m.branch1[0].stride,
+                                  padding=m.branch1[0].padding, groups=m.branch1[0].groups),
+                        nn.Conv2d(m.branch1[2].in_channels, m.branch1[2].out_channels,
+                                  kernel_size=m.branch1[2].kernel_size, stride=m.branch1[2].stride,
+                                  padding=m.branch1[2].padding, bias=False),
+                        nn.ReLU(inplace=True),
+                    )
+                    re_branch1[0] = fuse_conv_and_bn(m.branch1[0], m.branch1[1])
+                    re_branch1[1] = fuse_conv_and_bn(m.branch1[2], m.branch1[3])
+                    # pdb.set_trace()
+                    # print(m.branch1[0])
+                    m.branch1 = re_branch1
+                if hasattr(m, 'branch2'):
+                    re_branch2 = nn.Sequential(
+                        nn.Conv2d(m.branch2[0].in_channels, m.branch2[0].out_channels,
+                                  kernel_size=m.branch2[0].kernel_size, stride=m.branch2[0].stride,
+                                  padding=m.branch2[0].padding, groups=m.branch2[0].groups),
+                        nn.ReLU(inplace=True),
+                        nn.Conv2d(m.branch2[3].in_channels, m.branch2[3].out_channels,
+                                  kernel_size=m.branch2[3].kernel_size, stride=m.branch2[3].stride,
+                                  padding=m.branch2[3].padding, bias=False),
+                        nn.Conv2d(m.branch2[5].in_channels, m.branch2[5].out_channels,
+                                  kernel_size=m.branch2[5].kernel_size, stride=m.branch2[5].stride,
+                                  padding=m.branch2[5].padding, groups=m.branch2[5].groups),
+                        nn.ReLU(inplace=True),
+                    )
+                    re_branch2[0] = fuse_conv_and_bn(m.branch2[0], m.branch2[1])
+                    re_branch2[2] = fuse_conv_and_bn(m.branch2[3], m.branch2[4])
+                    re_branch2[3] = fuse_conv_and_bn(m.branch2[5], m.branch2[6])
+                    # pdb.set_trace()
+                    m.branch2 = re_branch2
+                    # print(m.branch2)
         self.info()
         return self
 
-# --------------------------end repvgg refuse--------------------------------
+# --------------------------end repvgg & shuffle refuse--------------------------------
 
     def nms(self, mode=True):  # add or remove NMS module
         present = type(self.model[-1]) is NMS  # last layer is NMS
