@@ -211,10 +211,10 @@ class Model(nn.Module):
                 delattr(m, 'bn')  # remove batchnorm
                 m.forward = m.forward_fuse  # update forward
 
-            if isinstance(m, (Conv, DWConv)) and hasattr(m, 'bn'):
+            if type(m) is CBH and hasattr(m, 'bn'):
                 m.conv = fuse_conv_and_bn(m.conv, m.bn)  # update conv
                 delattr(m, 'bn')  # remove batchnorm
-                m.forward = m.forward_fuse  # update forward
+                m.forward = m.fuseforward  # update forward
 
             if type(m) is Shuffle_Block:
                 if hasattr(m, 'branch1'):
