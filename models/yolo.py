@@ -209,7 +209,7 @@ class Model(nn.Module):
                 # print(m)
                 m.conv = fuse_conv_and_bn(m.conv, m.bn)  # update conv
                 delattr(m, 'bn')  # remove batchnorm
-                m.forward = m.forward_fuse  # update forward
+                m.forward = m.forwardfuse  # update forward
 
             if type(m) is CBH and hasattr(m, 'bn'):
                 m.conv = fuse_conv_and_bn(m.conv, m.bn)  # update conv
