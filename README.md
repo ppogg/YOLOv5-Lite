@@ -177,7 +177,7 @@ val: ../coco/images/val2017/
 
 Here, the original components of YOLOv5 and the reproduced components of YOLOv5-Lite are organized and stored in the [model hub](https://github.com/ppogg/YOLOv5-Lite/tree/master/models/hub)：
 
-  ![image](https://user-images.githubusercontent.com/82716366/135563400-2b6082c5-d0c2-49b8-9235-748950df30b8.png)
+  ![modelhub](https://user-images.githubusercontent.com/82716366/146787562-e2c1c4c1-726e-4efc-9eae-d92f34333e8d.jpg)
 
   Updating ...
 
