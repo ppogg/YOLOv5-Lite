@@ -970,3 +970,120 @@ class Dense(nn.Module):
         # x = self.fc(x)
         # x = x.reshape(b, self.c2, w, h)
         return x
+
+    
+# build enhance shuffle block
+# -------------------------------------------------------------------------
+
+class GhostConv(nn.Module):
+    # Ghost Convolution https://github.com/huawei-noah/ghostnet
+    def __init__(self, c1, c2, k=3, s=1, g=1, act=True):  # ch_in, ch_out, kernel, stride, groups
+        super().__init__()
+        c_ = c2 // 2  # hidden channels
+        self.cv1 = Conv(c1, c_, 1, s, None, g, act)
+        self.cv2 = Conv(c_, c_, k, s, None, c_, act)
+
+    def forward(self, x):
+        y = self.cv1(x)
+        return torch.cat((y, self.cv2(y)), dim=1)
+
+class ES_SEModule(nn.Module):
+    def __init__(self, channel, reduction=4):
+        super().__init__()
+        self.avg_pool = nn.AdaptiveAvgPool2d(1)
+        self.conv1 = nn.Conv2d(
+            in_channels=channel,
+            out_channels=channel // reduction,
+            kernel_size=1,
+            stride=1,
+            padding=0)
+        self.relu = nn.ReLU()
+        self.conv2 = nn.Conv2d(
+            in_channels=channel // reduction,
+            out_channels=channel,
+            kernel_size=1,
+            stride=1,
+            padding=0)
+        self.hardsigmoid = nn.Hardsigmoid()
+
+    def forward(self, x):
+        identity = x
+        x = self.avg_pool(x)
+        x = self.conv1(x)
+        x = self.relu(x)
+        x = self.conv2(x)
+        x = self.hardsigmoid(x)
+        out = identity * x
+        return out
+
+class ES_Bottleneck(nn.Module):
+    def __init__(self, inp, oup, stride):
+        super(ES_Bottleneck, self).__init__()
+
+        if not (1 <= stride <= 3):
+            raise ValueError('illegal stride value')
+        self.stride = stride
+
+        branch_features = oup // 2
+        # assert (self.stride != 1) or (inp == branch_features << 1)
+
+        if self.stride > 1:
+            self.branch1 = nn.Sequential(
+                self.depthwise_conv(inp, inp, kernel_size=3, stride=self.stride, padding=1),
+                nn.BatchNorm2d(inp),
+                nn.Conv2d(inp, branch_features, kernel_size=1, stride=1, padding=0, bias=False),
+                nn.BatchNorm2d(branch_features),
+                nn.Hardswish(inplace=True),
+            )
+
+        self.branch2 = nn.Sequential(
+            nn.Conv2d(inp if (self.stride > 1) else branch_features,
+                      branch_features, kernel_size=1, stride=1, padding=0, bias=False),
+            nn.BatchNorm2d(branch_features),
+            nn.Hardswish(inplace=True),
+            self.depthwise_conv(branch_features, branch_features, kernel_size=3, stride=self.stride, padding=1),
+            nn.BatchNorm2d(branch_features),
+            ES_SEModule(branch_features),
+            nn.Conv2d(branch_features, branch_features, kernel_size=1, stride=1, padding=0, bias=False),
+            nn.BatchNorm2d(branch_features),
+            nn.Hardswish(inplace=True),
+        )
+
+        self.branch3 = nn.Sequential(
+            GhostConv(branch_features, branch_features, 3, 1),
+            ES_SEModule(branch_features),
+            nn.Conv2d(branch_features, branch_features, kernel_size=1, stride=1, padding=0, bias=False),
+            nn.BatchNorm2d(branch_features),
+            nn.Hardswish(inplace=True),
+        )
+
+        self.branch4 = nn.Sequential(
+            self.depthwise_conv(oup, oup, kernel_size=3, stride=1, padding=1),
+            nn.BatchNorm2d(oup),
+            nn.Conv2d(oup, oup, kernel_size=1, stride=1, padding=0, bias=False),
+            nn.BatchNorm2d(oup),
+            nn.Hardswish(inplace=True),
+        )
+
+
+    @staticmethod
+    def depthwise_conv(i, o, kernel_size=3, stride=1, padding=0, bias=False):
+        return nn.Conv2d(i, o, kernel_size, stride, padding, bias=bias, groups=i)
+
+    @staticmethod
+    def conv1x1(i, o, kernel_size=1, stride=1, padding=0, bias=False):
+        return nn.Conv2d(i, o, kernel_size, stride, padding, bias=bias)
+
+    def forward(self, x):
+        if self.stride == 1:
+            x1, x2 = x.chunk(2, dim=1)
+            x3 = torch.cat((x1, self.branch3(x2)), dim=1)
+            out = channel_shuffle(x3, 2)
+        elif self.stride == 2:
+            x1 = torch.cat((self.branch1(x), self.branch2(x)), dim=1)
+            out = self.branch4(x1)
+
+        return out
+
+# enhance shuffle block end
+# -------------------------------------------------------------------------
