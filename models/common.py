@@ -520,9 +520,10 @@ class Shuffle_Block(nn.Module):
 class DWConvblock(nn.Module):
     "Depthwise conv + Pointwise conv"
 
-    def __init__(self, in_channels, out_channels):
+    def __init__(self, in_channels, out_channels, k, s):
         super(DWConvblock, self).__init__()
-        self.conv1 = nn.Conv2d(in_channels, in_channels, kernel_size=5, stride=1, padding=2, groups=in_channels,
+        self.p = k // 2
+        self.conv1 = nn.Conv2d(in_channels, in_channels, kernel_size=k, stride=s, padding=self.p, groups=in_channels,
                                bias=False)
         self.bn1 = nn.BatchNorm2d(in_channels)
         self.conv2 = nn.Conv2d(in_channels, out_channels, kernel_size=1, stride=1, padding=0, bias=False)
@@ -536,7 +537,6 @@ class DWConvblock(nn.Module):
         x = self.bn2(x)
         x = F.relu(x)
         return x
-
 
 # DWConvblock end
 # -------------------------------------------------------------------------
