@@ -668,14 +668,14 @@ class Light_C3(nn.Module):
 
 
 class ADD(nn.Module):
-    # Concatenate a list of tensors along dimension
+    # Stortcut a list of tensors along dimension
     def __init__(self, alpha=0.5):
         super(ADD, self).__init__()
         self.a = alpha
 
     def forward(self, x):
-        return torch.add(x, self.a)
-
+        x1, x2 = x[0], x[1]
+        return torch.add(x1, x2, self.a)
 
 # build repvgg block
 # -----------------------------

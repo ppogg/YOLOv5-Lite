@@ -298,7 +298,7 @@ def parse_model(d, ch):  # model_dict, input_channels(3)
 
         n = max(round(n * gd), 1) if n > 1 else n  # depth gain
         if m in [Conv, GhostConv, Bottleneck, GhostBottleneck, SPP, SPPF, MixConv2d, Focus, CrossConv, BottleneckCSP,
-                 C3, C3TR, Shuffle_Block, conv_bn_relu_maxpool, DWConvblock, MBConvBlock, Light_C3, ADD,
+                 C3, C3TR, Shuffle_Block, conv_bn_relu_maxpool, DWConvblock, MBConvBlock, Light_C3, 
                  RepVGGBlock, SEBlock, mobilev3_bneck, Hswish, SELayer, stem, CBH, LC_Block, Dense,
                 GhostConv, ES_Bottleneck, ES_SEModule]:
             c1, c2 = ch[f], args[0]
@@ -313,6 +313,8 @@ def parse_model(d, ch):  # model_dict, input_channels(3)
             args = [ch[f]]
         elif m is Concat:
             c2 = sum([ch[x] for x in f])
+        elif m is ADD:
+            c2 = sum([ch[x] for x in f])//2
         elif m is Detect:
             args.append([ch[x] for x in f])
             if isinstance(args[1], int):  # number of anchors
