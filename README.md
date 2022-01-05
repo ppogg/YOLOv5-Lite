@@ -20,6 +20,7 @@ Perform a series of ablation experiments on yolov5 to make it lighter (smaller F
 010| YOLOv5-Lite<sub>g</sub><sup>ours</sup>| 640×640|15.7G |5.3M|10.9| 56.9|38.1| 
 
 * update on 2021-09-21
+
 Model | Input_size|Flops| Params | Size（M） |Map@0.5|Map@.5:0.95|speed
  :-----:|:-----:|:-----:|:----------:|:----:|:----:|:----:|:----:|
 YOLOv5-Lite<sub>e</sub><sup>ours</sup>|320×320|0.77G|0.84M|1.9| 35.3| -|?
@@ -213,7 +214,7 @@ Android_v5Lite-g: https://drive.google.com/file/d/1FnvkWxxP_aZwhi000xjIuhJ_OhqOU
 ## More detailed explanation
 
 Detailed model link:
-
+ 
  [1] https://zhuanlan.zhihu.com/p/400545131
  
  [2] https://zhuanlan.zhihu.com/p/410874403
@@ -229,3 +230,4 @@ https://github.com/ultralytics/yolov5
 https://github.com/megvii-model/ShuffleNet-Series
 
 https://github.com/Tencent/ncnn
+
