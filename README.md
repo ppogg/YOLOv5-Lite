@@ -19,6 +19,11 @@ Perform a series of ablation experiments on yolov5 to make it lighter (smaller F
 009| YOLOv5s| 640×640| 17.0G|7.3M|14.2| 55.8|35.9
 010| YOLOv5-Lite<sub>g</sub><sup>ours</sup>| 640×640|15.7G |5.3M|10.9| 56.9|38.1| 
 
+* update on 2021-09-21
+Model | Input_size|Flops| Params | Size（M） |Map@0.5|Map@.5:0.95|speed
+ :-----:|:-----:|:-----:|:----------:|:----:|:----:|:----:|:----:|
+YOLOv5-Lite<sub>e</sub><sup>ours</sup>|320×320|0.77G|0.84M|1.9| 35.3| -|?
+
 ## Comparison on different platforms
 
 Equipment|Computing backend|System|Input|Framework|v5Lite-s|v5Lite-c|v5Lite-g|YOLOv5s
