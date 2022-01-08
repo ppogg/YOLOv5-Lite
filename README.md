@@ -23,7 +23,7 @@ Perform a series of ablation experiments on yolov5 to make it lighter (smaller F
 
 Model | Input_size|Flops| Params | Size（M） |Map@0.5|Map@.5:0.95|speed
  :-----:|:-----:|:-----:|:----------:|:----:|:----:|:----:|:----:|
-YOLOv5-Lite<sub>e</sub><sup>ours</sup>|320×320|0.77G|0.84M|1.9| 35.3| -|?
+YOLOv5-Lite<sub>e</sub><sup>ours</sup>|320×320|0.89G|0.90M|2.0| 36.1|-|?
 
 ## Comparison on different platforms
 
