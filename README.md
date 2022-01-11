@@ -67,7 +67,7 @@ v5Lite-g-int8.engine|8.5m|Repvgg|v5Liteg-head|Tensorrt|x86-gpu / arm-gpu / arm-n
 v5lite-g-int8.tmfile|8.7m|Repvgg|v5Liteg-head|Tengine| arm-npu
 
 > #### Download Link：
->> - [ ] `YOLOv5—Lites.pt`:   | [Baidu Drive](https://pan.baidu.com/s/17ZCKTOuVk-aTasOxX09vIg)  | [Google Drive](https://drive.google.com/file/d/14Mw0vsVrjvEmb55bApgs6bJXxy-Ka7wH/view?usp=sharing) |<br> 
+>> - [ ] `YOLOv5—Lites.pt`:   | [Baidu Drive](https://pan.baidu.com/s/1j0n0K1kqfv1Ouwa2QSnzCQ)  | [Google Drive](https://drive.google.com/file/d/1ccLTmGB5AkKPjDOyxF3tW7JxGWemph9f/view?usp=sharing) |<br> 
 >>>> |──────`ncnn-fp16`:   | [Baidu Drive](https://pan.baidu.com/s/1kWtwx1C0OTTxbwqJyIyXWg)  | [Google Drive](https://drive.google.com/drive/folders/1w4mThJmqjhT1deIXMQAQ5xjWI3JNyzUl?usp=sharing) |<br> 
 >>>> |──────`ncnn-int8`: | [Baidu Drive](https://pan.baidu.com/s/1QX6-oNynrW-f3i0P0Hqe4w) | [Google Drive](https://drive.google.com/drive/folders/1YNtNVWlRqN8Dwc_9AtRkN0LFkDeJ92gN?usp=sharing) |<br> 
 >>>> |──────`mnn-fp16`: | [Baidu Drive](https://pan.baidu.com/s/12lOtPTl4xujWm5BbFJh3zA) | [Google Drive](https://drive.google.com/drive/folders/1PpFoZ4b8mVs1GmMxgf0WUtXUWaGK_JZe?usp=sharing) |<br> 
@@ -76,7 +76,7 @@ v5lite-g-int8.tmfile|8.7m|Repvgg|v5Liteg-head|Tengine| arm-npu
                      
  >> - [ ] `YOLOv5—Litec.pt`: [Baidu Drive](https://pan.baidu.com/s/1jSxC7LFKKHToQyg99IlMsw) | [Google Drive](https://drive.google.com/file/d/1BboMouu2-d1zeNa5dOC3jtwK5YxKyAlm/view?usp=sharing) |<br> 
 >>>> └──────`openvino-fp16`: | [Baidu Drive](https://pan.baidu.com/s/18p8HAyGJdmo2hham250b4A) | [Google Drive](https://drive.google.com/drive/folders/1s4KPSC4B0shG0INmQ6kZuPLnlUKAATyv?usp=sharing) |<br> 
->> - [ ] `YOLOv5—Liteg.pt`: | [Baidu Drive](https://pan.baidu.com/s/1iHD121BlD286ZS6Rca3jSA) | [Google Drive](https://drive.google.com/file/d/1HKiiaWl7m8cbdXBveqEJvdDu_aoIM1-z/view?usp=sharing) |<br> 
+>> - [ ] `YOLOv5—Liteg.pt`: | [Baidu Drive](https://pan.baidu.com/s/14zdTiTMI_9yTBgKGbv9pQw) | [Google Drive](https://drive.google.com/file/d/1oftzqOREGqDCerf7DtD5BZp9YWELlkMe/view?usp=sharing) |<br> 
 
 Baidu Drive Password: `pogg`
 
