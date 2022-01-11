@@ -11,19 +11,13 @@ Perform a series of ablation experiments on yolov5 to make it lighter (smaller F
 001| yolo-fastest| 320×320|0.25G|0.35M|1.4| 24.4| -
 002| nanodet-m| 320×320| 0.72G|0.95M|1.8|- |20.6
 003| yolo-fastest-xl| 320×320|0.72G|0.92M|3.5| 34.3| -
-004| YOLOv5-Lite<sub>s</sub><sup>ours</sup>| 320×320|0.97G |1.54M|3.3| 36.1|20.9| 
+004| YOLOv5-Lite<sub>e</sub><sup>ours</sup>|320×320|0.88G|0.90M|1.9| 36.3|20.7|
 005| yolov3-tiny| 416×416| 6.96G|6.06M|23.0| 33.1|16.6
 006| yolov4-tiny| 416×416| 5.62G|8.86M| 33.7|40.2|21.7
-007| YOLOv5-Lite<sub>s</sub><sup>ours</sup>| 416×416|1.63G |1.54M|3.3| 41.3|24.3
-008| YOLOv5-Lite<sub>c</sub><sup>ours</sup>| 640×640|8.6G |4.37M|9.2| 52.5|33.0| 
-009| YOLOv5s| 640×640| 17.0G|7.3M|14.2| 55.8|35.9
-010| YOLOv5-Lite<sub>g</sub><sup>ours</sup>| 640×640|15.7G |5.3M|10.9| 56.9|38.1| 
-
-* update on 2021-09-21
-
-Model | Input_size|Flops| Params | Size（M） |Map@0.5|Map@.5:0.95|speed
- :-----:|:-----:|:-----:|:----------:|:----:|:----:|:----:|:----:|
-YOLOv5-Lite<sub>e</sub><sup>ours</sup>|320×320|0.88G|0.90M|1.9| 36.4|20.6|?
+007| YOLOv5-Lite<sub>s</sub><sup>ours</sup>| 416×416|1.66G |1.64M|3.4| 41.5|24.7
+008| YOLOv5-Lite<sub>c</sub><sup>ours</sup>| 512×512|5.92G |4.57M|9.2| 50.1|31.6| 
+009| YOLOv5s(6.0)| 640×640| 16.5G|7.2M|14.2| 56.0|37.2
+010| YOLOv5-Lite<sub>g</sub><sup>ours</sup>| 640×640|15.6G |5.4M|10.9| 57.6|39.1| 
 
 ## Comparison on different platforms
 
@@ -46,7 +40,7 @@ Raspberrypi 4B|@ARM Cortex-A72|Linux(arm64)|320×320|mnn|76ms|-|-|356ms
 
 Model|Size|Backbone|Head|Framework|Design for
 :---:|:---:|:---:|:---:|:---:|:---
-v5Lite-s.pt|3.3m|shufflenetv2（Megvii）|v5Lites-head|Pytorch|Arm-cpu
+v5Lite-s.pt|3.4m|shufflenetv2（Megvii）|v5Lites-head|Pytorch|Arm-cpu
 v5Lite-s.bin<br />v5Lite-s.param|3.3m|shufflenetv2|v5Lites-head|ncnn|Arm-cpu
 v5Lite-s-int8.bin<br />v5Lite-s-int8.param|1.7m|shufflenetv2|v5Lites-head|ncnn|Arm-cpu
 v5Lite-s.mnn|3.3m|shufflenetv2|v5Lites-head|mnn|Arm-cpu
