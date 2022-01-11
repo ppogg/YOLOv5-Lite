@@ -19,6 +19,8 @@ Perform a series of ablation experiments on yolov5 to make it lighter (smaller F
 009| YOLOv5s(6.0)| 640×640| 16.5G|7.2M|14.2| 56.0|37.2
 010| YOLOv5-Lite<sub>g</sub><sup>ours</sup>| 640×640|15.6G |5.4M|10.9| 57.6|39.1| 
 
+See the wiki: https://github.com/ppogg/YOLOv5-Lite/wiki/Test-the-map-of-models-about-coco
+
 ## Comparison on different platforms
 
 Equipment|Computing backend|System|Input|Framework|v5Lite-s|v5Lite-c|v5Lite-g|YOLOv5s
