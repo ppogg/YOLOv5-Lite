@@ -17,7 +17,7 @@ Perform a series of ablation experiments on yolov5 to make it lighter (smaller F
 007| YOLOv5-Lite<sub>s</sub><sup>ours</sup>| 416×416|1.66G |1.64M|3.4| 41.5|24.7
 008| YOLOv5-Lite<sub>c</sub><sup>ours</sup>| 512×512|5.92G |4.57M|9.2| 50.1|31.7| 
 009| NanoDet-EfficientLite2| 512×512| 7.12G|4.71M|18.3|- |32.6
-010| YOLOv5s(6.0)| 640×640| 16.5G|7.2M|14.2| 56.0|37.2
+010| YOLOv5s(6.0)| 640×640| 16.5G|7.2M|14.0| 56.0|37.2
 011| YOLOv5-Lite<sub>g</sub><sup>ours</sup>| 640×640|15.6G |5.4M|10.9| 57.6|39.1| 
 
 See the wiki: https://github.com/ppogg/YOLOv5-Lite/wiki/Test-the-map-of-models-about-coco
