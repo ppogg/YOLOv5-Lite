@@ -651,10 +651,10 @@ class MBConvBlock(nn.Module):
 
 # Efficient-lite end
 # -------------------------------------------------------------------------
-class Light_C3(nn.Module):
+class LC3(nn.Module):
     # CSP Bottleneck with 3 convolutions
     def __init__(self, c1, c2, n=1, shortcut=True, g=1, e=0.5):  # ch_in, ch_out, number, shortcut, groups, expansion
-        super(Light_C3, self).__init__()
+        super(LC3, self).__init__()
         # 这里使用轻量化的C3 Block模块,使用add操作替换cat
         c_ = int(c2 * e)  # hidden channels
         self.cv1 = Conv(c1, c_, 1, 1)
@@ -675,7 +675,7 @@ class ADD(nn.Module):
 
     def forward(self, x):
         x1, x2 = x[0], x[1]
-        return torch.add(x1, x2, self.a)
+        return torch.add(x1, x2, alpha=self.a)
 
 # build repvgg block
 # -----------------------------
