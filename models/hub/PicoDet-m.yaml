@@ -20,11 +20,11 @@ backbone:
 
 #  CSP-PAN
 head:
-  [ [ -1, 1, Conv, [ 384, 1, 1 ] ], # 7
+  [ [ -1, 1, Conv, [ 192, 1, 1 ] ], # 7
     [ [ -1, 6 ], 1, Concat, [ 1 ] ],  # cat backbone P4
-    [ -1, 1, BottleneckCSP, [ 384, False ] ],  # 9 (P3/8-small)
+    [ -1, 1, BottleneckCSP, [ 192, False ] ],  # 9 (P3/8-small)
 
-    [ -1, 1, Conv, [ 384, 1, 1 ] ], # 10
+    [ -1, 1, Conv, [ 192, 1, 1 ] ], # 10
     [ -1, 1, nn.Upsample, [ None, 2, 'nearest' ] ],
     [ [ -1, 4 ], 1, Concat, [ 1 ] ],  # cat backbone P4
     [ -1, 1, BottleneckCSP, [ 192, False ] ],  # 13
@@ -42,8 +42,9 @@ head:
     [ [ -1, 10 ], 1, Concat, [ 1 ] ],  # cat head P5
     [ -1, 1, BottleneckCSP, [ 192, False ] ],  # 23 (P5/32-large)
 
-    [ [ -1, 7 ], 1, ADD, [ 1 ] ],  # cat head P6
+    [ [ -1, 7 ], 1, Concat, [ 1 ] ],  # cat head P6
     [ -1, 1, DWConvblock, [ 192, 5, 2 ] ],  # 26 (P5/32-large)
 
     [ [ 17, 20, 23, 25 ], 1, Detect, [ nc, anchors ] ],  # Detect(P3, P4, P5, P6)
   ]
+
