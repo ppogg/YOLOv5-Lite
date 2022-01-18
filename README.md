@@ -208,6 +208,9 @@ Android_v5Lite-s: https://drive.google.com/file/d/1CtohY68N2B9XYuqFLiTp-Nd2kuFWg
 
 Android_v5Lite-g: https://drive.google.com/file/d/1FnvkWxxP_aZwhi000xjIuhJ_OhqOUJcj/view?usp=sharing
 
+<img src="https://user-images.githubusercontent.com/82716366/149955452-8feb7e37-50e7-461a-8a97-1df0569a9c1f.jpg
+" width="350"/><br/>
+
 ## More detailed explanation
 
 Detailed model link:
