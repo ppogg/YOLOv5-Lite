@@ -6,6 +6,8 @@ https://github.com/Tencent/ncnn
 
 https://github.com/nihui/opencv-mobile
 
+![图片1](https://user-images.githubusercontent.com/82716366/150166181-070384e7-0dd7-4a44-96c2-3a1bf5142d94.png)
+
 ## model_zoo
 
 yolov5-lite.bin: [https://drive.google.com/file/d/1pR_hFmhmI19Pev_t1i75z7btfJTY3m2f/view?usp=sharing](https://drive.google.com/file/d/1pR_hFmhmI19Pev_t1i75z7btfJTY3m2f/view?usp=sharing)
