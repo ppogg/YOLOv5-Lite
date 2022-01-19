@@ -1,0 +1,95 @@
+-- Merging decision tree log ---
+manifest
+ADDED from D:\Android-studio\ncnn-android-yolov5\app\src\main\AndroidManifest.xml:2:1-20:12
+INJECTED from D:\Android-studio\ncnn-android-yolov5\app\src\main\AndroidManifest.xml:2:1-20:12
+INJECTED from D:\Android-studio\ncnn-android-yolov5\app\src\main\AndroidManifest.xml:2:1-20:12
+INJECTED from D:\Android-studio\ncnn-android-yolov5\app\src\main\AndroidManifest.xml:2:1-20:12
+MERGED from [com.android.support:support-v4:24.2.1] C:\Users\chen\.gradle\caches\transforms-2\files-2.1\122066fc049de8b8b673c826b797ecac\support-v4-24.2.1\AndroidManifest.xml:17:1-27:12
+MERGED from [com.android.support:support-fragment:24.2.1] C:\Users\chen\.gradle\caches\transforms-2\files-2.1\379cc1ba3f1e45f17fa3f1b8d86434dd\support-fragment-24.2.1\AndroidManifest.xml:17:1-27:12
+MERGED from [com.android.support:support-media-compat:24.2.1] C:\Users\chen\.gradle\caches\transforms-2\files-2.1\942f71145560acd1cb8f5a90e6762bff\support-media-compat-24.2.1\AndroidManifest.xml:17:1-27:12
+MERGED from [com.android.support:support-core-utils:24.2.1] C:\Users\chen\.gradle\caches\transforms-2\files-2.1\434abbb32a133b42b60631bb88749070\support-core-utils-24.2.1\AndroidManifest.xml:17:1-27:12
+MERGED from [com.android.support:support-core-ui:24.2.1] C:\Users\chen\.gradle\caches\transforms-2\files-2.1\cb79a8ab3d029439e9af7f238df340b1\support-core-ui-24.2.1\AndroidManifest.xml:17:1-27:12
+MERGED from [com.android.support:support-compat:24.2.1] C:\Users\chen\.gradle\caches\transforms-2\files-2.1\be2367b46deaec4b711ecdd754f375b2\support-compat-24.2.1\AndroidManifest.xml:17:1-27:12
+INJECTED from D:\Android-studio\ncnn-android-yolov5\app\src\main\AndroidManifest.xml:2:1-20:12
+INJECTED from D:\Android-studio\ncnn-android-yolov5\app\src\main\AndroidManifest.xml:2:1-20:12
+INJECTED from D:\Android-studio\ncnn-android-yolov5\app\src\main\AndroidManifest.xml:2:1-20:12
+	package
+		ADDED from D:\Android-studio\ncnn-android-yolov5\app\src\main\AndroidManifest.xml:3:7-33
+		INJECTED from D:\Android-studio\ncnn-android-yolov5\app\src\main\AndroidManifest.xml
+		INJECTED from D:\Android-studio\ncnn-android-yolov5\app\src\main\AndroidManifest.xml
+	android:versionName
+		ADDED from D:\Android-studio\ncnn-android-yolov5\app\src\main\AndroidManifest.xml:5:7-32
+		INJECTED from D:\Android-studio\ncnn-android-yolov5\app\src\main\AndroidManifest.xml
+		INJECTED from D:\Android-studio\ncnn-android-yolov5\app\src\main\AndroidManifest.xml
+	xmlns:android
+		ADDED from D:\Android-studio\ncnn-android-yolov5\app\src\main\AndroidManifest.xml:2:11-69
+	android:versionCode
+		ADDED from D:\Android-studio\ncnn-android-yolov5\app\src\main\AndroidManifest.xml:4:7-30
+		INJECTED from D:\Android-studio\ncnn-android-yolov5\app\src\main\AndroidManifest.xml
+		INJECTED from D:\Android-studio\ncnn-android-yolov5\app\src\main\AndroidManifest.xml
+uses-permission#android.permission.CAMERA
+ADDED from D:\Android-studio\ncnn-android-yolov5\app\src\main\AndroidManifest.xml:6:5-65
+	android:name
+		ADDED from D:\Android-studio\ncnn-android-yolov5\app\src\main\AndroidManifest.xml:6:22-62
+uses-feature#android.hardware.camera2.full
+ADDED from D:\Android-studio\ncnn-android-yolov5\app\src\main\AndroidManifest.xml:7:5-66
+	android:name
+		ADDED from D:\Android-studio\ncnn-android-yolov5\app\src\main\AndroidManifest.xml:7:19-63
+application
+ADDED from D:\Android-studio\ncnn-android-yolov5\app\src\main\AndroidManifest.xml:9:5-19:19
+MERGED from [com.android.support:support-v4:24.2.1] C:\Users\chen\.gradle\caches\transforms-2\files-2.1\122066fc049de8b8b673c826b797ecac\support-v4-24.2.1\AndroidManifest.xml:25:5-20
+MERGED from [com.android.support:support-v4:24.2.1] C:\Users\chen\.gradle\caches\transforms-2\files-2.1\122066fc049de8b8b673c826b797ecac\support-v4-24.2.1\AndroidManifest.xml:25:5-20
+MERGED from [com.android.support:support-fragment:24.2.1] C:\Users\chen\.gradle\caches\transforms-2\files-2.1\379cc1ba3f1e45f17fa3f1b8d86434dd\support-fragment-24.2.1\AndroidManifest.xml:25:5-20
+MERGED from [com.android.support:support-fragment:24.2.1] C:\Users\chen\.gradle\caches\transforms-2\files-2.1\379cc1ba3f1e45f17fa3f1b8d86434dd\support-fragment-24.2.1\AndroidManifest.xml:25:5-20
+MERGED from [com.android.support:support-media-compat:24.2.1] C:\Users\chen\.gradle\caches\transforms-2\files-2.1\942f71145560acd1cb8f5a90e6762bff\support-media-compat-24.2.1\AndroidManifest.xml:25:5-20
+MERGED from [com.android.support:support-media-compat:24.2.1] C:\Users\chen\.gradle\caches\transforms-2\files-2.1\942f71145560acd1cb8f5a90e6762bff\support-media-compat-24.2.1\AndroidManifest.xml:25:5-20
+MERGED from [com.android.support:support-core-utils:24.2.1] C:\Users\chen\.gradle\caches\transforms-2\files-2.1\434abbb32a133b42b60631bb88749070\support-core-utils-24.2.1\AndroidManifest.xml:25:5-20
+MERGED from [com.android.support:support-core-utils:24.2.1] C:\Users\chen\.gradle\caches\transforms-2\files-2.1\434abbb32a133b42b60631bb88749070\support-core-utils-24.2.1\AndroidManifest.xml:25:5-20
+MERGED from [com.android.support:support-core-ui:24.2.1] C:\Users\chen\.gradle\caches\transforms-2\files-2.1\cb79a8ab3d029439e9af7f238df340b1\support-core-ui-24.2.1\AndroidManifest.xml:25:5-20
+MERGED from [com.android.support:support-core-ui:24.2.1] C:\Users\chen\.gradle\caches\transforms-2\files-2.1\cb79a8ab3d029439e9af7f238df340b1\support-core-ui-24.2.1\AndroidManifest.xml:25:5-20
+MERGED from [com.android.support:support-compat:24.2.1] C:\Users\chen\.gradle\caches\transforms-2\files-2.1\be2367b46deaec4b711ecdd754f375b2\support-compat-24.2.1\AndroidManifest.xml:25:5-20
+MERGED from [com.android.support:support-compat:24.2.1] C:\Users\chen\.gradle\caches\transforms-2\files-2.1\be2367b46deaec4b711ecdd754f375b2\support-compat-24.2.1\AndroidManifest.xml:25:5-20
+	android:label
+		ADDED from D:\Android-studio\ncnn-android-yolov5\app\src\main\AndroidManifest.xml:9:18-50
+activity#ncnn.v5lite.demo.MainActivity
+ADDED from D:\Android-studio\ncnn-android-yolov5\app\src\main\AndroidManifest.xml:10:9-18:20
+	android:screenOrientation
+		ADDED from D:\Android-studio\ncnn-android-yolov5\app\src\main\AndroidManifest.xml:13:19-55
+	android:label
+		ADDED from D:\Android-studio\ncnn-android-yolov5\app\src\main\AndroidManifest.xml:11:19-51
+	android:icon
+		ADDED from D:\Android-studio\ncnn-android-yolov5\app\src\main\AndroidManifest.xml:12:19-53
+	android:name
+		ADDED from D:\Android-studio\ncnn-android-yolov5\app\src\main\AndroidManifest.xml:10:19-46
+intent-filter#action:name:android.intent.action.MAIN+category:name:android.intent.category.LAUNCHER
+ADDED from D:\Android-studio\ncnn-android-yolov5\app\src\main\AndroidManifest.xml:14:13-17:29
+action#android.intent.action.MAIN
+ADDED from D:\Android-studio\ncnn-android-yolov5\app\src\main\AndroidManifest.xml:15:17-69
+	android:name
+		ADDED from D:\Android-studio\ncnn-android-yolov5\app\src\main\AndroidManifest.xml:15:25-66
+category#android.intent.category.LAUNCHER
+ADDED from D:\Android-studio\ncnn-android-yolov5\app\src\main\AndroidManifest.xml:16:17-77
+	android:name
+		ADDED from D:\Android-studio\ncnn-android-yolov5\app\src\main\AndroidManifest.xml:16:27-74
+uses-sdk
+INJECTED from D:\Android-studio\ncnn-android-yolov5\app\src\main\AndroidManifest.xml reason: use-sdk injection requested
+INJECTED from D:\Android-studio\ncnn-android-yolov5\app\src\main\AndroidManifest.xml
+MERGED from [com.android.support:support-v4:24.2.1] C:\Users\chen\.gradle\caches\transforms-2\files-2.1\122066fc049de8b8b673c826b797ecac\support-v4-24.2.1\AndroidManifest.xml:21:5-23:54
+MERGED from [com.android.support:support-v4:24.2.1] C:\Users\chen\.gradle\caches\transforms-2\files-2.1\122066fc049de8b8b673c826b797ecac\support-v4-24.2.1\AndroidManifest.xml:21:5-23:54
+MERGED from [com.android.support:support-fragment:24.2.1] C:\Users\chen\.gradle\caches\transforms-2\files-2.1\379cc1ba3f1e45f17fa3f1b8d86434dd\support-fragment-24.2.1\AndroidManifest.xml:21:5-23:60
+MERGED from [com.android.support:support-fragment:24.2.1] C:\Users\chen\.gradle\caches\transforms-2\files-2.1\379cc1ba3f1e45f17fa3f1b8d86434dd\support-fragment-24.2.1\AndroidManifest.xml:21:5-23:60
+MERGED from [com.android.support:support-media-compat:24.2.1] C:\Users\chen\.gradle\caches\transforms-2\files-2.1\942f71145560acd1cb8f5a90e6762bff\support-media-compat-24.2.1\AndroidManifest.xml:21:5-23:63
+MERGED from [com.android.support:support-media-compat:24.2.1] C:\Users\chen\.gradle\caches\transforms-2\files-2.1\942f71145560acd1cb8f5a90e6762bff\support-media-compat-24.2.1\AndroidManifest.xml:21:5-23:63
+MERGED from [com.android.support:support-core-utils:24.2.1] C:\Users\chen\.gradle\caches\transforms-2\files-2.1\434abbb32a133b42b60631bb88749070\support-core-utils-24.2.1\AndroidManifest.xml:21:5-23:61
+MERGED from [com.android.support:support-core-utils:24.2.1] C:\Users\chen\.gradle\caches\transforms-2\files-2.1\434abbb32a133b42b60631bb88749070\support-core-utils-24.2.1\AndroidManifest.xml:21:5-23:61
+MERGED from [com.android.support:support-core-ui:24.2.1] C:\Users\chen\.gradle\caches\transforms-2\files-2.1\cb79a8ab3d029439e9af7f238df340b1\support-core-ui-24.2.1\AndroidManifest.xml:21:5-23:58
+MERGED from [com.android.support:support-core-ui:24.2.1] C:\Users\chen\.gradle\caches\transforms-2\files-2.1\cb79a8ab3d029439e9af7f238df340b1\support-core-ui-24.2.1\AndroidManifest.xml:21:5-23:58
+MERGED from [com.android.support:support-compat:24.2.1] C:\Users\chen\.gradle\caches\transforms-2\files-2.1\be2367b46deaec4b711ecdd754f375b2\support-compat-24.2.1\AndroidManifest.xml:21:5-23:58
+MERGED from [com.android.support:support-compat:24.2.1] C:\Users\chen\.gradle\caches\transforms-2\files-2.1\be2367b46deaec4b711ecdd754f375b2\support-compat-24.2.1\AndroidManifest.xml:21:5-23:58
+INJECTED from D:\Android-studio\ncnn-android-yolov5\app\src\main\AndroidManifest.xml
+	tools:overrideLibrary
+		ADDED from [com.android.support:support-v4:24.2.1] C:\Users\chen\.gradle\caches\transforms-2\files-2.1\122066fc049de8b8b673c826b797ecac\support-v4-24.2.1\AndroidManifest.xml:23:9-51
+	android:minSdkVersion
+		INJECTED from D:\Android-studio\ncnn-android-yolov5\app\src\main\AndroidManifest.xml
+		ADDED from D:\Android-studio\ncnn-android-yolov5\app\src\main\AndroidManifest.xml
+		INJECTED from D:\Android-studio\ncnn-android-yolov5\app\src\main\AndroidManifest.xml

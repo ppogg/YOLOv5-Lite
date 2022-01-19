@@ -1,0 +1,13 @@
+com.ncnn.v5lite.demo
+array cpugpu_array
+array model_array
+drawable ic_launcher_background
+id buttonSwitchCamera
+id cameraview
+id spinnerCPUGPU
+id spinnerModel
+layout main
+mipmap ic_launcher
+mipmap ic_launcher_foreground
+mipmap ic_launcher_round
+string app_name

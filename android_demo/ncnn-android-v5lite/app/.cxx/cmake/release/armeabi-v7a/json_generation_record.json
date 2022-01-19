@@ -1,0 +1,50 @@
+[
+  {
+    "level": "INFO",
+    "message": "Start JSON generation. Platform version: 24 min SDK version: armeabi-v7a"
+  },
+  {
+    "level": "INFO",
+    "message": "- CMake found from cmake.dir at \u0027D:\\Android-studio\\AndroidSDK\\cmake\\3.10.2.4988404\u0027 had version \u00273.10.2\u0027"
+  },
+  {
+    "level": "INFO",
+    "message": "rebuilding JSON D:\\Android-studio\\ncnn-android-yolov5\\app\\.cxx\\cmake\\release\\armeabi-v7a\\android_gradle_build.json due to:"
+  },
+  {
+    "level": "INFO",
+    "message": "- a dependent build file changed"
+  },
+  {
+    "level": "INFO",
+    "message": "  - D:\\Android-studio\\ncnn-android-yolov5\\app\\src\\main\\jni\\CMakeLists.txt"
+  },
+  {
+    "level": "INFO",
+    "message": "keeping json folder \u0027D:\\Android-studio\\ncnn-android-yolov5\\app\\.cxx\\cmake\\release\\armeabi-v7a\u0027 but regenerating project"
+  },
+  {
+    "level": "INFO",
+    "message": "executing cmake Executable : D:\\Android-studio\\AndroidSDK\\cmake\\3.10.2.4988404\\bin\\cmake.exe\narguments : \n-HD:\\Android-studio\\ncnn-android-yolov5\\app\\src\\main\\jni\n-BD:\\Android-studio\\ncnn-android-yolov5\\app\\.cxx\\cmake\\release\\armeabi-v7a\n-DANDROID_ABI\u003darmeabi-v7a\n-DANDROID_PLATFORM\u003dandroid-24\n-DCMAKE_LIBRARY_OUTPUT_DIRECTORY\u003dD:\\Android-studio\\ncnn-android-yolov5\\app\\build\\intermediates\\cmake\\release\\obj\\armeabi-v7a\n-DCMAKE_BUILD_TYPE\u003dRelease\n-DANDROID_NDK\u003dD:\\Android-studio\\AndroidSDK\\ndk\\21.3.6528147\n-DCMAKE_SYSTEM_NAME\u003dAndroid\n-DCMAKE_ANDROID_ARCH_ABI\u003darmeabi-v7a\n-DCMAKE_SYSTEM_VERSION\u003d24\n-DCMAKE_EXPORT_COMPILE_COMMANDS\u003dON\n-DCMAKE_ANDROID_NDK\u003dD:\\Android-studio\\AndroidSDK\\ndk\\21.3.6528147\n-DCMAKE_TOOLCHAIN_FILE\u003dD:\\Android-studio\\AndroidSDK\\ndk\\21.3.6528147\\build\\cmake\\android.toolchain.cmake\n-G Ninja\n-DCMAKE_MAKE_PROGRAM\u003dD:\\Android-studio\\AndroidSDK\\cmake\\3.10.2.4988404\\bin\\ninja.exe\njvmArgs : \n\n"
+  },
+  {
+    "level": "INFO",
+    "message": "done executing cmake"
+  },
+  {
+    "level": "INFO",
+    "message": "write build output D:\\Android-studio\\ncnn-android-yolov5\\app\\.cxx\\cmake\\release\\armeabi-v7a\\build_output.txt"
+  },
+  {
+    "level": "INFO",
+    "message": "deleted unexpected build output D:\\Android-studio\\ncnn-android-yolov5\\app\\build\\intermediates\\cmake\\release\\obj\\armeabi-v7a\\libncnnyolox.so in incremental regenerate"
+  },
+  {
+    "level": "INFO",
+    "message": "write command file D:\\Android-studio\\ncnn-android-yolov5\\app\\.cxx\\cmake\\release\\armeabi-v7a\\build_command.txt"
+  },
+  {
+    "level": "INFO",
+    "message": "JSON generation completed without problems"
+  }
+]

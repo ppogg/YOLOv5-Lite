@@ -1,0 +1,1 @@
+[{"outputType":{"type":"BUNDLE_MANIFEST"},"apkData":{"type":"MAIN","splits":[],"versionCode":1,"versionName":"1.1","enabled":true,"outputFile":"com.ncnn.v5lite.demo-release.apk","fullName":"release","baseName":"release"},"path":"AndroidManifest.xml","properties":{"packageId":"com.ncnn.v5lite.demo","split":"","minSdkVersion":"24"}}]

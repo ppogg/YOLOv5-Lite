@@ -1,0 +1,1 @@
+[{"outputType":{"type":"MERGED_MANIFESTS"},"apkData":{"type":"MAIN","splits":[],"versionCode":1,"versionName":"1.1","enabled":true,"outputFile":"com.tencent.ncnnyolox-debug.apk","fullName":"debug","baseName":"debug"},"path":"AndroidManifest.xml","properties":{"packageId":"com.tencent.ncnnyolox","split":"","minSdkVersion":"24"}}]

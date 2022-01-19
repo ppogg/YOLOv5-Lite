@@ -1,0 +1,34 @@
+{
+  "buildFiles": [
+    "D:\\Android-studio\\AndroidSDK\\ndk\\21.3.6528147\\build\\cmake\\platforms.cmake",
+    "D:\\Android-studio\\ncnn-20210525-android-vulkan\\armeabi-v7a\\lib\\cmake\\OGLCompilerTargets-release.cmake",
+    "D:\\Android-studio\\opencv-mobile-2.4.13.7-android\\sdk\\native\\jni\\OpenCVConfig.cmake",
+    "D:\\Android-studio\\ncnn-20210525-android-vulkan\\armeabi-v7a\\lib\\cmake\\SPIRVTargets.cmake",
+    "D:\\Android-studio\\ncnn-20210525-android-vulkan\\armeabi-v7a\\lib\\cmake\\SPIRVTargets-release.cmake",
+    "D:\\Android-studio\\ncnn-android-yolov5\\app\\src\\main\\jni\\CMakeLists.txt",
+    "D:\\Android-studio\\ncnn-20210525-android-vulkan\\armeabi-v7a\\lib\\cmake\\OSDependentTargets-release.cmake",
+    "D:\\Android-studio\\opencv-mobile-2.4.13.7-android\\sdk\\native\\jni\\OpenCVConfig-version.cmake",
+    "D:\\Android-studio\\ncnn-20210525-android-vulkan\\armeabi-v7a\\lib\\cmake\\OSDependentTargets.cmake",
+    "D:\\Android-studio\\ncnn-20210525-android-vulkan\\armeabi-v7a\\lib\\cmake\\glslangTargets-release.cmake",
+    "D:\\Android-studio\\AndroidSDK\\ndk\\21.3.6528147\\build\\cmake\\android.toolchain.cmake",
+    "D:\\Android-studio\\ncnn-20210525-android-vulkan\\armeabi-v7a\\lib\\cmake\\glslangTargets.cmake",
+    "D:\\Android-studio\\ncnn-20210525-android-vulkan\\armeabi-v7a\\lib\\cmake\\ncnn\\ncnnConfig.cmake",
+    "D:\\Android-studio\\ncnn-20210525-android-vulkan\\armeabi-v7a\\lib\\cmake\\ncnn\\ncnn.cmake",
+    "D:\\Android-studio\\ncnn-20210525-android-vulkan\\armeabi-v7a\\lib\\cmake\\ncnn\\ncnn-release.cmake",
+    "D:\\Android-studio\\opencv-mobile-2.4.13.7-android\\sdk\\native\\jni\\OpenCVModules_armeabi_v7a.cmake",
+    "D:\\Android-studio\\ncnn-20210525-android-vulkan\\armeabi-v7a\\lib\\cmake\\OGLCompilerTargets.cmake",
+    "D:\\Android-studio\\opencv-mobile-2.4.13.7-android\\sdk\\native\\jni\\OpenCVModules_armeabi_v7a-release.cmake"
+  ],
+  "cleanCommands": [
+    "D:\\Android-studio\\AndroidSDK\\cmake\\3.10.2.4988404\\bin\\ninja.exe -C \"D:\\Android-studio\\ncnn-android-yolov5\\app\\.cxx\\cmake\\release\\armeabi-v7a\" clean"
+  ],
+  "buildTargetsCommand": "D:\\Android-studio\\AndroidSDK\\cmake\\3.10.2.4988404\\bin\\ninja.exe -C \"D:\\Android-studio\\ncnn-android-yolov5\\app\\.cxx\\cmake\\release\\armeabi-v7a\" {LIST_OF_TARGETS_TO_BUILD}",
+  "libraries": {
+    "ncnnv5lite-Release-armeabi-v7a": {
+      "artifactName": "ncnnv5lite",
+      "buildCommand": "D:\\Android-studio\\AndroidSDK\\cmake\\3.10.2.4988404\\bin\\ninja.exe -C \"D:\\Android-studio\\ncnn-android-yolov5\\app\\.cxx\\cmake\\release\\armeabi-v7a\" ncnnv5lite",
+      "abi": "armeabi-v7a",
+      "output": "D:\\Android-studio\\ncnn-android-yolov5\\app\\build\\intermediates\\cmake\\release\\obj\\armeabi-v7a\\libncnnv5lite.so"
+    }
+  }
+}

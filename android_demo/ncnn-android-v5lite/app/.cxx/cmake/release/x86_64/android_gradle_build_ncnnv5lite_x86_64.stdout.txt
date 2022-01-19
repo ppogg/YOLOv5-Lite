@@ -1,0 +1,20 @@
+ninja: Entering directory `D:\Android-studio\ncnn-android-yolov5\app\.cxx\cmake\release\x86_64'
+[1/3] Building CXX object CMakeFiles/ncnnv5lite.dir/yolov5ncnn.cpp.o
+[2/3] Building CXX object CMakeFiles/ncnnv5lite.dir/yolov5.cpp.o
+D:/Android-studio/ncnn-android-yolov5/app/src/main/jni/yolov5.cpp:248:19: warning: result of comparison against a string literal is unspecified (use strncmp instead) [-Wstring-compare]
+    if (modeltype == "320-lite-e") {
+                  ^  ~~~~~~~~~~~~
+D:/Android-studio/ncnn-android-yolov5/app/src/main/jni/yolov5.cpp:252:26: warning: result of comparison against a string literal is unspecified (use strncmp instead) [-Wstring-compare]
+    } else if (modeltype == "416-lite-e") {
+                         ^  ~~~~~~~~~~~~
+D:/Android-studio/ncnn-android-yolov5/app/src/main/jni/yolov5.cpp:256:26: warning: result of comparison against a string literal is unspecified (use strncmp instead) [-Wstring-compare]
+    } else if (modeltype == "320-lite-s") {
+                         ^  ~~~~~~~~~~~~
+D:/Android-studio/ncnn-android-yolov5/app/src/main/jni/yolov5.cpp:260:26: warning: result of comparison against a string literal is unspecified (use strncmp instead) [-Wstring-compare]
+    } else if (modeltype == "416-lite-s") {
+                         ^  ~~~~~~~~~~~~
+D:/Android-studio/ncnn-android-yolov5/app/src/main/jni/yolov5.cpp:264:26: warning: result of comparison against a string literal is unspecified (use strncmp instead) [-Wstring-compare]
+    } else if (modeltype == "512-lite-c") {
+                         ^  ~~~~~~~~~~~~
+5 warnings generated.
+[3/3] Linking CXX shared library D:\Android-studio\ncnn-android-yolov5\app\build\intermediates\cmake\release\obj\x86_64\libncnnv5lite.so

@@ -1,0 +1,67 @@
+{
+  "stringTable": {
+    "0": "D:/Android-studio/ncnn-android-yolov5/app/.cxx/cmake/release/x86",
+    "1": "--target=i686-none-linux-android24 --gcc-toolchain=D:/Android-studio/AndroidSDK/ndk/21.3.6528147/toolchains/llvm/prebuilt/windows-x86_64 --sysroot=D:/Android-studio/AndroidSDK/ndk/21.3.6528147/toolchains/llvm/prebuilt/windows-x86_64/sysroot -Dncnnv5lite_EXPORTS -ID:/Android-studio/opencv-mobile-2.4.13.7-android/sdk/native/jni/include/opencv -ID:/Android-studio/opencv-mobile-2.4.13.7-android/sdk/native/jni/include -isystem D:/Android-studio/ncnn-20210525-android-vulkan/x86/include/ncnn -g -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -D_FORTIFY_SOURCE=2 -Wformat -Werror=format-security -O2 -DNDEBUG -fPIC -fno-rtti -fno-exceptions"
+  },
+  "buildFiles": [
+    "D:\\Android-studio\\AndroidSDK\\ndk\\21.3.6528147\\build\\cmake\\platforms.cmake",
+    "D:\\Android-studio\\ncnn-20210525-android-vulkan\\x86\\lib\\cmake\\OSDependentTargets.cmake",
+    "D:\\Android-studio\\opencv-mobile-2.4.13.7-android\\sdk\\native\\jni\\OpenCVConfig.cmake",
+    "D:\\Android-studio\\ncnn-20210525-android-vulkan\\x86\\lib\\cmake\\glslangTargets-release.cmake",
+    "D:\\Android-studio\\ncnn-20210525-android-vulkan\\x86\\lib\\cmake\\ncnn\\ncnnConfig.cmake",
+    "D:\\Android-studio\\ncnn-20210525-android-vulkan\\x86\\lib\\cmake\\SPIRVTargets.cmake",
+    "D:\\Android-studio\\ncnn-android-yolov5\\app\\src\\main\\jni\\CMakeLists.txt",
+    "D:\\Android-studio\\opencv-mobile-2.4.13.7-android\\sdk\\native\\jni\\OpenCVModules_x86-release.cmake",
+    "D:\\Android-studio\\opencv-mobile-2.4.13.7-android\\sdk\\native\\jni\\OpenCVConfig-version.cmake",
+    "D:\\Android-studio\\ncnn-20210525-android-vulkan\\x86\\lib\\cmake\\OGLCompilerTargets.cmake",
+    "D:\\Android-studio\\ncnn-20210525-android-vulkan\\x86\\lib\\cmake\\glslangTargets.cmake",
+    "D:\\Android-studio\\AndroidSDK\\ndk\\21.3.6528147\\build\\cmake\\android.toolchain.cmake",
+    "D:\\Android-studio\\ncnn-20210525-android-vulkan\\x86\\lib\\cmake\\ncnn\\ncnn-release.cmake",
+    "D:\\Android-studio\\ncnn-20210525-android-vulkan\\x86\\lib\\cmake\\OGLCompilerTargets-release.cmake",
+    "D:\\Android-studio\\opencv-mobile-2.4.13.7-android\\sdk\\native\\jni\\OpenCVModules_x86.cmake",
+    "D:\\Android-studio\\ncnn-20210525-android-vulkan\\x86\\lib\\cmake\\OSDependentTargets-release.cmake",
+    "D:\\Android-studio\\ncnn-20210525-android-vulkan\\x86\\lib\\cmake\\SPIRVTargets-release.cmake",
+    "D:\\Android-studio\\ncnn-20210525-android-vulkan\\x86\\lib\\cmake\\ncnn\\ncnn.cmake"
+  ],
+  "cleanCommands": [
+    "D:\\Android-studio\\AndroidSDK\\cmake\\3.10.2.4988404\\bin\\ninja.exe -C \"D:\\Android-studio\\ncnn-android-yolov5\\app\\.cxx\\cmake\\release\\x86\" clean"
+  ],
+  "buildTargetsCommand": "D:\\Android-studio\\AndroidSDK\\cmake\\3.10.2.4988404\\bin\\ninja.exe -C \"D:\\Android-studio\\ncnn-android-yolov5\\app\\.cxx\\cmake\\release\\x86\" {LIST_OF_TARGETS_TO_BUILD}",
+  "libraries": {
+    "ncnnv5lite-Release-x86": {
+      "buildCommand": "D:\\Android-studio\\AndroidSDK\\cmake\\3.10.2.4988404\\bin\\ninja.exe -C \"D:\\Android-studio\\ncnn-android-yolov5\\app\\.cxx\\cmake\\release\\x86\" ncnnv5lite",
+      "buildType": "release",
+      "toolchain": "1372890942",
+      "abi": "x86",
+      "artifactName": "ncnnv5lite",
+      "files": [
+        {
+          "src": "D:\\Android-studio\\ncnn-android-yolov5\\app\\src\\main\\jni\\yolov5ncnn.cpp",
+          "flagsOrdinal": 1,
+          "workingDirectoryOrdinal": 0
+        },
+        {
+          "src": "D:\\Android-studio\\ncnn-android-yolov5\\app\\src\\main\\jni\\yolov5.cpp",
+          "flagsOrdinal": 1,
+          "workingDirectoryOrdinal": 0
+        },
+        {
+          "src": "D:\\Android-studio\\ncnn-android-yolov5\\app\\src\\main\\jni\\ndkcamera.cpp",
+          "flagsOrdinal": 1,
+          "workingDirectoryOrdinal": 0
+        }
+      ],
+      "headers": [],
+      "output": "D:\\Android-studio\\ncnn-android-yolov5\\app\\build\\intermediates\\cmake\\release\\obj\\x86\\libncnnv5lite.so"
+    }
+  },
+  "toolchains": {
+    "1372890942": {
+      "cppCompilerExecutable": "D:\\Android-studio\\AndroidSDK\\ndk\\21.3.6528147\\toolchains\\llvm\\prebuilt\\windows-x86_64\\bin\\clang++.exe"
+    }
+  },
+  "cFileExtensions": [],
+  "cppFileExtensions": [
+    "cpp"
+  ]
+}

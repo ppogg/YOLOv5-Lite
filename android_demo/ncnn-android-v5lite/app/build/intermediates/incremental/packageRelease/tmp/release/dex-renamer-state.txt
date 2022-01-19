@@ -1,0 +1,4 @@
+#Tue Jan 18 22:52:52 CST 2022
+base.0=D\:\\Android-studio\\ncnn-android-yolov5\\app\\build\\intermediates\\dex\\release\\mergeDexRelease\\out\\classes.dex
+path.0=classes.dex
+renamed.0=classes.dex

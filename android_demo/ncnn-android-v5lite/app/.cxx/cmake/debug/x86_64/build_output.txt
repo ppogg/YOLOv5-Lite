@@ -1,0 +1,22 @@
+Check for working C compiler: D:/Android-studio/AndroidSDK/ndk/21.3.6528147/toolchains/llvm/prebuilt/windows-x86_64/bin/clang.exe
+Check for working C compiler: D:/Android-studio/AndroidSDK/ndk/21.3.6528147/toolchains/llvm/prebuilt/windows-x86_64/bin/clang.exe -- works
+Detecting C compiler ABI info
+Detecting C compiler ABI info - done
+Detecting C compile features
+Detecting C compile features - done
+Check for working CXX compiler: D:/Android-studio/AndroidSDK/ndk/21.3.6528147/toolchains/llvm/prebuilt/windows-x86_64/bin/clang++.exe
+Check for working CXX compiler: D:/Android-studio/AndroidSDK/ndk/21.3.6528147/toolchains/llvm/prebuilt/windows-x86_64/bin/clang++.exe -- works
+Detecting CXX compiler ABI info
+Detecting CXX compiler ABI info - done
+Detecting CXX compile features
+Detecting CXX compile features - done
+Found OpenMP_C: -fopenmp=libomp (found version "3.1") 
+Found OpenMP_CXX: -fopenmp=libomp (found version "3.1") 
+Found OpenMP: TRUE (found version "3.1")  
+Looking for pthread.h
+Looking for pthread.h - found
+Looking for pthread_create
+Looking for pthread_create - found
+Found Threads: TRUE  
+Found Vulkan: D:/Android-studio/AndroidSDK/ndk/21.3.6528147/toolchains/llvm/prebuilt/windows-x86_64/sysroot/usr/lib/x86_64-linux-android/24/libvulkan.so  
+Configuring done

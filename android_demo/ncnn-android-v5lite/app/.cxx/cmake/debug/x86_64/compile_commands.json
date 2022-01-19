@@ -1,0 +1,19 @@
+[
+{
+  "directory": "D:/Android-studio/ncnn-android-yolov5/app/.cxx/cmake/debug/x86_64",
+  "command": "D:\\Android-studio\\AndroidSDK\\ndk\\21.3.6528147\\toolchains\\llvm\\prebuilt\\windows-x86_64\\bin\\clang++.exe --target=x86_64-none-linux-android24 --gcc-toolchain=D:/Android-studio/AndroidSDK/ndk/21.3.6528147/toolchains/llvm/prebuilt/windows-x86_64 --sysroot=D:/Android-studio/AndroidSDK/ndk/21.3.6528147/toolchains/llvm/prebuilt/windows-x86_64/sysroot  -Dncnnyolox_EXPORTS -ID:/Android-studio/opencv-mobile-2.4.13.7-android/sdk/native/jni/include/opencv -ID:/Android-studio/opencv-mobile-2.4.13.7-android/sdk/native/jni/include -isystem D:/Android-studio/ncnn-20210525-android-vulkan/x86_64/include/ncnn  -g -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -D_FORTIFY_SOURCE=2 -Wformat -Werror=format-security   -O0 -fno-limit-debug-info  -fPIC   -fno-rtti -fno-exceptions -o CMakeFiles\\ncnnyolox.dir\\yoloxncnn.cpp.o -c D:\\Android-studio\\ncnn-android-yolov5\\app\\src\\main\\jni\\yoloxncnn.cpp",
+  "file": "D:\\Android-studio\\ncnn-android-yolov5\\app\\src\\main\\jni\\yoloxncnn.cpp"
+},
+
+{
+  "directory": "D:/Android-studio/ncnn-android-yolov5/app/.cxx/cmake/debug/x86_64",
+  "command": "D:\\Android-studio\\AndroidSDK\\ndk\\21.3.6528147\\toolchains\\llvm\\prebuilt\\windows-x86_64\\bin\\clang++.exe --target=x86_64-none-linux-android24 --gcc-toolchain=D:/Android-studio/AndroidSDK/ndk/21.3.6528147/toolchains/llvm/prebuilt/windows-x86_64 --sysroot=D:/Android-studio/AndroidSDK/ndk/21.3.6528147/toolchains/llvm/prebuilt/windows-x86_64/sysroot  -Dncnnyolox_EXPORTS -ID:/Android-studio/opencv-mobile-2.4.13.7-android/sdk/native/jni/include/opencv -ID:/Android-studio/opencv-mobile-2.4.13.7-android/sdk/native/jni/include -isystem D:/Android-studio/ncnn-20210525-android-vulkan/x86_64/include/ncnn  -g -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -D_FORTIFY_SOURCE=2 -Wformat -Werror=format-security   -O0 -fno-limit-debug-info  -fPIC   -fno-rtti -fno-exceptions -o CMakeFiles\\ncnnyolox.dir\\yolox.cpp.o -c D:\\Android-studio\\ncnn-android-yolov5\\app\\src\\main\\jni\\yolox.cpp",
+  "file": "D:\\Android-studio\\ncnn-android-yolov5\\app\\src\\main\\jni\\yolox.cpp"
+},
+
+{
+  "directory": "D:/Android-studio/ncnn-android-yolov5/app/.cxx/cmake/debug/x86_64",
+  "command": "D:\\Android-studio\\AndroidSDK\\ndk\\21.3.6528147\\toolchains\\llvm\\prebuilt\\windows-x86_64\\bin\\clang++.exe --target=x86_64-none-linux-android24 --gcc-toolchain=D:/Android-studio/AndroidSDK/ndk/21.3.6528147/toolchains/llvm/prebuilt/windows-x86_64 --sysroot=D:/Android-studio/AndroidSDK/ndk/21.3.6528147/toolchains/llvm/prebuilt/windows-x86_64/sysroot  -Dncnnyolox_EXPORTS -ID:/Android-studio/opencv-mobile-2.4.13.7-android/sdk/native/jni/include/opencv -ID:/Android-studio/opencv-mobile-2.4.13.7-android/sdk/native/jni/include -isystem D:/Android-studio/ncnn-20210525-android-vulkan/x86_64/include/ncnn  -g -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -D_FORTIFY_SOURCE=2 -Wformat -Werror=format-security   -O0 -fno-limit-debug-info  -fPIC   -fno-rtti -fno-exceptions -o CMakeFiles\\ncnnyolox.dir\\ndkcamera.cpp.o -c D:\\Android-studio\\ncnn-android-yolov5\\app\\src\\main\\jni\\ndkcamera.cpp",
+  "file": "D:\\Android-studio\\ncnn-android-yolov5\\app\\src\\main\\jni\\ndkcamera.cpp"
+}
+]

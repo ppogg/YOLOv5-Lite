@@ -1,0 +1,38 @@
+[
+  {
+    "level": "INFO",
+    "message": "Start JSON generation. Platform version: 24 min SDK version: mips"
+  },
+  {
+    "level": "INFO",
+    "message": "rebuilding JSON D:\\Android-studio\\ncnn-android-yolov5\\app\\.cxx\\cmake\\release\\mips\\android_gradle_build.json due to:"
+  },
+  {
+    "level": "INFO",
+    "message": "- expected json D:\\Android-studio\\ncnn-android-yolov5\\app\\.cxx\\cmake\\release\\mips\\android_gradle_build.json file is not present, will remove stale json folder"
+  },
+  {
+    "level": "INFO",
+    "message": "- missing previous command file D:\\Android-studio\\ncnn-android-yolov5\\app\\.cxx\\cmake\\release\\mips\\build_command.txt, will remove stale json folder"
+  },
+  {
+    "level": "INFO",
+    "message": "- command changed from previous, will remove stale json folder"
+  },
+  {
+    "level": "INFO",
+    "message": "removing stale contents from \u0027D:\\Android-studio\\ncnn-android-yolov5\\app\\.cxx\\cmake\\release\\mips\u0027"
+  },
+  {
+    "level": "INFO",
+    "message": "created folder \u0027D:\\Android-studio\\ncnn-android-yolov5\\app\\.cxx\\cmake\\release\\mips\u0027"
+  },
+  {
+    "level": "INFO",
+    "message": "executing cmake Executable : D:\\Android-studio\\AndroidSDK\\cmake\\3.10.2.4988404\\bin\\cmake.exe\narguments : \n-HD:\\Android-studio\\ncnn-android-yolov5\\app\\src\\main\\jni\n-BD:\\Android-studio\\ncnn-android-yolov5\\app\\.cxx\\cmake\\release\\mips\n-DANDROID_ABI\u003dmips\n-DANDROID_PLATFORM\u003dandroid-24\n-DCMAKE_LIBRARY_OUTPUT_DIRECTORY\u003dD:\\Android-studio\\ncnn-android-yolov5\\app\\build\\intermediates\\cmake\\release\\obj\\mips\n-DCMAKE_BUILD_TYPE\u003dRelease\n-DANDROID_NDK\u003dD:\\Android-studio\\AndroidSDK\\ndk\\android-ndk-r13b\n-DCMAKE_SYSTEM_NAME\u003dAndroid\n-DCMAKE_ANDROID_ARCH_ABI\u003dmips\n-DCMAKE_SYSTEM_VERSION\u003d24\n-DCMAKE_EXPORT_COMPILE_COMMANDS\u003dON\n-DCMAKE_ANDROID_NDK\u003dD:\\Android-studio\\AndroidSDK\\ndk\\android-ndk-r13b\n-DCMAKE_TOOLCHAIN_FILE\u003dD:\\Android-studio\\ncnn-android-yolov5\\app\\.cxx\\cmake\\release\\mips\\pre-ndk-r15-wrapper-android.toolchain.cmake\n-G Ninja\n-DCMAKE_MAKE_PROGRAM\u003dD:\\Android-studio\\AndroidSDK\\cmake\\3.10.2.4988404\\bin\\ninja.exe\njvmArgs : \n\n"
+  },
+  {
+    "level": "INFO",
+    "message": "JSON generation completed with problem. Exception: com.android.ide.common.process.ProcessException: Error configuring CMake server (D:\\Android-studio\\AndroidSDK\\cmake\\3.10.2.4988404\\bin).\r\nCheck for working C compiler: D:/Android-studio/AndroidSDK/ndk/android-ndk-r13b/toolchains/llvm/prebuilt/windows-x86_64/bin/clang.exe\nCheck for working C compiler: D:/Android-studio/AndroidSDK/ndk/android-ndk-r13b/toolchains/llvm/prebuilt/windows-x86_64/bin/clang.exe -- works\nDetecting C compiler ABI info\nDetecting C compiler ABI info - done\nDetecting C compile features\nDetecting C compile features - done\nCheck for working CXX compiler: D:/Android-studio/AndroidSDK/ndk/android-ndk-r13b/toolchains/llvm/prebuilt/windows-x86_64/bin/clang++.exe\nCheck for working CXX compiler: D:/Android-studio/AndroidSDK/ndk/android-ndk-r13b/toolchains/llvm/prebuilt/windows-x86_64/bin/clang++.exe -- works\nDetecting CXX compiler ABI info\nDetecting CXX compiler ABI info - done\nDetecting CXX compile features\nDetecting CXX compile features - done\nCMake Error at D:/Android-studio/opencv-mobile-2.4.13.7-android/sdk/native/jni/OpenCVConfig.cmake:72 (include):\n  include could not find load file:\n\n    D:/Android-studio/opencv-mobile-2.4.13.7-android/sdk/native/jni/OpenCVModules_mips.cmake\nCall Stack (most recent call first):\n  CMakeLists.txt:6 (find_package)\n\n\nCMake Error at CMakeLists.txt:9 (find_package):\n  By not providing \"Findncnn.cmake\" in CMAKE_MODULE_PATH this project has\n  asked CMake to find a package configuration file provided by \"ncnn\", but\n  CMake did not find one.\n\n  Could not find a package configuration file provided by \"ncnn\" with any of\n  the following names:\n\n    ncnnConfig.cmake\n    ncnn-config.cmake\n\n  Add the installation prefix of \"ncnn\" to CMAKE_PREFIX_PATH or set\n  \"ncnn_DIR\" to a directory containing one of the above files.  If \"ncnn\"\n  provides a separate development package or SDK, be sure it has been\n  installed.\n\n\nConfiguring incomplete, errors occurred!\nSee also \"D:/Android-studio/ncnn-android-yolov5/app/.cxx/cmake/release/mips/CMakeFiles/CMakeOutput.log\".\n"
+  }
+]

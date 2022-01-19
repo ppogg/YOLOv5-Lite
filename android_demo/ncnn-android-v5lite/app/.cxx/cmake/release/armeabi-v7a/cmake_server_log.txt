@@ -1,0 +1,172 @@
+CMAKE SERVER: 
+
+CMAKE SERVER: [== "CMake Server" ==[
+
+CMAKE SERVER: {"supportedProtocolVersions":[{"isExperimental":true,"major":1,"minor":1}],"type":"hello"}
+
+CMAKE SERVER: ]== "CMake Server" ==]
+
+CMAKE SERVER: [== "CMake Server" ==[
+
+CMAKE SERVER: {
+  "type": "handshake",
+  "cookie": "gradle-cmake-cookie",
+  "protocolVersion": {
+    "isExperimental": true,
+    "major": 1,
+    "minor": 1
+  },
+  "sourceDirectory": "D:/Android-studio/ncnn-android-yolov5/app/src/main/jni",
+  "buildDirectory": "D:/Android-studio/ncnn-android-yolov5/app/.cxx/cmake/release/armeabi-v7a",
+  "generator": "Ninja"
+}
+
+CMAKE SERVER: ]== "CMake Server" ==]
+
+CMAKE SERVER: 
+
+CMAKE SERVER: [== "CMake Server" ==[
+
+CMAKE SERVER: {"cookie":"gradle-cmake-cookie","inReplyTo":"handshake","type":"reply"}
+
+CMAKE SERVER: ]== "CMake Server" ==]
+
+CMAKE SERVER: [== "CMake Server" ==[
+
+CMAKE SERVER: {
+  "type": "configure",
+  "cacheArguments": [
+    "",
+    "-DANDROID_ABI\u003darmeabi-v7a",
+    "-DANDROID_PLATFORM\u003dandroid-24",
+    "-DCMAKE_LIBRARY_OUTPUT_DIRECTORY\u003dD:\\Android-studio\\ncnn-android-yolov5\\app\\build\\intermediates\\cmake\\release\\obj\\armeabi-v7a",
+    "-DCMAKE_BUILD_TYPE\u003dRelease",
+    "-DANDROID_NDK\u003dD:\\Android-studio\\AndroidSDK\\ndk\\21.3.6528147",
+    "-DCMAKE_SYSTEM_NAME\u003dAndroid",
+    "-DCMAKE_ANDROID_ARCH_ABI\u003darmeabi-v7a",
+    "-DCMAKE_SYSTEM_VERSION\u003d24",
+    "-DCMAKE_EXPORT_COMPILE_COMMANDS\u003dON",
+    "-DCMAKE_ANDROID_NDK\u003dD:\\Android-studio\\AndroidSDK\\ndk\\21.3.6528147",
+    "-DCMAKE_TOOLCHAIN_FILE\u003dD:\\Android-studio\\AndroidSDK\\ndk\\21.3.6528147\\build\\cmake\\android.toolchain.cmake",
+    "-G Ninja",
+    "-DCMAKE_MAKE_PROGRAM\u003dD:\\Android-studio\\AndroidSDK\\cmake\\3.10.2.4988404\\bin\\ninja.exe"
+  ]
+}
+
+CMAKE SERVER: ]== "CMake Server" ==]
+
+CMAKE SERVER: 
+
+CMAKE SERVER: [== "CMake Server" ==[
+
+CMAKE SERVER: {"cookie":"","inReplyTo":"configure","message":"Found OpenMP_C: -fopenmp=libomp  ","type":"message"}
+
+CMAKE SERVER: ]== "CMake Server" ==]
+
+CMAKE SERVER: Found OpenMP_C: -fopenmp=libomp  
+CMAKE SERVER: Found OpenMP_C: -fopenmp=libomp  
+CMAKE SERVER: 
+
+CMAKE SERVER: [== "CMake Server" ==[
+
+CMAKE SERVER: {"cookie":"","inReplyTo":"configure","message":"Found OpenMP_CXX: -fopenmp=libomp  ","type":"message"}
+
+CMAKE SERVER: ]== "CMake Server" ==]
+
+CMAKE SERVER: Found OpenMP_CXX: -fopenmp=libomp  
+CMAKE SERVER: Found OpenMP_CXX: -fopenmp=libomp  
+CMAKE SERVER: 
+
+CMAKE SERVER: [== "CMake Server" ==[
+
+CMAKE SERVER: {"cookie":"","inReplyTo":"configure","message":"Found OpenMP: TRUE   ","type":"message"}
+
+CMAKE SERVER: ]== "CMake Server" ==]
+
+CMAKE SERVER: Found OpenMP: TRUE   
+CMAKE SERVER: Found OpenMP: TRUE   
+CMAKE SERVER: 
+
+CMAKE SERVER: [== "CMake Server" ==[
+
+CMAKE SERVER: {"cookie":"","inReplyTo":"configure","progressCurrent":1000,"progressMaximum":1000,"progressMessage":"Configuring","progressMinimum":0,"type":"progress"}
+
+CMAKE SERVER: ]== "CMake Server" ==]
+
+CMAKE SERVER: 
+
+CMAKE SERVER: [== "CMake Server" ==[
+
+CMAKE SERVER: {"cookie":"","inReplyTo":"configure","message":"Configuring done","type":"message"}
+
+CMAKE SERVER: ]== "CMake Server" ==]
+
+CMAKE SERVER: Configuring done
+CMAKE SERVER: Configuring done
+CMAKE SERVER: 
+
+CMAKE SERVER: [== "CMake Server" ==[
+
+CMAKE SERVER: {"cookie":"","inReplyTo":"configure","type":"reply"}
+
+CMAKE SERVER: ]== "CMake Server" ==]
+
+CMAKE SERVER: [== "CMake Server" ==[
+
+CMAKE SERVER: {"type":"compute"}
+
+CMAKE SERVER: ]== "CMake Server" ==]
+
+CMAKE SERVER: 
+
+CMAKE SERVER: [== "CMake Server" ==[
+
+CMAKE SERVER: {"cookie":"","inReplyTo":"compute","progressCurrent":1000,"progressMaximum":1000,"progressMessage":"Generating","progressMinimum":0,"type":"progress"}
+
+CMAKE SERVER: ]== "CMake Server" ==]
+
+CMAKE SERVER: 
+
+CMAKE SERVER: [== "CMake Server" ==[
+
+CMAKE SERVER: {"cookie":"","inReplyTo":"compute","message":"Generating done","type":"message"}
+
+CMAKE SERVER: ]== "CMake Server" ==]
+
+CMAKE SERVER: Generating done
+CMAKE SERVER: 
+
+CMAKE SERVER: [== "CMake Server" ==[
+
+CMAKE SERVER: {"cookie":"","inReplyTo":"compute","type":"reply"}
+
+CMAKE SERVER: ]== "CMake Server" ==]
+
+CMAKE SERVER: [== "CMake Server" ==[
+
+CMAKE SERVER: {"type":"cmakeInputs"}
+
+CMAKE SERVER: ]== "CMake Server" ==]
+
+CMAKE SERVER: 
+
+CMAKE SERVER: [== "CMake Server" ==[
+
+CMAKE SERVER: {"buildFiles":[{"isCMake":true,"isTemporary":false,"sources":["../../../../../AndroidSDK/cmake/3.10.2.4988404/share/cmake-3.10/Modules/CMakeSystemSpecificInitialize.cmake","../../../../../AndroidSDK/cmake/3.10.2.4988404/share/cmake-3.10/Modules/Platform/Android-Initialize.cmake","../../../../../AndroidSDK/cmake/3.10.2.4988404/share/cmake-3.10/Modules/CMakeSystemSpecificInformation.cmake","../../../../../AndroidSDK/cmake/3.10.2.4988404/share/cmake-3.10/Modules/CMakeGenericSystem.cmake","../../../../../AndroidSDK/cmake/3.10.2.4988404/share/cmake-3.10/Modules/Platform/Android.cmake","../../../../../AndroidSDK/cmake/3.10.2.4988404/share/cmake-3.10/Modules/Platform/Linux.cmake","../../../../../AndroidSDK/cmake/3.10.2.4988404/share/cmake-3.10/Modules/Platform/UnixPaths.cmake","../../../../../AndroidSDK/cmake/3.10.2.4988404/share/cmake-3.10/Modules/CMakeCInformation.cmake","../../../../../AndroidSDK/cmake/3.10.2.4988404/share/cmake-3.10/Modules/CMakeLanguageInformation.cmake","../../../../../AndroidSDK/cmake/3.10.2.4988404/share/cmake-3.10/Modules/Compiler/Clang-C.cmake","../../../../../AndroidSDK/cmake/3.10.2.4988404/share/cmake-3.10/Modules/Compiler/Clang.cmake","../../../../../AndroidSDK/cmake/3.10.2.4988404/share/cmake-3.10/Modules/Compiler/CMakeCommonCompilerMacros.cmake","../../../../../AndroidSDK/cmake/3.10.2.4988404/share/cmake-3.10/Modules/Compiler/GNU.cmake","../../../../../AndroidSDK/cmake/3.10.2.4988404/share/cmake-3.10/Modules/Compiler/CMakeCommonCompilerMacros.cmake","../../../../../AndroidSDK/cmake/3.10.2.4988404/share/cmake-3.10/Modules/Platform/Android-Clang-C.cmake","../../../../../AndroidSDK/cmake/3.10.2.4988404/share/cmake-3.10/Modules/Platform/Android-Clang.cmake","../../../../../AndroidSDK/cmake/3.10.2.4988404/share/cmake-3.10/Modules/CMakeCommonLanguageInclude.cmake","../../../../../AndroidSDK/cmake/3.10.2.4988404/share/cmake-3.10/Modules/CMakeCXXInformation.cmake","../../../../../AndroidSDK/cmake/3.10.2.4988404/share/cmake-3.10/Modules/CMakeLanguageInformation.cmake","../../../../../AndroidSDK/cmake/3.10.2.4988404/share/cmake-3.10/Modules/Compiler/Clang-CXX.cmake","../../../../../AndroidSDK/cmake/3.10.2.4988404/share/cmake-3.10/Modules/Compiler/Clang.cmake","../../../../../AndroidSDK/cmake/3.10.2.4988404/share/cmake-3.10/Modules/Platform/Android-Clang-CXX.cmake","../../../../../AndroidSDK/cmake/3.10.2.4988404/share/cmake-3.10/Modules/Platform/Android-Clang.cmake","../../../../../AndroidSDK/cmake/3.10.2.4988404/share/cmake-3.10/Modules/CMakeCommonLanguageInclude.cmake","../../../../../AndroidSDK/cmake/3.10.2.4988404/share/cmake-3.10/Modules/FindOpenMP.cmake","../../../../../AndroidSDK/cmake/3.10.2.4988404/share/cmake-3.10/Modules/CMakeParseImplicitLinkInfo.cmake","../../../../../AndroidSDK/cmake/3.10.2.4988404/share/cmake-3.10/Modules/FindPackageHandleStandardArgs.cmake","../../../../../AndroidSDK/cmake/3.10.2.4988404/share/cmake-3.10/Modules/FindPackageMessage.cmake","../../../../../AndroidSDK/cmake/3.10.2.4988404/share/cmake-3.10/Modules/FindPackageHandleStandardArgs.cmake","../../../../../AndroidSDK/cmake/3.10.2.4988404/share/cmake-3.10/Modules/FindPackageMessage.cmake","../../../../../AndroidSDK/cmake/3.10.2.4988404/share/cmake-3.10/Modules/FindThreads.cmake","../../../../../AndroidSDK/cmake/3.10.2.4988404/share/cmake-3.10/Modules/CheckLibraryExists.cmake","../../../../../AndroidSDK/cmake/3.10.2.4988404/share/cmake-3.10/Modules/CheckSymbolExists.cmake","../../../../../AndroidSDK/cmake/3.10.2.4988404/share/cmake-3.10/Modules/CheckIncludeFile.cmake","../../../../../AndroidSDK/cmake/3.10.2.4988404/share/cmake-3.10/Modules/FindPackageHandleStandardArgs.cmake","../../../../../AndroidSDK/cmake/3.10.2.4988404/share/cmake-3.10/Modules/FindPackageMessage.cmake","../../../../../AndroidSDK/cmake/3.10.2.4988404/share/cmake-3.10/Modules/FindVulkan.cmake","../../../../../AndroidSDK/cmake/3.10.2.4988404/share/cmake-3.10/Modules/FindPackageHandleStandardArgs.cmake","../../../../../AndroidSDK/cmake/3.10.2.4988404/share/cmake-3.10/Modules/FindPackageMessage.cmake"]},{"isCMake":false,"isTemporary":false,"sources":["CMakeLists.txt","../../../../../AndroidSDK/ndk/21.3.6528147/build/cmake/android.toolchain.cmake","../../../../../AndroidSDK/ndk/21.3.6528147/build/cmake/platforms.cmake","../../../../../opencv-mobile-2.4.13.7-android/sdk/native/jni/OpenCVConfig-version.cmake","../../../../../opencv-mobile-2.4.13.7-android/sdk/native/jni/OpenCVConfig.cmake","../../../../../opencv-mobile-2.4.13.7-android/sdk/native/jni/OpenCVModules_armeabi_v7a.cmake","../../../../../opencv-mobile-2.4.13.7-android/sdk/native/jni/OpenCVModules_armeabi_v7a-release.cmake","../../../../../ncnn-20210525-android-vulkan/armeabi-v7a/lib/cmake/ncnn/ncnnConfig.cmake","../../../../../ncnn-20210525-android-vulkan/armeabi-v7a/lib/cmake/OSDependentTargets.cmake","../../../../../ncnn-20210525-android-vulkan/armeabi-v7a/lib/cmake/OSDependentTargets-release.cmake","../../../../../ncnn-20210525-android-vulkan/armeabi-v7a/lib/cmake/OGLCompilerTargets.cmake","../../../../../ncnn-20210525-android-vulkan/armeabi-v7a/lib/cmake/OGLCompilerTargets-release.cmake","../../../../../ncnn-20210525-android-vulkan/armeabi-v7a/lib/cmake/glslangTargets.cmake","../../../../../ncnn-20210525-android-vulkan/armeabi-v7a/lib/cmake/glslangTargets-release.cmake","../../../../../ncnn-20210525-android-vulkan/armeabi-v7a/lib/cmake/SPIRVTargets.cmake","../../../../../ncnn-20210525-android-vulkan/armeabi-v7a/lib/cmake/SPIRVTargets-release.cmake","../../../../../ncnn-20210525-android-vulkan/armeabi-v7a/lib/cmake/ncnn/ncnn.cmake","../../../../../ncnn-20210525-android-vulkan/armeabi-v7a/lib/cmake/ncnn/ncnn-release.cmake"]},{"isCMake":false,"isTemporary":true,"sources":["../../../.cxx/cmake/release/armeabi-v7a/CMakeFiles/3.10.2/CMakeSystem.cmake","../../../.cxx/cmake/release/armeabi-v7a/CMakeFiles/3.10.2/CMakeCCompiler.cmake","../../../.cxx/cmake/release/armeabi-v7a/CMakeFiles/3.10.2/CMakeCXXCompiler.cmake"]}],"cmakeRootDirectory":"D:/Android-studio/AndroidSDK/cmake/3.10.2.4988404/share/cmake-3.10","cookie":"","inReplyTo":"cmakeInputs","sourceDirectory":"D:/Android-studio/ncnn-android-yolov5/app/src/main/jni","type":"reply"}
+
+CMAKE SERVER: ]== "CMake Server" ==]
+
+CMAKE SERVER: [== "CMake Server" ==[
+
+CMAKE SERVER: {"type":"codemodel"}
+
+CMAKE SERVER: ]== "CMake Server" ==]
+
+CMAKE SERVER: 
+
+CMAKE SERVER: [== "CMake Server" ==[
+
+CMAKE SERVER: {"configurations":[{"name":"Release","projects":[{"buildDirectory":"D:/Android-studio/ncnn-android-yolov5/app/.cxx/cmake/release/armeabi-v7a","name":"YOLOv5ss","sourceDirectory":"D:/Android-studio/ncnn-android-yolov5/app/src/main/jni","targets":[{"artifacts":["D:/Android-studio/ncnn-android-yolov5/app/build/intermediates/cmake/release/obj/armeabi-v7a/libncnnv5lite.so"],"buildDirectory":"D:/Android-studio/ncnn-android-yolov5/app/.cxx/cmake/release/armeabi-v7a","fileGroups":[{"compileFlags":"-g -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -D_FORTIFY_SOURCE=2 -march=armv7-a -mthumb -Wformat -Werror=format-security   -Oz -DNDEBUG  -fPIC   -fno-rtti -fno-exceptions","defines":["ncnnv5lite_EXPORTS"],"includePath":[{"path":"D:/Android-studio/opencv-mobile-2.4.13.7-android/sdk/native/jni/include/opencv"},{"path":"D:/Android-studio/opencv-mobile-2.4.13.7-android/sdk/native/jni/include"},{"isSystem":true,"path":"D:/Android-studio/ncnn-20210525-android-vulkan/armeabi-v7a/include/ncnn"}],"isGenerated":false,"language":"CXX","sources":["yolov5ncnn.cpp","yolov5.cpp","ndkcamera.cpp"]}],"fullName":"libncnnv5lite.so","linkFlags":"-Wl,--exclude-libs,libgcc.a -Wl,--exclude-libs,libgcc_real.a -Wl,--exclude-libs,libatomic.a -static-libstdc++ -Wl,--build-id -Wl,--fatal-warnings -Wl,--exclude-libs,libunwind.a -Wl,--no-undefined -Qunused-arguments","linkLibraries":"D:\\Android-studio\\ncnn-20210525-android-vulkan\\armeabi-v7a\\lib\\libncnn.a D:\\Android-studio\\opencv-mobile-2.4.13.7-android\\sdk\\native\\libs\\armeabi-v7a\\libopencv_core.a D:\\Android-studio\\opencv-mobile-2.4.13.7-android\\sdk\\native\\libs\\armeabi-v7a\\libopencv_imgproc.a -lcamera2ndk -lmediandk -fopenmp -static-openmp D:\\Android-studio\\AndroidSDK\\ndk\\21.3.6528147\\toolchains\\llvm\\prebuilt\\windows-x86_64\\sysroot\\usr\\lib\\arm-linux-androideabi\\24\\libvulkan.so D:\\Android-studio\\ncnn-20210525-android-vulkan\\armeabi-v7a\\lib\\libglslang.a D:\\Android-studio\\ncnn-20210525-android-vulkan\\armeabi-v7a\\lib\\libSPIRV.a D:\\Android-studio\\ncnn-20210525-android-vulkan\\armeabi-v7a\\lib\\libMachineIndependent.a D:\\Android-studio\\ncnn-20210525-android-vulkan\\armeabi-v7a\\lib\\libOGLCompiler.a D:\\Android-studio\\ncnn-20210525-android-vulkan\\armeabi-v7a\\lib\\libOSDependent.a -pthread D:\\Android-studio\\ncnn-20210525-android-vulkan\\armeabi-v7a\\lib\\libGenericCodeGen.a -landroid -ljnigraphics D:\\Android-studio\\opencv-mobile-2.4.13.7-android\\sdk\\native\\libs\\armeabi-v7a\\libopencv_core.a -ldl -lm -ldl -lm -llog -latomic -lm","linkerLanguage":"CXX","name":"ncnnv5lite","sourceDirectory":"D:/Android-studio/ncnn-android-yolov5/app/src/main/jni","sysroot":"D:/Android-studio/AndroidSDK/ndk/21.3.6528147/toolchains/llvm/prebuilt/windows-x86_64/sysroot","type":"SHARED_LIBRARY"}]}]}],"cookie":"","inReplyTo":"codemodel","type":"reply"}
+
+CMAKE SERVER: ]== "CMake Server" ==]
+

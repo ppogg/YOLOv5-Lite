@@ -1,0 +1,44 @@
+1<?xml version="1.0" encoding="utf-8"?>
+2<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+3    package="com.ncnn.v5lite.demo"
+4    android:versionCode="1"
+5    android:versionName="1.1" >
+6
+7    <uses-sdk android:minSdkVersion="24" />
+7-->D:\Android-studio\ncnn-android-yolov5\app\src\main\AndroidManifest.xml
+8
+9    <uses-permission android:name="android.permission.CAMERA" />
+9-->D:\Android-studio\ncnn-android-yolov5\app\src\main\AndroidManifest.xml:6:5-65
+9-->D:\Android-studio\ncnn-android-yolov5\app\src\main\AndroidManifest.xml:6:22-62
+10
+11    <uses-feature android:name="android.hardware.camera2.full" />
+11-->D:\Android-studio\ncnn-android-yolov5\app\src\main\AndroidManifest.xml:7:5-66
+11-->D:\Android-studio\ncnn-android-yolov5\app\src\main\AndroidManifest.xml:7:19-63
+12
+13    <application android:label="@string/app_name" >
+13-->D:\Android-studio\ncnn-android-yolov5\app\src\main\AndroidManifest.xml:9:5-19:19
+13-->D:\Android-studio\ncnn-android-yolov5\app\src\main\AndroidManifest.xml:9:18-50
+14        <activity
+14-->D:\Android-studio\ncnn-android-yolov5\app\src\main\AndroidManifest.xml:10:9-18:20
+15            android:name="ncnn.v5lite.demo.MainActivity"
+15-->D:\Android-studio\ncnn-android-yolov5\app\src\main\AndroidManifest.xml:10:19-46
+16            android:icon="@mipmap/ic_launcher"
+16-->D:\Android-studio\ncnn-android-yolov5\app\src\main\AndroidManifest.xml:12:19-53
+17            android:label="@string/app_name"
+17-->D:\Android-studio\ncnn-android-yolov5\app\src\main\AndroidManifest.xml:11:19-51
+18            android:screenOrientation="portrait" >
+18-->D:\Android-studio\ncnn-android-yolov5\app\src\main\AndroidManifest.xml:13:19-55
+19            <intent-filter>
+19-->D:\Android-studio\ncnn-android-yolov5\app\src\main\AndroidManifest.xml:14:13-17:29
+20                <action android:name="android.intent.action.MAIN" />
+20-->D:\Android-studio\ncnn-android-yolov5\app\src\main\AndroidManifest.xml:15:17-69
+20-->D:\Android-studio\ncnn-android-yolov5\app\src\main\AndroidManifest.xml:15:25-66
+21
+22                <category android:name="android.intent.category.LAUNCHER" />
+22-->D:\Android-studio\ncnn-android-yolov5\app\src\main\AndroidManifest.xml:16:17-77
+22-->D:\Android-studio\ncnn-android-yolov5\app\src\main\AndroidManifest.xml:16:27-74
+23            </intent-filter>
+24        </activity>
+25    </application>
+26
+27</manifest>

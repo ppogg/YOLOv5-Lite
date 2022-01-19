@@ -1,0 +1,19 @@
+[
+{
+  "directory": "D:/Android-studio/ncnn-android-yolov5/app/.cxx/cmake/release/arm64-v8a",
+  "command": "D:\\Android-studio\\AndroidSDK\\ndk\\21.3.6528147\\toolchains\\llvm\\prebuilt\\windows-x86_64\\bin\\clang++.exe --target=aarch64-none-linux-android24 --gcc-toolchain=D:/Android-studio/AndroidSDK/ndk/21.3.6528147/toolchains/llvm/prebuilt/windows-x86_64 --sysroot=D:/Android-studio/AndroidSDK/ndk/21.3.6528147/toolchains/llvm/prebuilt/windows-x86_64/sysroot  -Dncnnv5lite_EXPORTS -ID:/Android-studio/opencv-mobile-2.4.13.7-android/sdk/native/jni/include/opencv -ID:/Android-studio/opencv-mobile-2.4.13.7-android/sdk/native/jni/include -isystem D:/Android-studio/ncnn-20210525-android-vulkan/arm64-v8a/include/ncnn  -g -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -D_FORTIFY_SOURCE=2 -Wformat -Werror=format-security   -O2 -DNDEBUG  -fPIC   -fno-rtti -fno-exceptions -o CMakeFiles\\ncnnv5lite.dir\\yolov5ncnn.cpp.o -c D:\\Android-studio\\ncnn-android-yolov5\\app\\src\\main\\jni\\yolov5ncnn.cpp",
+  "file": "D:\\Android-studio\\ncnn-android-yolov5\\app\\src\\main\\jni\\yolov5ncnn.cpp"
+},
+
+{
+  "directory": "D:/Android-studio/ncnn-android-yolov5/app/.cxx/cmake/release/arm64-v8a",
+  "command": "D:\\Android-studio\\AndroidSDK\\ndk\\21.3.6528147\\toolchains\\llvm\\prebuilt\\windows-x86_64\\bin\\clang++.exe --target=aarch64-none-linux-android24 --gcc-toolchain=D:/Android-studio/AndroidSDK/ndk/21.3.6528147/toolchains/llvm/prebuilt/windows-x86_64 --sysroot=D:/Android-studio/AndroidSDK/ndk/21.3.6528147/toolchains/llvm/prebuilt/windows-x86_64/sysroot  -Dncnnv5lite_EXPORTS -ID:/Android-studio/opencv-mobile-2.4.13.7-android/sdk/native/jni/include/opencv -ID:/Android-studio/opencv-mobile-2.4.13.7-android/sdk/native/jni/include -isystem D:/Android-studio/ncnn-20210525-android-vulkan/arm64-v8a/include/ncnn  -g -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -D_FORTIFY_SOURCE=2 -Wformat -Werror=format-security   -O2 -DNDEBUG  -fPIC   -fno-rtti -fno-exceptions -o CMakeFiles\\ncnnv5lite.dir\\yolov5.cpp.o -c D:\\Android-studio\\ncnn-android-yolov5\\app\\src\\main\\jni\\yolov5.cpp",
+  "file": "D:\\Android-studio\\ncnn-android-yolov5\\app\\src\\main\\jni\\yolov5.cpp"
+},
+
+{
+  "directory": "D:/Android-studio/ncnn-android-yolov5/app/.cxx/cmake/release/arm64-v8a",
+  "command": "D:\\Android-studio\\AndroidSDK\\ndk\\21.3.6528147\\toolchains\\llvm\\prebuilt\\windows-x86_64\\bin\\clang++.exe --target=aarch64-none-linux-android24 --gcc-toolchain=D:/Android-studio/AndroidSDK/ndk/21.3.6528147/toolchains/llvm/prebuilt/windows-x86_64 --sysroot=D:/Android-studio/AndroidSDK/ndk/21.3.6528147/toolchains/llvm/prebuilt/windows-x86_64/sysroot  -Dncnnv5lite_EXPORTS -ID:/Android-studio/opencv-mobile-2.4.13.7-android/sdk/native/jni/include/opencv -ID:/Android-studio/opencv-mobile-2.4.13.7-android/sdk/native/jni/include -isystem D:/Android-studio/ncnn-20210525-android-vulkan/arm64-v8a/include/ncnn  -g -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -D_FORTIFY_SOURCE=2 -Wformat -Werror=format-security   -O2 -DNDEBUG  -fPIC   -fno-rtti -fno-exceptions -o CMakeFiles\\ncnnv5lite.dir\\ndkcamera.cpp.o -c D:\\Android-studio\\ncnn-android-yolov5\\app\\src\\main\\jni\\ndkcamera.cpp",
+  "file": "D:\\Android-studio\\ncnn-android-yolov5\\app\\src\\main\\jni\\ndkcamera.cpp"
+}
+]

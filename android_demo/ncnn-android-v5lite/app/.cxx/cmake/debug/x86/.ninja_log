@@ -1,0 +1,5 @@
+# ninja log v5
+27	3033	663882202	CMakeFiles/ncnnyolox.dir/ndkcamera.cpp.o	332f49aea6dbaca3
+18	3055	663882202	CMakeFiles/ncnnyolox.dir/yoloxncnn.cpp.o	6c5b5a63d213795e
+23	3168	663882202	CMakeFiles/ncnnyolox.dir/yolox.cpp.o	99670be3e8d8b453
+3169	5627	663882205	D:/Android-studio/ncnn-android-yolov5/app/build/intermediates/cmake/debug/obj/x86/libncnnyolox.so	e68f3b5c662e991e

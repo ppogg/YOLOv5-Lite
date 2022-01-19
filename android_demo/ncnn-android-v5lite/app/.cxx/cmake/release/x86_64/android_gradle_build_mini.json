@@ -1,0 +1,34 @@
+{
+  "buildFiles": [
+    "D:\\Android-studio\\AndroidSDK\\ndk\\21.3.6528147\\build\\cmake\\platforms.cmake",
+    "D:\\Android-studio\\opencv-mobile-2.4.13.7-android\\sdk\\native\\jni\\OpenCVConfig.cmake",
+    "D:\\Android-studio\\ncnn-20210525-android-vulkan\\x86_64\\lib\\cmake\\OSDependentTargets.cmake",
+    "D:\\Android-studio\\ncnn-20210525-android-vulkan\\x86_64\\lib\\cmake\\ncnn\\ncnn-release.cmake",
+    "D:\\Android-studio\\ncnn-20210525-android-vulkan\\x86_64\\lib\\cmake\\glslangTargets-release.cmake",
+    "D:\\Android-studio\\ncnn-20210525-android-vulkan\\x86_64\\lib\\cmake\\SPIRVTargets.cmake",
+    "D:\\Android-studio\\ncnn-20210525-android-vulkan\\x86_64\\lib\\cmake\\OGLCompilerTargets.cmake",
+    "D:\\Android-studio\\ncnn-20210525-android-vulkan\\x86_64\\lib\\cmake\\OGLCompilerTargets-release.cmake",
+    "D:\\Android-studio\\ncnn-20210525-android-vulkan\\x86_64\\lib\\cmake\\OSDependentTargets-release.cmake",
+    "D:\\Android-studio\\ncnn-android-yolov5\\app\\src\\main\\jni\\CMakeLists.txt",
+    "D:\\Android-studio\\opencv-mobile-2.4.13.7-android\\sdk\\native\\jni\\OpenCVConfig-version.cmake",
+    "D:\\Android-studio\\AndroidSDK\\ndk\\21.3.6528147\\build\\cmake\\android.toolchain.cmake",
+    "D:\\Android-studio\\opencv-mobile-2.4.13.7-android\\sdk\\native\\jni\\OpenCVModules_x86_64.cmake",
+    "D:\\Android-studio\\ncnn-20210525-android-vulkan\\x86_64\\lib\\cmake\\glslangTargets.cmake",
+    "D:\\Android-studio\\ncnn-20210525-android-vulkan\\x86_64\\lib\\cmake\\ncnn\\ncnn.cmake",
+    "D:\\Android-studio\\opencv-mobile-2.4.13.7-android\\sdk\\native\\jni\\OpenCVModules_x86_64-release.cmake",
+    "D:\\Android-studio\\ncnn-20210525-android-vulkan\\x86_64\\lib\\cmake\\ncnn\\ncnnConfig.cmake",
+    "D:\\Android-studio\\ncnn-20210525-android-vulkan\\x86_64\\lib\\cmake\\SPIRVTargets-release.cmake"
+  ],
+  "cleanCommands": [
+    "D:\\Android-studio\\AndroidSDK\\cmake\\3.10.2.4988404\\bin\\ninja.exe -C \"D:\\Android-studio\\ncnn-android-yolov5\\app\\.cxx\\cmake\\release\\x86_64\" clean"
+  ],
+  "buildTargetsCommand": "D:\\Android-studio\\AndroidSDK\\cmake\\3.10.2.4988404\\bin\\ninja.exe -C \"D:\\Android-studio\\ncnn-android-yolov5\\app\\.cxx\\cmake\\release\\x86_64\" {LIST_OF_TARGETS_TO_BUILD}",
+  "libraries": {
+    "ncnnv5lite-Release-x86_64": {
+      "artifactName": "ncnnv5lite",
+      "buildCommand": "D:\\Android-studio\\AndroidSDK\\cmake\\3.10.2.4988404\\bin\\ninja.exe -C \"D:\\Android-studio\\ncnn-android-yolov5\\app\\.cxx\\cmake\\release\\x86_64\" ncnnv5lite",
+      "abi": "x86_64",
+      "output": "D:\\Android-studio\\ncnn-android-yolov5\\app\\build\\intermediates\\cmake\\release\\obj\\x86_64\\libncnnv5lite.so"
+    }
+  }
+}
