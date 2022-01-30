@@ -25,8 +25,8 @@ See the wiki: https://github.com/ppogg/YOLOv5-Lite/wiki/Test-the-map-of-models-a
 
 ## Comparison on different platforms
 
-Equipment|Computing backend|System|Input|Framework|v5Lite-e|v5Lite-s|v5Lite-c|v5Lite-g|YOLOv5s
-:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:
+Equipment|Computing backend|System|Input|Framework|v5lite-e|v5lite-s|v5lite-c|v5lite-g|YOLOv5s
+:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:
 Inter|@i5-10210U|window(x86)|640×640|openvino|-|-|46ms|-|131ms
 Nvidia|@RTX 2080Ti|Linux(x86)|640×640|torch|-|-|-|15ms|14ms
 Redmi K30|@Snapdragon 730G|Android(armv8)|320×320|ncnn|27.13ms|38.29ms|-|-|163ms
