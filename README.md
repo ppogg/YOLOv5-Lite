@@ -25,11 +25,12 @@ See the wiki: https://github.com/ppogg/YOLOv5-Lite/wiki/Test-the-map-of-models-a
 
 ## Comparison on different platforms
 
-Equipment|Computing backend|System|Input|Framework|v5Lite-s|v5Lite-c|v5Lite-g|YOLOv5s
+Equipment|Computing backend|System|Input|Framework|v5Lite-e|v5Lite-s|v5Lite-c|v5Lite-g|YOLOv5s
 :---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:
-Inter|@i5-10210U|window(x86)|640×640|openvino|-|46ms|-|131ms
-Nvidia|@RTX 2080Ti|Linux(x86)|640×640|torch|-|-|15ms|14ms
-Redmi K30|@Snapdragon 730G|Android(arm64)|320×320|ncnn|28ms|-|-|163ms
+Inter|@i5-10210U|window(x86)|640×640|openvino|-|-|46ms|-|131ms
+Nvidia|@RTX 2080Ti|Linux(x86)|640×640|torch|-|-|-|15ms|14ms
+Redmi K30|@Snapdragon 730G|Android(armv8)|320×320|ncnn|27.13ms|38.29ms|-|-|163ms
+Xiaomi 10|@Snapdragon 865|Android(armv8)|320×320|ncnn|10.02ms|16.74ms|-|-|163ms
 Raspberrypi 4B|@ARM Cortex-A72|Linux(arm64)|320×320|ncnn|84ms|-|-|371ms
 Raspberrypi 4B|@ARM Cortex-A72|Linux(arm64)|320×320|mnn|76ms|-|-|356ms
 
