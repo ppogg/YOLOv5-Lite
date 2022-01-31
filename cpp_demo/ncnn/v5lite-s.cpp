@@ -132,19 +132,24 @@ static inline float sigmoid(float x)
     return static_cast<float>(1.f / (1.f + exp(-x)));
 }
 
-static void generate_proposals(const ncnn::Mat& anchors, int stride, const ncnn::Mat& in_pad, const ncnn::Mat& feat_blob, float prob_threshold, std::vector<Object>& objects)
-{
+// unsigmoid
+static inline float unsigmoid(float y) {
+    return static_cast<float>(-1.0 * (log((1.0 / y) - 1.0)));
+}
+
+static void generate_proposals(const ncnn::Mat &anchors, int stride, const ncnn::Mat &in_pad,
+                               const ncnn::Mat &feat_blob, float prob_threshold,
+                               std::vector<Object> &objects) {
     const int num_grid = feat_blob.h;
+
+    float unsig_pro = unsigmoid(prob_threshold);
 
     int num_grid_x;
     int num_grid_y;
-    if (in_pad.w > in_pad.h)
-    {
+    if (in_pad.w > in_pad.h) {
         num_grid_x = in_pad.w / stride;
         num_grid_y = num_grid / num_grid_x;
-    }
-    else
-    {
+    } else {
         num_grid_y = in_pad.h / stride;
         num_grid_x = num_grid / num_grid_y;
     }
@@ -153,42 +158,32 @@ static void generate_proposals(const ncnn::Mat& anchors, int stride, const ncnn:
 
     const int num_anchors = anchors.w / 2;
 
-    for (int q = 0; q < num_anchors; q++)
-    {
+    for (int q = 0; q < num_anchors; q++) {
         const float anchor_w = anchors[q * 2];
         const float anchor_h = anchors[q * 2 + 1];
 
         const ncnn::Mat feat = feat_blob.channel(q);
 
-        for (int i = 0; i < num_grid_y; i++)
-        {
-            for (int j = 0; j < num_grid_x; j++)
-            {
-                const float* featptr = feat.row(i * num_grid_x + j);
+        for (int i = 0; i < num_grid_y; i++) {
+            for (int j = 0; j < num_grid_x; j++) {
+                const float *featptr = feat.row(i * num_grid_x + j);
 
                 // find class index with max class score
                 int class_index = 0;
                 float class_score = -FLT_MAX;
-                for (int k = 0; k < num_class; k++)
-                {
-                    float score = featptr[5 + k];
-                    if (score > class_score)
-                    {
-                        class_index = k;
-                        class_score = score;
-                    }
-                }
 
                 float box_score = featptr[4];
+                if (box_score > unsig_pro) {
+                    #pragma omp parallel for num_threads(ncnn::get_big_cpu_count())
+                    for (int k = 0; k < num_class; k++) {
+                        float score = featptr[5 + k];
+                        if (score > class_score) {
+                            class_index = k;
+                            class_score = score;
+                        }
+                    }
 
-                float confidence = sigmoid(box_score) * sigmoid(class_score);
-
-                if (confidence >= prob_threshold)
-                {
-                    // yolov5/models/yolo.py Detect forward
-                    // y = x[i].sigmoid()
-                    // y[..., 0:2] = (y[..., 0:2] * 2. - 0.5 + self.grid[i].to(x[i].device)) * self.stride[i]  # xy
-                    // y[..., 2:4] = (y[..., 2:4] * 2) ** 2 * self.anchor_grid[i]  # wh
+                    float confidence = sigmoid(box_score) * sigmoid(class_score);
 
                     float dx = sigmoid(featptr[0]);
                     float dy = sigmoid(featptr[1]);
@@ -213,8 +208,11 @@ static void generate_proposals(const ncnn::Mat& anchors, int stride, const ncnn:
                     obj.rect.height = y1 - y0;
                     obj.label = class_index;
                     obj.prob = confidence;
+                    obj.box_score = box_score;
+                    obj.unsig_pro = unsig_pro;
 
                     objects.push_back(obj);
+
                 }
             }
         }
@@ -236,16 +234,16 @@ static int detect_yolov5(const cv::Mat& bgr, std::vector<Object>& objects)
     // the ncnn model https://github.com/nihui/ncnn-assets/tree/master/models
 
 #if USE_INT8
-    yolov5.load_param("yolov5-lite-int8.param");
-    yolov5.load_model("yolov5-lite-int8.bin");
+    yolov5.load_param("v5lite-i8e.param");
+    yolov5.load_model("yolov5-i8e.bin");
 #else
-    yolov5.load_param("yolov5-lite.param");
-    yolov5.load_model("yolov5-lite.bin");
+    yolov5.load_param("v5lite-e.param");
+    yolov5.load_model("v5lite-e.bin");
 #endif
 
-    const int target_size = 640;
-    const float prob_threshold = 0.55f;
-    const float nms_threshold = 0.5f;
+    const int target_size = 320;
+    const float prob_threshold = 0.60f;
+    const float nms_threshold = 0.60f;
 
     int img_w = bgr.cols;
     int img_h = bgr.rows;
@@ -306,10 +304,7 @@ static int detect_yolov5(const cv::Mat& bgr, std::vector<Object>& objects)
     // stride 16
     {
         ncnn::Mat out;
-#if USE_INT8
-        ex.extract("917", out);
-#else
-        ex.extract("671", out);
+        ex.extract("1111", out);
 #endif
 
         ncnn::Mat anchors(6);
@@ -328,10 +323,7 @@ static int detect_yolov5(const cv::Mat& bgr, std::vector<Object>& objects)
     // stride 32
     {
         ncnn::Mat out;
-#if USE_INT8
-        ex.extract("937", out);
-#else
-        ex.extract("691", out);
+        ex.extract("2222", out);
 #endif
 
         ncnn::Mat anchors(6);
