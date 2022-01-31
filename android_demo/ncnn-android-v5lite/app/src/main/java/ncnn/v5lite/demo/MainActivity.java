@@ -36,7 +36,7 @@ public class MainActivity extends Activity implements SurfaceHolder.Callback
 {
     public static final int REQUEST_CAMERA = 100;
 
-    private Ncnnv5lite ncnnyolox = new Ncnnv5lite();
+    private Ncnnv5lite ncnnyolov5 = new Ncnnv5lite();
     private int facing = 0;
 
     private Spinner spinnerModel;
@@ -67,9 +67,9 @@ public class MainActivity extends Activity implements SurfaceHolder.Callback
 
                 int new_facing = 1 - facing;
 
-                ncnnyolox.closeCamera();
+                ncnnyolov5.closeCamera();
 
-                ncnnyolox.openCamera(new_facing);
+                ncnnyolov5.openCamera(new_facing);
 
                 facing = new_facing;
             }
@@ -116,17 +116,17 @@ public class MainActivity extends Activity implements SurfaceHolder.Callback
 
     private void reload()
     {
-        boolean ret_init = ncnnyolox.loadModel(getAssets(), current_model, current_cpugpu);
+        boolean ret_init = ncnnyolov5.loadModel(getAssets(), current_model, current_cpugpu);
         if (!ret_init)
         {
-            Log.e("MainActivity", "ncnnyolox loadModel failed");
+            Log.e("MainActivity", "ncnnyolov5 loadModel failed");
         }
     }
 
     @Override
     public void surfaceChanged(SurfaceHolder holder, int format, int width, int height)
     {
-        ncnnyolox.setOutputWindow(holder.getSurface());
+        ncnnyolov5.setOutputWindow(holder.getSurface());
     }
 
     @Override
@@ -149,7 +149,7 @@ public class MainActivity extends Activity implements SurfaceHolder.Callback
             ActivityCompat.requestPermissions(this, new String[] {Manifest.permission.CAMERA}, REQUEST_CAMERA);
         }
 
-        ncnnyolox.openCamera(facing);
+        ncnnyolov5.openCamera(facing);
     }
 
     @Override
@@ -157,6 +157,6 @@ public class MainActivity extends Activity implements SurfaceHolder.Callback
     {
         super.onPause();
 
-        ncnnyolox.closeCamera();
+        ncnnyolov5.closeCamera();
     }
 }
