@@ -235,3 +235,10 @@ https://github.com/megvii-model/ShuffleNet-Series
 
 https://github.com/Tencent/ncnn
 
+## Thanks for contributors
+
+<a href="https://github.com/ppogg/YOLOv5-Lite/graphs/contributors">
+  <img src="https://contrib.rocks/image?repo=ppogg/YOLOv5-Lite" />
+</a>
+
+Made with [contrib.rocks](https://contrib.rocks).
