@@ -12,8 +12,8 @@
 // CONDITIONS OF ANY KIND, either express or implied. See the License for the
 // specific language governing permissions and limitations under the License.
 
-#ifndef YOLOX_H
-#define YOLOX_H
+#ifndef YOLOv5_H
+#define YOLOv5_H
 
 #include <opencv2/core/core.hpp>
 
@@ -24,20 +24,21 @@ struct Object
     cv::Rect_<float> rect;
     int label;
     float prob;
-
+    float box_score;
+    float unsig_pro;
 };
 
 
-class Yolox
+class Yolov5
 {
 public:
-    Yolox();
+    Yolov5();
 
     int load(const char* modeltype, int target_size, const float* mean_vals, const float* norm_vals, bool use_gpu = false);
 
     int load(AAssetManager* mgr, const char* modeltype, int target_size, bool use_gpu = false);
 
-    int detect(const cv::Mat& rgb, std::vector<Object>& objects, float prob_threshold = 0.40f, float nms_threshold = 0.5f);
+    int detect(const cv::Mat& rgb, std::vector<Object>& objects, float prob_threshold = 0.60f, float nms_threshold = 0.60f);
 
 //    int drawradrect(cv::Mat &rgb, cv::Point topLeft, cv::Size rectSz, const cv::Scalar lineColor, const int thickness, const int lineType, const float cornerCurvatureRatio);
 
@@ -45,7 +46,7 @@ public:
 
 private:
 
-    ncnn::Net yolox;
+    ncnn::Net yolov5;
 
     int target_size;
     float mean_vals[3];
