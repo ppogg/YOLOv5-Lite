@@ -1,4 +1,4 @@
-# YOLOv5-Lite：lighter, faster and easier to deploy   ![](https://zenodo.org/badge/DOI/10.5281/zenodo.5241425.svg)
+# YOLOv5-Lite：Lighter, faster and easier to deploy   ![](https://zenodo.org/badge/DOI/10.5281/zenodo.5241425.svg)
 
 ![image](https://user-images.githubusercontent.com/82716366/135564164-3ec169c8-93a7-4ea3-b0dc-40f1059601ef.png)
 
