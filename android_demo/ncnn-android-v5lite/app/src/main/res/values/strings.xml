@@ -4,8 +4,10 @@
 <string-array name="model_array">
     <item>320-lite-e</item>
     <item>416-lite-e</item>
-    <item>320-lite-s</item>
+    <item>320-lite-i8e</item>
+    <item>416-lite-i8e</item>
     <item>416-lite-s</item>
+    <item>416-lite-i8s</item>
     <item>512-lite-c</item>
 </string-array>
 <string-array name="cpugpu_array">
