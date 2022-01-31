@@ -13,10 +13,11 @@
 // specific language governing permissions and limitations under the License.
 
 #include "yolov5.h"
-
+#include <benchmark.h>
 #include <opencv2/core/core.hpp>
 #include <opencv2/imgproc/imgproc.hpp>
 
+#include "omp.h"
 #include "cpu.h"
 
 
@@ -97,14 +98,22 @@ static void nms_sorted_bboxes(const std::vector<Object> &faceobjects, std::vecto
     }
 }
 
+// sigmoid
 static inline float sigmoid(float x) {
     return static_cast<float>(1.f / (1.f + exp(-x)));
+}
+
+// unsigmoid
+static inline float unsigmoid(float y) {
+    return static_cast<float>(-1.0 * (log((1.0 / y) - 1.0)));
 }
 
 static void generate_proposals(const ncnn::Mat &anchors, int stride, const ncnn::Mat &in_pad,
                                const ncnn::Mat &feat_blob, float prob_threshold,
                                std::vector<Object> &objects) {
     const int num_grid = feat_blob.h;
+
+    float unsig_pro = unsigmoid(prob_threshold);
 
     int num_grid_x;
     int num_grid_y;
@@ -133,23 +142,19 @@ static void generate_proposals(const ncnn::Mat &anchors, int stride, const ncnn:
                 // find class index with max class score
                 int class_index = 0;
                 float class_score = -FLT_MAX;
-                for (int k = 0; k < num_class; k++) {
-                    float score = featptr[5 + k];
-                    if (score > class_score) {
-                        class_index = k;
-                        class_score = score;
-                    }
-                }
 
                 float box_score = featptr[4];
+                if (box_score > unsig_pro) {
+                    #pragma omp parallel for num_threads(ncnn::get_big_cpu_count())
+                    for (int k = 0; k < num_class; k++) {
+                        float score = featptr[5 + k];
+                        if (score > class_score) {
+                            class_index = k;
+                            class_score = score;
+                        }
+                    }
 
-                float confidence = sigmoid(box_score) * sigmoid(class_score);
-
-                if (confidence >= prob_threshold) {
-                    // yolov5/models/yolo.py Detect forward
-                    // y = x[i].sigmoid()
-                    // y[..., 0:2] = (y[..., 0:2] * 2. - 0.5 + self.grid[i].to(x[i].device)) * self.stride[i]  # xy
-                    // y[..., 2:4] = (y[..., 2:4] * 2) ** 2 * self.anchor_grid[i]  # wh
+                    float confidence = sigmoid(box_score) * sigmoid(class_score);
 
                     float dx = sigmoid(featptr[0]);
                     float dy = sigmoid(featptr[1]);
@@ -174,45 +179,84 @@ static void generate_proposals(const ncnn::Mat &anchors, int stride, const ncnn:
                     obj.rect.height = y1 - y0;
                     obj.label = class_index;
                     obj.prob = confidence;
+                    obj.box_score = box_score;
+                    obj.unsig_pro = unsig_pro;
 
                     objects.push_back(obj);
+
                 }
+
+//                float confidence = sigmoid(box_score) * sigmoid(class_score);
+//
+//                if (confidence >= prob_threshold) {
+//                    // yolov5/models/yolo.py Detect forward
+//                    // y = x[i].sigmoid()
+//                    // y[..., 0:2] = (y[..., 0:2] * 2. - 0.5 + self.grid[i].to(x[i].device)) * self.stride[i]  # xy
+//                    // y[..., 2:4] = (y[..., 2:4] * 2) ** 2 * self.anchor_grid[i]  # wh
+//
+//
+//                    float dx = sigmoid(featptr[0]);
+//                    float dy = sigmoid(featptr[1]);
+//                    float dw = sigmoid(featptr[2]);
+//                    float dh = sigmoid(featptr[3]);
+//
+//                    float pb_cx = (dx * 2.f - 0.5f + j) * stride;
+//                    float pb_cy = (dy * 2.f - 0.5f + i) * stride;
+//
+//                    float pb_w = pow(dw * 2.f, 2) * anchor_w;
+//                    float pb_h = pow(dh * 2.f, 2) * anchor_h;
+//
+//                    float x0 = pb_cx - pb_w * 0.5f;
+//                    float y0 = pb_cy - pb_h * 0.5f;
+//                    float x1 = pb_cx + pb_w * 0.5f;
+//                    float y1 = pb_cy + pb_h * 0.5f;
+//
+//                    Object obj;
+//                    obj.rect.x = x0;
+//                    obj.rect.y = y0;
+//                    obj.rect.width = x1 - x0;
+//                    obj.rect.height = y1 - y0;
+//                    obj.label = class_index;
+//                    obj.prob = confidence;
+//
+//                    objects.push_back(obj);
+//                }
             }
         }
     }
 }
 
 
-Yolox::Yolox() {
+Yolov5::Yolov5() {
     blob_pool_allocator.set_size_compare_ratio(0.f);
     workspace_pool_allocator.set_size_compare_ratio(0.f);
 }
 
-int Yolox::load(const char *modeltype, int _target_size, const float *_mean_vals,
-                const float *_norm_vals, bool use_gpu) {
-    yolox.clear();
+int Yolov5::load(const char *modeltype, int _target_size, const float *_mean_vals,
+                 const float *_norm_vals, bool use_gpu) {
+    yolov5.clear();
     blob_pool_allocator.clear();
     workspace_pool_allocator.clear();
 
     ncnn::set_cpu_powersave(2);
     ncnn::set_omp_num_threads(ncnn::get_big_cpu_count());
 
-    yolox.opt = ncnn::Option();
+    yolov5.opt = ncnn::Option();
 
 #if NCNN_VULKAN
-    yolox.opt.use_vulkan_compute = use_gpu;
+    yolov5.opt.use_vulkan_compute = use_gpu;
 #endif
-    yolox.opt.num_threads = ncnn::get_big_cpu_count();
-    yolox.opt.blob_allocator = &blob_pool_allocator;
-    yolox.opt.workspace_allocator = &workspace_pool_allocator;
+    yolov5.opt.num_threads = ncnn::get_big_cpu_count();
+    yolov5.opt.blob_allocator = &blob_pool_allocator;
+    yolov5.opt.workspace_allocator = &workspace_pool_allocator;
 
     char parampath[256];
     char modelpath[256];
     sprintf(parampath, "%s.param", modeltype);
     sprintf(modelpath, "%s.bin", modeltype);
 
-    yolox.load_param(parampath);
-    yolox.load_model(modelpath);
+    yolov5.load_param(parampath);
+    yolov5.load_model(modelpath);
 
     target_size = _target_size;
 
@@ -226,21 +270,21 @@ int Yolox::load(const char *modeltype, int _target_size, const float *_mean_vals
     return 0;
 }
 
-int Yolox::load(AAssetManager *mgr, const char *modeltype, int _target_size, bool use_gpu) {
-    yolox.clear();
+int Yolov5::load(AAssetManager *mgr, const char *modeltype, int _target_size, bool use_gpu) {
+    yolov5.clear();
     blob_pool_allocator.clear();
     workspace_pool_allocator.clear();
 
     ncnn::set_cpu_powersave(2);
     ncnn::set_omp_num_threads(ncnn::get_big_cpu_count());
 
-    yolox.opt = ncnn::Option();
+    yolov5.opt = ncnn::Option();
 #if NCNN_VULKAN
-    yolox.opt.use_vulkan_compute = use_gpu;
+    yolov5.opt.use_vulkan_compute = use_gpu;
 #endif
-    yolox.opt.num_threads = ncnn::get_big_cpu_count();
-    yolox.opt.blob_allocator = &blob_pool_allocator;
-    yolox.opt.workspace_allocator = &workspace_pool_allocator;
+    yolov5.opt.num_threads = ncnn::get_big_cpu_count();
+    yolov5.opt.blob_allocator = &blob_pool_allocator;
+    yolov5.opt.workspace_allocator = &workspace_pool_allocator;
 
     char parampath[256];
     char modelpath[256];
@@ -253,14 +297,22 @@ int Yolox::load(AAssetManager *mgr, const char *modeltype, int _target_size, boo
         target_size = 416;
         sprintf(parampath, "%s.param", "e");
         sprintf(modelpath, "%s.bin", "e");
-    } else if (modeltype == "320-lite-s") {
+    } else if (modeltype == "320-lite-i8e") {
         target_size = 320;
-        sprintf(parampath, "%s.param", "s");
-        sprintf(modelpath, "%s.bin", "s");
-    } else if (modeltype == "416-lite-s") {
+        sprintf(parampath, "%s.param", "i8e");
+        sprintf(modelpath, "%s.bin", "i8e");
+    } else if (modeltype == "416-lite-i8e") {
+        target_size = 416;
+        sprintf(parampath, "%s.param", "i8e");
+        sprintf(modelpath, "%s.bin", "i8e");
+    }else if (modeltype == "416-lite-s") {
         target_size = 416;
         sprintf(parampath, "%s.param", "s");
         sprintf(modelpath, "%s.bin", "s");
+    } else if (modeltype == "416-lite-i8s") {
+        target_size = 416;
+        sprintf(parampath, "%s.param", "i8s");
+        sprintf(modelpath, "%s.bin", "i8s");
     } else if (modeltype == "512-lite-c") {
         target_size = 512;
         sprintf(parampath, "%s.param", "c");
@@ -268,15 +320,15 @@ int Yolox::load(AAssetManager *mgr, const char *modeltype, int _target_size, boo
     }
 //    target_size = 320;
 
-    yolox.load_param(mgr, parampath);
-    yolox.load_model(mgr, modelpath);
+    yolov5.load_param(mgr, parampath);
+    yolov5.load_model(mgr, modelpath);
 
     return 0;
 }
 
 
-int Yolox::detect(const cv::Mat &rgb, std::vector<Object> &objects, float prob_threshold,
-                  float nms_threshold) {
+int Yolov5::detect(const cv::Mat &rgb, std::vector<Object> &objects, float prob_threshold,
+                   float nms_threshold) {
     int img_w = rgb.cols;
     int img_h = rgb.rows;
 
@@ -295,11 +347,12 @@ int Yolox::detect(const cv::Mat &rgb, std::vector<Object> &objects, float prob_t
     }
 
 
-    ncnn::Mat in = ncnn::Mat::from_pixels_resize(rgb.data, ncnn::Mat::PIXEL_RGB, img_w, img_h, w,
-                                                 h);
+    ncnn::Mat in = ncnn::Mat::from_pixels_resize(rgb.data, ncnn::Mat::PIXEL_RGB, img_w, img_h,
+                                                 w, h);
 
     // pad to target_size rectangle
     // yolov5/utils/datasets.py letterbox
+    double t1, t2, t3, t4, t5, t6, t;
     int wpad = target_size - w;//(w + 31) / 32 * 32 - w;
     int hpad = target_size - h;//(h + 31) / 32 * 32 - h;
     ncnn::Mat in_pad;
@@ -310,7 +363,7 @@ int Yolox::detect(const cv::Mat &rgb, std::vector<Object> &objects, float prob_t
     const float norm_vals[3] = {1 / 255.f, 1 / 255.f, 1 / 255.f};
     in_pad.substract_mean_normalize(0, norm_vals);
 
-    ncnn::Extractor ex = yolox.create_extractor();
+    ncnn::Extractor ex = yolov5.create_extractor();
 
     ex.input("images", in_pad);
 
@@ -319,7 +372,9 @@ int Yolox::detect(const cv::Mat &rgb, std::vector<Object> &objects, float prob_t
     // stride 8
     {
         ncnn::Mat out;
+        t1 = ncnn::get_current_time();
         ex.extract("output", out);
+        t2 = ncnn::get_current_time() - t1;
 
         ncnn::Mat anchors(6);
         anchors[0] = 10.f;
@@ -338,7 +393,9 @@ int Yolox::detect(const cv::Mat &rgb, std::vector<Object> &objects, float prob_t
     // stride 16
     {
         ncnn::Mat out;
+        t3 = ncnn::get_current_time();
         ex.extract("1111", out);
+        t4 = ncnn::get_current_time() - t3;
 
         ncnn::Mat anchors(6);
         anchors[0] = 30.f;
@@ -357,7 +414,9 @@ int Yolox::detect(const cv::Mat &rgb, std::vector<Object> &objects, float prob_t
     // stride 32
     {
         ncnn::Mat out;
+        t5 = ncnn::get_current_time();
         ex.extract("2222", out);
+        t6 = ncnn::get_current_time() - t5;
 
         ncnn::Mat anchors(6);
         anchors[0] = 116.f;
@@ -373,18 +432,6 @@ int Yolox::detect(const cv::Mat &rgb, std::vector<Object> &objects, float prob_t
         proposals.insert(proposals.end(), objects32.begin(), objects32.end());
     }
 
-
-//    {
-//        ncnn::Mat out;
-//        ex.extract("output", out);
-//
-//        std::vector<int> strides = {8, 16, 32}; // might have stride=64
-//        std::vector<GridAndStride> grid_strides;
-//        generate_grids_and_stride(target_size, strides, grid_strides);
-//        generate_yolox_proposals(grid_strides, out, prob_threshold, proposals);
-//    }
-
-    // sort all proposals by score from highest to lowest
     qsort_descent_inplace(proposals);
 
     // apply nms with nms_threshold
@@ -394,6 +441,7 @@ int Yolox::detect(const cv::Mat &rgb, std::vector<Object> &objects, float prob_t
     int count = picked.size();
 
     objects.resize(count);
+    #pragma omp parallel for num_threads(ncnn::get_big_cpu_count())
     for (int i = 0; i < count; i++) {
         objects[i] = proposals[picked[i]];
 
@@ -415,10 +463,18 @@ int Yolox::detect(const cv::Mat &rgb, std::vector<Object> &objects, float prob_t
         objects[i].rect.height = y1 - y0;
     }
 
-    return 0;
+    struct {
+        bool operator()(const Object &a, const Object &b) const {
+            return a.rect.area() > b.rect.area();
+        }
+    } objects_area_greater;
+    std::sort(objects.begin(), objects.end(), objects_area_greater);
+
+    t = (t2 + t4 + t6);
+    return t;
 }
 
-//int Yolox::drawradrect(cv::Mat &rgb, cv::Point topLeft, cv::Size rectSz, const cv::Scalar lineColor, const int thickness, const int lineType, const float cornerCurvatureRatio) {
+//int Yolov5::drawradrect(cv::Mat &rgb, cv::Point topLeft, cv::Size rectSz, const cv::Scalar lineColor, const int thickness, const int lineType, const float cornerCurvatureRatio) {
 //    // corners:
 //    // p1 - p2
 //    // |     |
@@ -447,11 +503,13 @@ int Yolox::detect(const cv::Mat &rgb, std::vector<Object> &objects, float prob_t
 //    return 0;
 //}
 
-int Yolox::draw(cv::Mat &rgb, const std::vector<Object> &objects) {
+int Yolov5::draw(cv::Mat &rgb, const std::vector<Object> &objects) {
     static const char *class_names[] = {
-            "person", "bicycle", "car", "motorcycle", "airplane", "bus", "train", "truck", "boat",
+            "person", "bicycle", "car", "motorcycle", "airplane", "bus", "train", "truck",
+            "boat",
             "traffic light",
-            "fire hydrant", "stop sign", "parking meter", "bench", "bird", "cat", "dog", "horse",
+            "fire hydrant", "stop sign", "parking meter", "bench", "bird", "cat", "dog",
+            "horse",
             "sheep", "cow",
             "elephant", "bear", "zebra", "giraffe", "backpack", "umbrella", "handbag", "tie",
             "suitcase", "frisbee",
@@ -490,7 +548,7 @@ int Yolox::draw(cv::Mat &rgb, const std::vector<Object> &objects) {
     };
 
     int color_index = 0;
-
+    #pragma omp parallel for num_threads(ncnn::get_big_cpu_count())
     for (size_t i = 0; i < objects.size(); i++) {
         const Object &obj = objects[i];
 
@@ -502,10 +560,11 @@ int Yolox::draw(cv::Mat &rgb, const std::vector<Object> &objects) {
         cv::rectangle(rgb, obj.rect, cc, 2);
 
         char text[256];
-        sprintf(text, "%s %.1f%%", class_names[obj.label], obj.prob * 100);
+        sprintf(text, "%s %.1f%% %.1f %.1f", class_names[obj.label], obj.prob * 100, obj.box_score * 100, obj.unsig_pro * 100);
 
         int baseLine = 0;
-        cv::Size label_size = cv::getTextSize(text, cv::FONT_HERSHEY_SIMPLEX, 0.5, 1, &baseLine);
+        cv::Size label_size = cv::getTextSize(text, cv::FONT_HERSHEY_SIMPLEX, 0.5, 1,
+                                              &baseLine);
 
         int x = obj.rect.x;
         int y = obj.rect.y - label_size.height - baseLine;
@@ -515,12 +574,14 @@ int Yolox::draw(cv::Mat &rgb, const std::vector<Object> &objects) {
             x = rgb.cols - label_size.width;
 
         cv::rectangle(rgb, cv::Rect(cv::Point(x, y),
-                                    cv::Size(label_size.width, label_size.height + baseLine)), cc, -1);
+                                    cv::Size(label_size.width, label_size.height + baseLine)),
+                      cc, -1);
 //        drawradrect(rgb, cv::Point(x, y), cv::Size(label_size.width, label_size.height + baseLine), cc, 2, 1, 2.5);
         cv::Scalar textcc = (color[0] + color[1] + color[2] >= 381) ? cv::Scalar(0, 0, 0)
                                                                     : cv::Scalar(255, 255, 255);
 
-        cv::putText(rgb, text, cv::Point(x, y + label_size.height), cv::FONT_HERSHEY_SIMPLEX, 0.5,
+        cv::putText(rgb, text, cv::Point(x, y + label_size.height), cv::FONT_HERSHEY_SIMPLEX,
+                    0.5,
                     textcc, 1);
 
     }
