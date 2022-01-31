@@ -1,7 +1,3 @@
-'''
-Created on Feb 20, 2017
-@author: jumabek
-'''
 from os.path import join
 import argparse
 import numpy as np
