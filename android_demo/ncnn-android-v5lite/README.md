@@ -27,7 +27,7 @@ https://github.com/nihui/opencv-mobile
 ### step3
 ```
 cd ncnn_Android/ncnn-android-yolov5/app/src/main/assets
-wget yolov5-lite-i8.bin or yolov5-lite.bin into assets
+wget all the *.param and *.bin
 ```
 
 ### step4
