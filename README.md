@@ -92,6 +92,7 @@ Baidu Drive Password: `pogg`
 
 ## Thanks for contributors
 We welcome your comments! We want to make contributing to YOLOv5-Lite as easy and transparent as possible. Thanks to all our contributors!
+
 <a href="https://github.com/ppogg/YOLOv5-Lite/graphs/contributors">
   <img src="https://contrib.rocks/image?repo=ppogg/YOLOv5-Lite" />
 </a>
