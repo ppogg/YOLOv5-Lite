@@ -6,13 +6,9 @@ https://github.com/Tencent/ncnn
 
 https://github.com/nihui/opencv-mobile
 
-![图片1](https://user-images.githubusercontent.com/82716366/150166181-070384e7-0dd7-4a44-96c2-3a1bf5142d94.png)
-
 ## model_zoo
 
-yolov5-lite.bin: [https://drive.google.com/file/d/1pR_hFmhmI19Pev_t1i75z7btfJTY3m2f/view?usp=sharing](https://drive.google.com/file/d/1pR_hFmhmI19Pev_t1i75z7btfJTY3m2f/view?usp=sharing)
-
-yolov5-lite-int8.bin: [https://drive.google.com/file/d/1U4Vt6Oqa7ER0CahaMIdHcn0eagv1iOcw/view?usp=sharing](https://drive.google.com/file/d/1U4Vt6Oqa7ER0CahaMIdHcn0eagv1iOcw/view?usp=sharing)
+https://github.com/ppogg/ncnn-android-v5lite/tree/master/app/src/main/assets
 
 
 ## how to build and run
@@ -45,9 +41,13 @@ wget yolov5-lite-i8.bin or yolov5-lite.bin into assets
 * FPS may be lower in dark environment because of longer camera exposure time
 
 ## screenshot
-![app](https://user-images.githubusercontent.com/82716366/150166573-b9c7372b-fe82-4216-90d1-8c9476618e2d.jpg)
+<img src="https://user-images.githubusercontent.com/82716366/151705519-de3ad1f1-e297-4125-989a-04e49dcf2876.jpg" width="600"/><br/>
+
+<img src="https://pic1.zhimg.com/80/v2-c013df3638fd41d10103ea259b18e588_720w.jpg" width="300"/><br/>
 
 ## reference  
 https://github.com/nihui/ncnn-android-yolov5
+
 https://github.com/FeiGeChuanShu/ncnn-android-yolox  
+
 https://github.com/ppogg/YOLOv5-Lite
