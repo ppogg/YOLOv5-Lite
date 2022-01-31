@@ -1,8 +1,6 @@
 ## model_zoo
 
-v5lite-s.bin: [https://drive.google.com/file/d/1-cR_brkimJK1HgIcPwTIPZ1KSZRDA3am/view?usp=sharing](https://drive.google.com/file/d/1-cR_brkimJK1HgIcPwTIPZ1KSZRDA3am/view?usp=sharing)
-
-v5lite-s-int8.bin: [https://drive.google.com/file/d/1U4Vt6Oqa7ER0CahaMIdHcn0eagv1iOcw/view?usp=sharing](https://drive.google.com/file/d/1U4Vt6Oqa7ER0CahaMIdHcn0eagv1iOcw/view?usp=sharing)
+https://github.com/ppogg/ncnn-android-v5lite/tree/master/app/src/main/assets
 
 ## Detection effect
 
