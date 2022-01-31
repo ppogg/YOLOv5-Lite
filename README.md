@@ -90,6 +90,14 @@ Baidu Drive Password: `pogg`
 
 #### Thanks for PINTO0309:[https://github.com/PINTO0309/PINTO_model_zoo/tree/main/180_YOLOv5-Lite](https://github.com/PINTO0309/PINTO_model_zoo/tree/main/180_YOLOv5-Lite)
 
+## Thanks for contributors
+We welcome your comments! We want to make contributing to YOLOv5-Lite as easy and transparent as possible. Thanks to all our contributors!
+<a href="https://github.com/ppogg/YOLOv5-Lite/graphs/contributors">
+  <img src="https://contrib.rocks/image?repo=ppogg/YOLOv5-Lite" />
+</a>
+
+Made with [contrib.rocks](https://contrib.rocks).
+
 ## <div>How to use</div>
 
 <details open>
@@ -235,10 +243,3 @@ https://github.com/megvii-model/ShuffleNet-Series
 
 https://github.com/Tencent/ncnn
 
-## Thanks for contributors
-
-<a href="https://github.com/ppogg/YOLOv5-Lite/graphs/contributors">
-  <img src="https://contrib.rocks/image?repo=ppogg/YOLOv5-Lite" />
-</a>
-
-Made with [contrib.rocks](https://contrib.rocks).
