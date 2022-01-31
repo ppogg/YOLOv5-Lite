@@ -795,9 +795,6 @@ class RepVGGBlock(nn.Module):
 
         return self.nonlinearity(self.se(self.rbr_dense(inputs) + self.rbr_1x1(inputs) + id_out))
 
-        # RepVGGBlock(in_channels=self.in_planes, out_channels=planes, kernel_size=3,
-        #                           stride=stride, padding=1, groups=1, deploy=self.deploy, use_se=self.use_se))
-
     def fusevggforward(self, x):
         return self.nonlinearity(self.rbr_dense(x))
 
