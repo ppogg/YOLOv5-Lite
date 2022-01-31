@@ -192,6 +192,7 @@ class Model(nn.Module):
                     if hasattr(self, 'id_tensor'):
                         m.__delattr__('id_tensor')
                     m.deploy = True
+                    delattr(m, 'se')
                     m.forward = m.fusevggforward  # update forward
                 # continue
                 # print(m)
