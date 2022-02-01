@@ -46,9 +46,9 @@ Raspberrypi 4B|@ARM Cortex-A72|Linux(arm64)|320×320|mnn|-|76ms|-|-|356ms
 Model|Size|Backbone|Head|Framework|Design for
 :---:|:---:|:---:|:---:|:---:|:---
 v5Lite-e.pt|1.7m|shufflenetv2（Megvii）|v5Litee-head|Pytorch|Arm-cpu
-v5Lite-e.bin<br />v5Lite-e.param|3.3m|shufflenetv2|v5Litee-head|ncnn|Arm-cpu
-v5Lite-e-int8.bin<br />v5Lite-e-int8.param|1.7m|shufflenetv2|v5Litee-head|ncnn|Arm-cpu
-v5Lite-e.mnn|3.0m|shufflenetv2|v5Litee-head|mnn|Arm-cpu
+v5Lite-e.bin<br />v5Lite-e.param|1.7m|shufflenetv2|v5Litee-head|ncnn|Arm-cpu
+v5Lite-e-int8.bin<br />v5Lite-e-int8.param|0.9m|shufflenetv2|v5Litee-head|ncnn|Arm-cpu
+v5Lite-e-fp32.mnn|3.0m|shufflenetv2|v5Litee-head|mnn|Arm-cpu
 v5Lite-e-fp32.tnnmodel<br />v5Lite-e-fp32.tnnproto|2.9m|shufflenetv2|v5Litee-head|tnn|arm-cpu
 
 #### @v5lite-s:
@@ -82,16 +82,21 @@ v5Lite-g-int8.engine|8.5m|Repvgg|v5Liteg-head|Tensorrt|x86-gpu / arm-gpu / arm-n
 v5lite-g-int8.tmfile|8.7m|Repvgg|v5Liteg-head|Tengine| arm-npu
 
 > #### Download Link：
->> - [ ] `YOLOv5—Lites.pt`:   | [Baidu Drive](https://pan.baidu.com/s/1j0n0K1kqfv1Ouwa2QSnzCQ)  | [Google Drive](https://drive.google.com/file/d/1ccLTmGB5AkKPjDOyxF3tW7JxGWemph9f/view?usp=sharing) |<br> 
+>> - [ ] `v5lite-e.pt`:   | [Baidu Drive]()  | [Google Drive]() |<br> 
+>>>> |──────`ncnn-fp16`:   | [Baidu Drive]()  | [Google Drive](https://drive.google.com/drive/folders/1w4mThJmqjhT1deIXMQAQ5xjWI3JNyzUl?usp=sharing) |<br> 
+>>>> |──────`ncnn-int8`: | [Baidu Drive]() | [Google Drive](https://drive.google.com/drive/folders/1YNtNVWlRqN8Dwc_9AtRkN0LFkDeJ92gN?usp=sharing) |<br> 
+>>>> |──────`mnn-fp32`: | [Baidu Drive]() | [Google Drive](https://drive.google.com/drive/folders/1Kha3vQF-7qc5i-GFryInStgTFisGL5vq?usp=sharing) |<br> 
+>>>> └──────tnn-fp32`: | [Baidu Drive]() | [Google Drive](https://drive.google.com/drive/folders/1VWmI2BC9MjH7BsrOz4VlSDVnZMXaxGOE?usp=sharing) |<br> 
+>> - [ ] `v5lite-s.pt`:   | [Baidu Drive](https://pan.baidu.com/s/1j0n0K1kqfv1Ouwa2QSnzCQ)  | [Google Drive](https://drive.google.com/file/d/1ccLTmGB5AkKPjDOyxF3tW7JxGWemph9f/view?usp=sharing) |<br> 
 >>>> |──────`ncnn-fp16`:   | [Baidu Drive](https://pan.baidu.com/s/1kWtwx1C0OTTxbwqJyIyXWg)  | [Google Drive](https://drive.google.com/drive/folders/1w4mThJmqjhT1deIXMQAQ5xjWI3JNyzUl?usp=sharing) |<br> 
 >>>> |──────`ncnn-int8`: | [Baidu Drive](https://pan.baidu.com/s/1QX6-oNynrW-f3i0P0Hqe4w) | [Google Drive](https://drive.google.com/drive/folders/1YNtNVWlRqN8Dwc_9AtRkN0LFkDeJ92gN?usp=sharing) |<br> 
 >>>> |──────`mnn-fp16`: | [Baidu Drive](https://pan.baidu.com/s/12lOtPTl4xujWm5BbFJh3zA) | [Google Drive](https://drive.google.com/drive/folders/1PpFoZ4b8mVs1GmMxgf0WUtXUWaGK_JZe?usp=sharing) |<br> 
 >>>> |──────`mnn-int4`: | [Baidu Drive](https://pan.baidu.com/s/11fbjFi18xkq4ltAKUKDOCA) | [Google Drive](https://drive.google.com/drive/folders/1mSU8g94c77KKsHC-07p5V3tJOZYPQ-g6?usp=sharing) |<br> 
 >>>> └──────`tengine-fp32`: | [Baidu Drive](https://pan.baidu.com/s/123r630O8Fco7X59wFU1crA) | [Google Drive](https://drive.google.com/drive/folders/1VWmI2BC9MjH7BsrOz4VlSDVnZMXaxGOE?usp=sharing) |<br> 
                      
- >> - [ ] `YOLOv5—Litec.pt`: [Baidu Drive](https://pan.baidu.com/s/1obs6uRB79m8e3uASVR6P1A) | [Google Drive](https://drive.google.com/file/d/1lHYRQKjqKCRXghUjwWkUB0HQ8ccKH6qa/view?usp=sharing) |<br> 
+ >> - [ ] `v5lite-c.pt`: [Baidu Drive](https://pan.baidu.com/s/1obs6uRB79m8e3uASVR6P1A) | [Google Drive](https://drive.google.com/file/d/1lHYRQKjqKCRXghUjwWkUB0HQ8ccKH6qa/view?usp=sharing) |<br> 
 >>>> └──────`openvino-fp16`: | [Baidu Drive](https://pan.baidu.com/s/18p8HAyGJdmo2hham250b4A) | [Google Drive](https://drive.google.com/drive/folders/1s4KPSC4B0shG0INmQ6kZuPLnlUKAATyv?usp=sharing) |<br> 
->> - [ ] `YOLOv5—Liteg.pt`: | [Baidu Drive](https://pan.baidu.com/s/14zdTiTMI_9yTBgKGbv9pQw) | [Google Drive](https://drive.google.com/file/d/1oftzqOREGqDCerf7DtD5BZp9YWELlkMe/view?usp=sharing) |<br> 
+>> - [ ] `v5lite-g.pt`: | [Baidu Drive](https://pan.baidu.com/s/14zdTiTMI_9yTBgKGbv9pQw) | [Google Drive](https://drive.google.com/file/d/1oftzqOREGqDCerf7DtD5BZp9YWELlkMe/view?usp=sharing) |<br> 
 
 Baidu Drive Password: `pogg`
 
