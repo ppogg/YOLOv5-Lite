@@ -41,7 +41,17 @@ Raspberrypi 4B|@ARM Cortex-A72|Linux(arm64)|320×320|mnn|-|76ms|-|-|356ms
 
 ##  ·Model Zoo· 
 
-#### @YOLOv5-Lites:
+#### @v5lite-e:
+
+Model|Size|Backbone|Head|Framework|Design for
+:---:|:---:|:---:|:---:|:---:|:---
+v5Lite-e.pt|1.7m|shufflenetv2（Megvii）|v5Litee-head|Pytorch|Arm-cpu
+v5Lite-e.bin<br />v5Lite-e.param|3.3m|shufflenetv2|v5Litee-head|ncnn|Arm-cpu
+v5Lite-e-int8.bin<br />v5Lite-e-int8.param|1.7m|shufflenetv2|v5Litee-head|ncnn|Arm-cpu
+v5Lite-e.mnn|3.0m|shufflenetv2|v5Litee-head|mnn|Arm-cpu
+v5Lite-e-fp32.tnnmodel<br />v5Lite-e-fp32.tnnproto|2.9m|shufflenetv2|v5Litee-head|tnn|arm-cpu
+
+#### @v5lite-s:
 
 Model|Size|Backbone|Head|Framework|Design for
 :---:|:---:|:---:|:---:|:---:|:---
@@ -56,14 +66,14 @@ v5Lite-s-fp16.tflite|3.3m|shufflenetv2|v5Lites-head|tflite|arm-cpu
 v5Lite-s-fp32.tflite|6.7m|shufflenetv2|v5Lites-head|tflite|arm-cpu
 v5Lite-s-int8.tflite|1.8m|shufflenetv2|v5Lites-head|tflite|arm-cpu
 
-#### @YOLOv5-Litec:
+#### @v5lite-c:
 
 Model|Size|Backbone|Head|Framework|Design for
 :---:|:---:|:---:|:---:|:---:|:---:
 v5Lite-c.pt|9m|PPLcnet（Baidu）|v5Litec-head|Pytorch|x86-cpu / x86-vpu
 v5Lite-c.bin<br />v5Lite-c.xml|8.7m|PPLcnet|v5Litec-head|openvivo|x86-cpu / x86-vpu
 
-#### @YOLOv5-Liteg:
+#### @v5lite-g:
 
 Model|Size|Backbone|Head|Framework|Design for
 :---:|:---:|:---:|:---:|:---:|:---:
