@@ -83,7 +83,7 @@ v5lite-g-int8.tmfile|8.7m|Repvgg|v5Liteg-head|Tengine| arm-npu
 
 #### Download Link：
 
-> - [ ] `v5lite-e.pt`:   | [Baidu Drive]()  | [Google Drive]() |<br> 
+> - [ ] `v5lite-e.pt`:   | [Baidu Drive](https://drive.google.com/file/d/1_DvT_qjznuE-ev_pDdGKwRV3MjZ3Zos8/view?usp=sharing)  | [Google Drive](https://drive.google.com/file/d/1_DvT_qjznuE-ev_pDdGKwRV3MjZ3Zos8/view?usp=sharing) |<br> 
 >> |──────`ncnn-fp16`:   | [Baidu Drive]()  | [Google Drive](https://drive.google.com/drive/folders/1w4mThJmqjhT1deIXMQAQ5xjWI3JNyzUl?usp=sharing) |<br> 
 >> |──────`ncnn-int8`: | [Baidu Drive]() | [Google Drive](https://drive.google.com/drive/folders/1YNtNVWlRqN8Dwc_9AtRkN0LFkDeJ92gN?usp=sharing) |<br> 
 >> |──────`mnn-fp32`: | [Baidu Drive]() | [Google Drive](https://drive.google.com/drive/folders/1Kha3vQF-7qc5i-GFryInStgTFisGL5vq?usp=sharing) |<br> 
