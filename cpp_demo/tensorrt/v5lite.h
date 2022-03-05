@@ -1,10 +1,10 @@
-#ifndef YOLOV5_TRT_YOLOV5_H
-#define YOLOV5_TRT_YOLOV5_H
+#ifndef V5lite_TRT_V5lite_H
+#define V5lite_TRT_V5lite_H
 
 #include <opencv2/opencv.hpp>
 #include "NvInfer.h"
 
-class YOLOv5
+class V5lite
 {
     struct DetectRes{
         int classes;
@@ -16,8 +16,8 @@ class YOLOv5
     };
 
 public:
-    YOLOv5(const std::string &config_file);
-    ~YOLOv5();
+    V5lite(const std::string &config_file);
+    ~V5lite();
     void LoadEngine();
     bool InferenceFolder(const std::string &folder_name);
 
@@ -48,4 +48,4 @@ private:
     std::vector<cv::Scalar> class_colors;
 };
 
-#endif //YOLOV5_TRT_YOLOV5_H
+#endif 

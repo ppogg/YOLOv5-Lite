@@ -1,10 +1,10 @@
-#include "yolov5.h"
+#include "v5lite.h"
 #include "yaml-cpp/yaml.h"
 #include "common.hpp"
 
-YOLOv5::YOLOv5(const std::string &config_file) {
+V5lite::V5lite(const std::string &config_file) {
     YAML::Node root = YAML::LoadFile(config_file);
-    YAML::Node config = root["yolov5"];
+    YAML::Node config = root["tensorrt"];
     engine_file = config["engine_file"].as<std::string>();
     labels_file = config["labels_file"].as<std::string>();
     BATCH_SIZE = config["BATCH_SIZE"].as<int>();
@@ -30,9 +30,9 @@ YOLOv5::YOLOv5(const std::string &config_file) {
         class_color = cv::Scalar(rand() % 255, rand() % 255, rand() % 255);
 }
 
-YOLOv5::~YOLOv5() = default;
+V5lite::~V5lite() = default;
 
-void YOLOv5::LoadEngine() {
+void V5lite::LoadEngine() {
     // create and load engine
     std::fstream existEngine;
     existEngine.open(engine_file, std::ios::in);
@@ -40,7 +40,7 @@ void YOLOv5::LoadEngine() {
     assert(engine != nullptr);
 }
 
-bool YOLOv5::InferenceFolder(const std::string &folder_name) {
+bool V5lite::InferenceFolder(const std::string &folder_name) {
     std::vector<std::string> sample_images = readFolder(folder_name);
     //get context
     assert(engine != nullptr);
@@ -81,7 +81,7 @@ bool YOLOv5::InferenceFolder(const std::string &folder_name) {
     engine->destroy();
 }
 
-void YOLOv5::EngineInference(const std::vector<std::string> &image_list, const int &outSize, void **buffers,
+void V5lite::EngineInference(const std::vector<std::string> &image_list, const int &outSize, void **buffers,
                              const std::vector<int64_t> &bufferSize, cudaStream_t stream) {
     int index = 0;
     int batch_id = 0;
@@ -164,7 +164,7 @@ void YOLOv5::EngineInference(const std::vector<std::string> &image_list, const i
     std::cout << "Average processing time is " << total_time / image_list.size() << "ms" << std::endl;
 }
 
-std::vector<float> YOLOv5::prepareImage(std::vector<cv::Mat> &vec_img) {
+std::vector<float> V5lite::prepareImage(std::vector<cv::Mat> &vec_img) {
     std::vector<float> result(BATCH_SIZE * IMAGE_WIDTH * IMAGE_HEIGHT * INPUT_CHANNEL);
     float *data = result.data();
     int index = 0;
@@ -192,7 +192,7 @@ std::vector<float> YOLOv5::prepareImage(std::vector<cv::Mat> &vec_img) {
     return result;
 }
 
-std::vector<std::vector<YOLOv5::DetectRes>> YOLOv5::postProcess(const std::vector<cv::Mat> &vec_Mat, float *output,
+std::vector<std::vector<V5lite::DetectRes>> V5lite::postProcess(const std::vector<cv::Mat> &vec_Mat, float *output,
                                                                 const int &outSize) {
     std::vector<std::vector<DetectRes>> vec_result;
     int index = 0;
@@ -233,7 +233,7 @@ std::vector<std::vector<YOLOv5::DetectRes>> YOLOv5::postProcess(const std::vecto
     return vec_result;
 }
 
-void YOLOv5::NmsDetect(std::vector<DetectRes> &detections) {
+void V5lite::NmsDetect(std::vector<DetectRes> &detections) {
     sort(detections.begin(), detections.end(), [=](const DetectRes &left, const DetectRes &right) {
         return left.prob > right.prob;
     });
@@ -253,7 +253,7 @@ void YOLOv5::NmsDetect(std::vector<DetectRes> &detections) {
     { return det.prob == 0; }), detections.end());
 }
 
-float YOLOv5::IOUCalculate(const YOLOv5::DetectRes &det_a, const YOLOv5::DetectRes &det_b) {
+float V5lite::IOUCalculate(const V5lite::DetectRes &det_a, const V5lite::DetectRes &det_b) {
     cv::Point2f center_a(det_a.x, det_a.y);
     cv::Point2f center_b(det_b.x, det_b.y);
     cv::Point2f left_up(std::min(det_a.x - det_a.w / 2, det_b.x - det_b.w / 2),

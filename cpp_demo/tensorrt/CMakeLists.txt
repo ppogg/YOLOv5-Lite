@@ -1,6 +1,6 @@
 cmake_minimum_required(VERSION 3.5)
 
-project(yolov5_trt)
+project(v5lite_trt)
 
 set(CMAKE_CXX_STANDARD 14)
 
@@ -35,5 +35,5 @@ set(YAML_LIB_DIR ./includes/yaml-cpp/libs)
 include_directories(${CUDA_INCLUDE_DIRS} ${TENSORRT_INCLUDE_DIR} ${OpenCV_INCLUDE_DIRS} ${COMMON_INCLUDE} ${YAML_INCLUDE})
 link_directories(${YAML_LIB_DIR})
 
-add_executable(yolov5_trt main.cpp yolov5.cpp)
-target_link_libraries(yolov5_trt ${OpenCV_LIBRARIES} ${CUDA_LIBRARIES} ${TENSORRT_LIBRARY} yaml-cpp)
+add_executable(v5lite_trt main.cpp v5lite.cpp)
+target_link_libraries(v5lite_trt ${OpenCV_LIBRARIES} ${CUDA_LIBRARIES} ${TENSORRT_LIBRARY} yaml-cpp)

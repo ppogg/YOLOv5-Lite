@@ -1,4 +1,4 @@
-#include "yolov5.h"
+#include "v5lite.h"
 
 int main(int argc, char **argv)
 {
@@ -9,8 +9,8 @@ int main(int argc, char **argv)
     }
     std::string config_file = argv[1];
     std::string folder_name = argv[2];
-    YOLOv5 YOLOv5(config_file);
-    YOLOv5.LoadEngine();
-    YOLOv5.InferenceFolder(folder_name);
+    V5lite V5lite(config_file);
+    V5lite.LoadEngine();
+    V5lite.InferenceFolder(folder_name);
     return 0;
 }
