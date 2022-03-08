@@ -50,6 +50,7 @@ v5Lite-e.bin<br />v5Lite-e.param|1.7m|shufflenetv2|v5Litee-head|ncnn|Arm-cpu
 v5Lite-e-int8.bin<br />v5Lite-e-int8.param|0.9m|shufflenetv2|v5Litee-head|ncnn|Arm-cpu
 v5Lite-e-fp32.mnn|3.0m|shufflenetv2|v5Litee-head|mnn|Arm-cpu
 v5Lite-e-fp32.tnnmodel<br />v5Lite-e-fp32.tnnproto|2.9m|shufflenetv2|v5Litee-head|tnn|arm-cpu
+v5Lite-e-320.onnx|3.1m|shufflenetv2|v5Litee-head|onnxruntime|x86-cpu
 
 #### @v5lite-s:
 
@@ -65,21 +66,24 @@ v5Lite-s-fp32.bin<br />v5Lite-s-fp32.xml|6.8m|shufflenetv2|v5Lites-head|openvivo
 v5Lite-s-fp16.tflite|3.3m|shufflenetv2|v5Lites-head|tflite|arm-cpu
 v5Lite-s-fp32.tflite|6.7m|shufflenetv2|v5Lites-head|tflite|arm-cpu
 v5Lite-s-int8.tflite|1.8m|shufflenetv2|v5Lites-head|tflite|arm-cpu
+v5Lite-s-416.onnx|6.4m|shufflenetv2|v5Lites-head|onnxruntime|x86-cpu
 
 #### @v5lite-c:
 
 Model|Size|Backbone|Head|Framework|Design for
 :---:|:---:|:---:|:---:|:---:|:---:
-v5Lite-c.pt|9m|PPLcnet（Baidu）|v5Litec-head|Pytorch|x86-cpu / x86-vpu
-v5Lite-c.bin<br />v5Lite-c.xml|8.7m|PPLcnet|v5Litec-head|openvivo|x86-cpu / x86-vpu
+v5Lite-c.pt|9m|PPLcnet（Baidu）|v5s-head|Pytorch|x86-cpu / x86-vpu
+v5Lite-c.bin<br />v5Lite-c.xml|8.7m|PPLcnet|v5s-head|openvivo|x86-cpu / x86-vpu
+v5Lite-c-512.onnx|18m|PPLcnet|v5s-head|onnxruntime|x86-cpu
 
 #### @v5lite-g:
 
 Model|Size|Backbone|Head|Framework|Design for
 :---:|:---:|:---:|:---:|:---:|:---:
 v5Lite-g.pt|10.9m|Repvgg（Tsinghua）|v5Liteg-head|Pytorch|x86-gpu / arm-gpu / arm-npu
-v5Lite-g-int8.engine|8.5m|Repvgg|v5Liteg-head|Tensorrt|x86-gpu / arm-gpu / arm-npu
-v5lite-g-int8.tmfile|8.7m|Repvgg|v5Liteg-head|Tengine| arm-npu
+v5Lite-g-int8.engine|8.5m|Repvgg-yolov5|v5Liteg-head|Tensorrt|x86-gpu / arm-gpu / arm-npu
+v5lite-g-int8.tmfile|8.7m|Repvgg-yolov5|v5Liteg-head|Tengine| arm-npu
+v5Lite-g-640.onnx|21m|Repvgg-yolov5|yolov5-head|onnxruntime|x86-cpu
 
 #### Download Link：
 
@@ -87,16 +91,20 @@ v5lite-g-int8.tmfile|8.7m|Repvgg|v5Liteg-head|Tengine| arm-npu
 >> |──────`ncnn-fp16`:   | [Baidu Drive]()  | [Google Drive](https://drive.google.com/drive/folders/1w4mThJmqjhT1deIXMQAQ5xjWI3JNyzUl?usp=sharing) |<br> 
 >> |──────`ncnn-int8`: | [Baidu Drive]() | [Google Drive](https://drive.google.com/drive/folders/1YNtNVWlRqN8Dwc_9AtRkN0LFkDeJ92gN?usp=sharing) |<br> 
 >> |──────`mnn-fp32`: | [Baidu Drive]() | [Google Drive](https://drive.google.com/drive/folders/1Kha3vQF-7qc5i-GFryInStgTFisGL5vq?usp=sharing) |<br> 
+>> |──────`onnx-fp32`: | [Baidu Drive]() | [Google Drive](https://drive.google.com/file/d/15_z6VlbWuonsHak-7bdtw-QOcvOaMddB/view?usp=sharing) |<br> 
 >> └──────tnn-fp32`: | [Baidu Drive]() | [Google Drive](https://drive.google.com/drive/folders/1VWmI2BC9MjH7BsrOz4VlSDVnZMXaxGOE?usp=sharing) |<br> 
 > - [ ] `v5lite-s.pt`:   | [Baidu Drive](https://pan.baidu.com/s/1j0n0K1kqfv1Ouwa2QSnzCQ)  | [Google Drive](https://drive.google.com/file/d/1ccLTmGB5AkKPjDOyxF3tW7JxGWemph9f/view?usp=sharing) |<br> 
 >> |──────`ncnn-fp16`:   | [Baidu Drive](https://pan.baidu.com/s/1kWtwx1C0OTTxbwqJyIyXWg)  | [Google Drive](https://drive.google.com/drive/folders/1w4mThJmqjhT1deIXMQAQ5xjWI3JNyzUl?usp=sharing) |<br> 
 >> |──────`ncnn-int8`: | [Baidu Drive](https://pan.baidu.com/s/1QX6-oNynrW-f3i0P0Hqe4w) | [Google Drive](https://drive.google.com/drive/folders/1YNtNVWlRqN8Dwc_9AtRkN0LFkDeJ92gN?usp=sharing) |<br> 
 >> |──────`mnn-fp16`: | [Baidu Drive](https://pan.baidu.com/s/12lOtPTl4xujWm5BbFJh3zA) | [Google Drive](https://drive.google.com/drive/folders/1PpFoZ4b8mVs1GmMxgf0WUtXUWaGK_JZe?usp=sharing) |<br> 
 >> |──────`mnn-int4`: | [Baidu Drive](https://pan.baidu.com/s/11fbjFi18xkq4ltAKUKDOCA) | [Google Drive](https://drive.google.com/drive/folders/1mSU8g94c77KKsHC-07p5V3tJOZYPQ-g6?usp=sharing) |<br> 
+>> |──────`onnx-fp32`: | [Baidu Drive]() | [Google Drive](https://drive.google.com/file/d/123feVchyuqCRZV038I1Gn1gpJEVK4GFh/view?usp=sharing) |<br> 
 >> └──────`tengine-fp32`: | [Baidu Drive](https://pan.baidu.com/s/123r630O8Fco7X59wFU1crA) | [Google Drive](https://drive.google.com/drive/folders/1VWmI2BC9MjH7BsrOz4VlSDVnZMXaxGOE?usp=sharing) |<br>                
 > - [ ] `v5lite-c.pt`: [Baidu Drive](https://pan.baidu.com/s/1obs6uRB79m8e3uASVR6P1A) | [Google Drive](https://drive.google.com/file/d/1lHYRQKjqKCRXghUjwWkUB0HQ8ccKH6qa/view?usp=sharing) |<br> 
+>> |──────`onnx-fp32`: | [Baidu Drive]() | [Google Drive](https://drive.google.com/file/d/1VJBfZPikTce5vUatC2ZsAWQlmMdcArs2/view?usp=sharing) |<br> 
 >> └──────`openvino-fp16`: | [Baidu Drive](https://pan.baidu.com/s/18p8HAyGJdmo2hham250b4A) | [Google Drive](https://drive.google.com/drive/folders/1s4KPSC4B0shG0INmQ6kZuPLnlUKAATyv?usp=sharing) |<br> 
 > - [ ] `v5lite-g.pt`: | [Baidu Drive](https://pan.baidu.com/s/14zdTiTMI_9yTBgKGbv9pQw) | [Google Drive](https://drive.google.com/file/d/1oftzqOREGqDCerf7DtD5BZp9YWELlkMe/view?usp=sharing) |<br> 
+>> └──────`onnx-fp32`: | [Baidu Drive]() | [Google Drive](https://drive.google.com/file/d/1bJByk9eoS6pv8Z3N4bcLRCV3i7uk24aU/view?usp=sharing) |<br> 
 
 Baidu Drive Password: `pogg`
 
