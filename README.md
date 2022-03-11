@@ -90,9 +90,7 @@ v5Lite-g-640.onnx|21m|Repvgg-yolov5|yolov5-head|onnxruntime|x86-cpu
 > - [ ] `v5lite-e.pt`:   | [Baidu Drive](https://pan.baidu.com/s/1bjXo7KIFkOnB3pxixHeMPQ)  | [Google Drive](https://drive.google.com/file/d/1_DvT_qjznuE-ev_pDdGKwRV3MjZ3Zos8/view?usp=sharing) |<br> 
 >> |──────`ncnn-fp16`:   | [Baidu Drive]()  | [Google Drive](https://drive.google.com/drive/folders/1w4mThJmqjhT1deIXMQAQ5xjWI3JNyzUl?usp=sharing) |<br> 
 >> |──────`ncnn-int8`: | [Baidu Drive]() | [Google Drive](https://drive.google.com/drive/folders/1YNtNVWlRqN8Dwc_9AtRkN0LFkDeJ92gN?usp=sharing) |<br> 
->> |──────`mnn-fp32`: | [Baidu Drive]() | [Google Drive](https://drive.google.com/drive/folders/1Kha3vQF-7qc5i-GFryInStgTFisGL5vq?usp=sharing) |<br> 
->> |──────`onnx-fp32`: | [Baidu Drive]() | [Google Drive](https://drive.google.com/file/d/15_z6VlbWuonsHak-7bdtw-QOcvOaMddB/view?usp=sharing) |<br> 
->> └──────tnn-fp32`: | [Baidu Drive]() | [Google Drive](https://drive.google.com/drive/folders/1VWmI2BC9MjH7BsrOz4VlSDVnZMXaxGOE?usp=sharing) |<br> 
+>> └──────`onnx-fp32`: | [Baidu Drive]() | [Google Drive](https://drive.google.com/file/d/15_z6VlbWuonsHak-7bdtw-QOcvOaMddB/view?usp=sharing) |<br> 
 > - [ ] `v5lite-s.pt`:   | [Baidu Drive](https://pan.baidu.com/s/1j0n0K1kqfv1Ouwa2QSnzCQ)  | [Google Drive](https://drive.google.com/file/d/1ccLTmGB5AkKPjDOyxF3tW7JxGWemph9f/view?usp=sharing) |<br> 
 >> |──────`ncnn-fp16`:   | [Baidu Drive](https://pan.baidu.com/s/1kWtwx1C0OTTxbwqJyIyXWg)  | [Google Drive](https://drive.google.com/drive/folders/1w4mThJmqjhT1deIXMQAQ5xjWI3JNyzUl?usp=sharing) |<br> 
 >> |──────`ncnn-int8`: | [Baidu Drive](https://pan.baidu.com/s/1QX6-oNynrW-f3i0P0Hqe4w) | [Google Drive](https://drive.google.com/drive/folders/1YNtNVWlRqN8Dwc_9AtRkN0LFkDeJ92gN?usp=sharing) |<br> 
