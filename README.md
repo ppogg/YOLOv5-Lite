@@ -213,21 +213,23 @@ Here, the original components of YOLOv5 and the reproduced components of YOLOv5-
 
 ## How to deploy
 
-[**ncnn**](https://github.com/ppogg/YOLOv5-Lite/blob/master/ncnn/README.md)  for arm-cpu
+[**ncnn**](https://github.com/ppogg/YOLOv5-Lite/blob/master/cpp_demo/ncnn/README.md)  for arm-cpu
 
-[**mnn**](https://github.com/ppogg/YOLOv5-Lite/blob/master/mnn/README.md) for arm-cpu
+[**mnn**](https://github.com/ppogg/YOLOv5-Lite/blob/master/cpp_demo/mnn/README.md) for arm-cpu
 
-[**openvino**](https://github.com/ppogg/YOLOv5-Lite/blob/master/openvino/README.md) x86-cpu or x86-vpu 
+[**openvino**](https://github.com/ppogg/YOLOv5-Lite/blob/master/python_demo/openvino/README.md) x86-cpu or x86-vpu 
 
-[**tensorrt**](https://github.com/ppogg/YOLOv5-Lite/tree/master/tensorrt) for arm-gpu or arm-npu or x86-gpu
+[**tensorrt(C++)**](https://github.com/ppogg/YOLOv5-Lite/blob/master/cpp_demo/tensorrt/README.md) for arm-gpu or arm-npu or x86-gpu
 
-[**Android**](https://github.com/ppogg/YOLOv5-Lite/blob/master/Android/ncnn-android-yolov5/README.md) for arm-cpu
+[**tensorrt(Python)**](https://github.com/ppogg/YOLOv5-Lite/tree/master/python_demo/tensorrt) for arm-gpu or arm-npu or x86-gpu
+
+[**Android**](https://github.com/ppogg/YOLOv5-Lite/blob/master/android_demo/ncnn-android-v5lite/README.md) for arm-cpu
 
 ## Android_demo 
 
 This is a Redmi phone, the processor is Snapdragon 730G, and yolov5-lite is used for detection. The performance is as follows:
 
-link: https://github.com/ppogg/YOLOv5-Lite/tree/master/ncnn_Android
+link: https://github.com/ppogg/YOLOv5-Lite/tree/master/android_demo/ncnn-android-v5lite
 
 Android_v5Lite-s: https://drive.google.com/file/d/1CtohY68N2B9XYuqFLiTp-Nd2kuFWgAUR/view?usp=sharing
 
