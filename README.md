@@ -275,7 +275,7 @@ https://github.com/megvii-model/ShuffleNet-Series
 https://github.com/Tencent/ncnn
 
 ## Citing YOLOv5-Lite
-If you use YOLOX in your research, please cite our work by using the following BibTeX entry:
+If you use YOLOv5-Lite in your research, please cite our work and give a star ⭐:
 
 ```
  @misc{yolov5lite2021,
