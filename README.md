@@ -274,3 +274,15 @@ https://github.com/megvii-model/ShuffleNet-Series
 
 https://github.com/Tencent/ncnn
 
+## Citing YOLOv5-Lite
+If you use YOLOX in your research, please cite our work by using the following BibTeX entry:
+
+'''
+ @article{yolov5lite2021,
+  title = {YOLOv5-Lite: Lighter, faster and easier to deploy},
+  author = {Xiangrong Chen and Ziman Gong},
+  url = {https://github.com/ppogg/YOLOv5-Lite},
+  doi = {}
+  year={2021}
+}
+'''
