@@ -244,25 +244,25 @@ new android app:[link] https://pan.baidu.com/s/1PRhW4fI1jq8VboPyishcIQ [keyword]
 #### Detailed model link:
  
  What is YOLOv5-Lite S/E model:
- zhihu link (Chinese): ![https://zhuanlan.zhihu.com/p/400545131](https://zhuanlan.zhihu.com/p/400545131)
+ zhihu link (Chinese): https://zhuanlan.zhihu.com/p/400545131
  
  What is YOLOv5-Lite C model:
- zhihu link (Chinese): ![https://zhuanlan.zhihu.com/p/420737659](https://zhuanlan.zhihu.com/p/420737659)
+ zhihu link (Chinese): https://zhuanlan.zhihu.com/p/420737659
 
  What is YOLOv5-Lite G model:
- zhihu link (Chinese): ![https://zhuanlan.zhihu.com/p/410874403](https://zhuanlan.zhihu.com/p/410874403)
+ zhihu link (Chinese): https://zhuanlan.zhihu.com/p/410874403
  
  How to deploy on ncnn with fp16 or int8:
- csdn link (Chinese): ![https://blog.csdn.net/weixin_45829462/article/details/119787840](https://blog.csdn.net/weixin_45829462/article/details/119787840)
+ csdn link (Chinese): https://blog.csdn.net/weixin_45829462/article/details/119787840
  
  How to deploy on onnxruntime:
- zhihu link (Chinese): ![https://zhuanlan.zhihu.com/p/476533259](https://zhuanlan.zhihu.com/p/476533259)
+ zhihu link (Chinese): https://zhuanlan.zhihu.com/p/476533259
  
  How to deploy on tensorrt:
- zhihu link (Chinese): ![https://zhuanlan.zhihu.com/p/478630138](https://zhuanlan.zhihu.com/p/478630138)
+ zhihu link (Chinese): https://zhuanlan.zhihu.com/p/478630138
  
  How to optimize on tensorrt:
- zhihu link (Chinese): ![https://zhuanlan.zhihu.com/p/463074494](https://zhuanlan.zhihu.com/p/463074494)
+ zhihu link (Chinese): https://zhuanlan.zhihu.com/p/463074494
 
 ## Reference
 
