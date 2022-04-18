@@ -4,7 +4,7 @@
 
 Perform a series of ablation experiments on yolov5 to make it lighter (smaller Flops, lower memory, and fewer parameters) and faster (add shuffle channel, yolov5 head for channel reduce. It can infer at least 10+ FPS On the Raspberry Pi 4B when input the frame with 320×320) and is easier to deploy (removing the Focus layer and four slice operations, reducing the model quantization accuracy to an acceptable range).
 
-![image](https://user-images.githubusercontent.com/82716366/163821118-44fdf431-34ad-453f-ab3a-30ffc635a0c0.png)
+![image](https://user-images.githubusercontent.com/82716366/163822066-5485c0f6-e7cc-480a-b99f-f3d568605ec1.png)
 
 ## Comparison of ablation experiment results
 
