@@ -155,7 +155,7 @@ $ python detect.py --source 0  # webcam
 
 ```bash
 $ python train.py --data coco.yaml --cfg v5lite-e.yaml --weights v5lite-e.pt --batch-size 128
-                                         v5lite-s.yaml --weights v5lite-s.pt --batch-size 128
+                                         v5lite-s.yaml           v5lite-s.pt              128
                                          v5lite-c.yaml           v5lite-c.pt               96
                                          v5lite-g.yaml           v5lite-g.pt               64
 ```
