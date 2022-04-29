@@ -280,7 +280,7 @@ If you use YOLOv5-Lite in your research, please cite our work and give a star тн
  @misc{yolov5lite2021,
   title = {YOLOv5-Lite: Lighter, faster and easier to deploy},
   author = {Xiangrong Chen and Ziman Gong},
-  doi = {0.5281/zenodo.5241425}
+  doi = {10.5281/zenodo.5241425}
   year={2021}
 }
 ```
