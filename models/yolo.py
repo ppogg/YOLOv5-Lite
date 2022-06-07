@@ -40,6 +40,7 @@ class Detect(nn.Module):
     def forward(self, x):
         # x = x.copy()  # for profiling
         z = []  # inference output
+        logits_ = []
         self.training |= self.export
         for i in range(self.nl):
             x[i] = self.m[i](x[i])  # conv
@@ -49,13 +50,15 @@ class Detect(nn.Module):
             if not self.training:  # inference
                 if self.grid[i].shape[2:4] != x[i].shape[2:4]:
                     self.grid[i] = self._make_grid(nx, ny).to(x[i].device)
+                logits = x[i][..., 5:]
 
                 y = x[i].sigmoid()
                 y[..., 0:2] = (y[..., 0:2] * 2. - 0.5 + self.grid[i]) * self.stride[i]  # xy
                 y[..., 2:4] = (y[..., 2:4] * 2) ** 2 * self.anchor_grid[i]  # wh
                 z.append(y.view(bs, -1, self.no))
+                logits_.append(logits.view(bs, -1, self.no - 5))
 
-        return x if self.training else (torch.cat(z, 1), x)
+        return x if self.training else (torch.cat(z, 1), torch.cat(logits_, 1), x)
 
     def cat_forward(self, x):
         z = []  # inference output
@@ -303,7 +306,7 @@ def parse_model(d, ch):  # model_dict, input_channels(3)
 
         n = max(round(n * gd), 1) if n > 1 else n  # depth gain
         if m in [Conv, GhostConv, Bottleneck, GhostBottleneck, SPP, SPPF, MixConv2d, Focus, CrossConv, BottleneckCSP,
-                 C3, C3TR, Shuffle_Block, conv_bn_relu_maxpool, DWConvblock, MBConvBlock, LC3, 
+                 C3, C3TR, Shuffle_Block, conv_bn_relu_maxpool, DWConvblock, MBConvBlock, LC3,
                  RepVGGBlock, SEBlock, mobilev3_bneck, Hswish, SELayer, stem, CBH, LC_Block, Dense,
                 GhostConv, ES_Bottleneck, ES_SEModule]:
             c1, c2 = ch[f], args[0]
