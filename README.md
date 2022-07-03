@@ -203,6 +203,17 @@ val: ../coco/images/val2017/
 </details> 
 
 <details open>
+<summary>Auto LabelImg</summary>
+
+[**Link** ：https://github.com/ppogg/AutoLabelImg](https://github.com/ppogg/AutoLabelImg)  
+
+You can use LabelImg based YOLOv5-5.0 and YOLOv5-Lite to AutoAnnotate?
+<img src="![捕获2](https://user-images.githubusercontent.com/82716366/177030174-dc3a5827-2821-4d8c-8d78-babe83c42fbf.JPG)" width="650"/><br/>
+
+  
+</details> 
+
+<details open>
 <summary>Model Hub</summary>
 
 Here, the original components of YOLOv5 and the reproduced components of YOLOv5-Lite are organized and stored in the [model hub](https://github.com/ppogg/YOLOv5-Lite/tree/master/models/hub)：
