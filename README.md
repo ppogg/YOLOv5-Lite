@@ -208,7 +208,7 @@ val: ../coco/images/val2017/
 [**Link** ：https://github.com/ppogg/AutoLabelImg](https://github.com/ppogg/AutoLabelImg)  
 
 You can use LabelImg based YOLOv5-5.0 and YOLOv5-Lite to AutoAnnotate, biubiubiu 🚀 🚀 🚀 
-<img src="https://user-images.githubusercontent.com/82716366/177030174-dc3a5827-2821-4d8c-8d78-babe83c42fbf.JPG" width="750"/><br/>
+<img src="https://user-images.githubusercontent.com/82716366/177030174-dc3a5827-2821-4d8c-8d78-babe83c42fbf.JPG" width="950"/><br/>
 
   
 </details> 
