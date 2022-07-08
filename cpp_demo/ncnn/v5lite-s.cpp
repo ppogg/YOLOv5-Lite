@@ -343,7 +343,6 @@ static int detect_yolov5(const cv::Mat& bgr, std::vector<Object>& objects)
     {
         ncnn::Mat out;
         ex.extract("1111", out);
-#endif
 
         ncnn::Mat anchors(6);
         anchors[0] = 30.f;
@@ -362,7 +361,6 @@ static int detect_yolov5(const cv::Mat& bgr, std::vector<Object>& objects)
     {
         ncnn::Mat out;
         ex.extract("2222", out);
-#endif
 
         ncnn::Mat anchors(6);
         anchors[0] = 116.f;
