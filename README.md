@@ -41,6 +41,8 @@ Raspberrypi 4B|@ARM Cortex-A72|Linux(arm64)|320×320|mnn|-|76ms|-|-|356ms
 
 ###  qq交流群：993965802
 
+入群答案:剪枝 or 蒸馏 or 量化 or 低秩分解（任意其一均可）
+
 ##  ·Model Zoo· 
 
 #### @v5lite-e:
