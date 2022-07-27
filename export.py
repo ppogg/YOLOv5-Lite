@@ -23,7 +23,7 @@ if __name__ == '__main__':
     parser = argparse.ArgumentParser()
     parser.add_argument('--weights', type=str, default=r'C:\Users\chen\Desktop\Model_Zoo\model_zoo/v5lite-e.pt', help='weights path')  # from yolov5/models/
     parser.add_argument('--img-size', nargs='+', type=int, default=[320, 320], help='image size')  # height, width
-    parser.add_argument('--concat', type=str, default=True, help='concat or not')
+    parser.add_argument('--concat', action='store_false', help='concat or not')
     parser.add_argument('--batch-size', type=int, default=1, help='batch size')
     parser.add_argument('--dynamic', action='store_true', help='dynamic ONNX axes')
     parser.add_argument('--grid', action='store_true', help='export Detect() layer grid')
