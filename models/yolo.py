@@ -204,9 +204,9 @@ class Model(nn.Module):
                     m.rbr_dense = rbr_reparam
                     # m.__delattr__('rbr_dense')
                     m.__delattr__('rbr_1x1')
-                    if hasattr(self, 'rbr_identity'):
+                    if hasattr(m, 'rbr_identity'):
                         m.__delattr__('rbr_identity')
-                    if hasattr(self, 'id_tensor'):
+                    if hasattr(m, 'id_tensor'):
                         m.__delattr__('id_tensor')
                     m.deploy = True
                     delattr(m, 'se')
