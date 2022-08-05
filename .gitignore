@@ -1,0 +1,7 @@
+__pycache__
+datasets/
+models/__pycache__
+runs
+utils/__pycache__
+utils/wandb_logging/__pycache__
+wandb
