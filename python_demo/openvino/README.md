@@ -21,8 +21,8 @@ $ python -m onnxsim v5lite-c.onnx v5lite-c-sim.onnx
 python mo.py --input_model v5lite-c.onnx -s 255 --data_type FP16  --reverse_input_channels --output Conv_462,Conv_478,Conv_494
 ```
 ###	model_zoo:
-v5lite-c.xml：[https://drive.google.com/file/d/1zK93evRJUgwQQbqXkLEMFiAZ4Jq_SIsC/view?usp=sharing](https://drive.google.com/file/d/1zK93evRJUgwQQbqXkLEMFiAZ4Jq_SIsC/view?usp=sharing)
-v5lite-c.bin：[https://drive.google.com/file/d/1iR8m0gP_C-0gE1AsCtnDjCValXYjHpDO/view?usp=sharing](https://drive.google.com/file/d/1iR8m0gP_C-0gE1AsCtnDjCValXYjHpDO/view?usp=sharing)
+v5lite-c.xml：[https://drive.google.com/file/d/1hlDPWmhvte6deiNgMRhuuvgnyKkYeC68/view?usp=sharing](https://drive.google.com/file/d/1hlDPWmhvte6deiNgMRhuuvgnyKkYeC68/view?usp=sharing)
+v5lite-c.bin：[https://drive.google.com/file/d/1SStWwHQ8mQZ0UVfSTB3i9W580-5O6jX3/view?usp=sharing](https://drive.google.com/file/d/1SStWwHQ8mQZ0UVfSTB3i9W580-5O6jX3/view?usp=sharing)
 
 ###	Inference
 
