@@ -35,7 +35,7 @@ Redmi K30|@Snapdragon 730G|Android(armv8)|320×320|ncnn|27ms|38ms|-|-|163ms
 Xiaomi 10|@Snapdragon 865|Android(armv8)|320×320|ncnn|10ms|14ms|-|-|163ms
 Raspberrypi 4B|@ARM Cortex-A72|Linux(arm64)|320×320|ncnn|-|84ms|-|-|371ms
 Raspberrypi 4B|@ARM Cortex-A72|Linux(arm64)|320×320|mnn|-|76ms|-|-|356ms
-AXera-Pi|Cortex A7@CPU<br />3.6TOPs INT8@NPU|Linux(arm64)|640×640|axpi|-|22ms|-|-|22ms
+AXera-Pi|Cortex A7@CPU<br />3.6TOPs @NPU|Linux(arm64)|640×640|axpi|-|-|-|22ms|22ms
 
 
 * The above is a 4-thread test benchmark
@@ -90,6 +90,7 @@ v5Lite-g.pt|10.9m|Repvgg（Tsinghua）|v5Liteg-head|Pytorch|x86-gpu / arm-gpu / 
 v5Lite-g-int8.engine|8.5m|Repvgg-yolov5|v5Liteg-head|Tensorrt|x86-gpu / arm-gpu / arm-npu
 v5lite-g-int8.tmfile|8.7m|Repvgg-yolov5|v5Liteg-head|Tengine| arm-npu
 v5Lite-g-640.onnx|21m|Repvgg-yolov5|yolov5-head|onnxruntime|x86-cpu
+v5Lite-g-640.joint|7.1m|Repvgg-yolov5|yolov5-head|axpi|arm-npu
 
 #### Download Link：
 
@@ -109,6 +110,9 @@ v5Lite-g-640.onnx|21m|Repvgg-yolov5|yolov5-head|onnxruntime|x86-cpu
 >> └──────`openvino-fp16`: | [Baidu Drive](https://pan.baidu.com/s/18p8HAyGJdmo2hham250b4A) | [Google Drive](https://drive.google.com/drive/folders/1s4KPSC4B0shG0INmQ6kZuPLnlUKAATyv?usp=sharing) |<br> 
 > - [ ] `v5lite-g.pt`: | [Baidu Drive](https://pan.baidu.com/s/14zdTiTMI_9yTBgKGbv9pQw) | [Google Drive](https://drive.google.com/file/d/1oftzqOREGqDCerf7DtD5BZp9YWELlkMe/view?usp=sharing) |<br> 
 >> └──────`onnx-fp32`: | [Baidu Drive](https://pan.baidu.com/s/1gwLqiPLTDjlSqWJ7AnEB1A) | [Google Drive](https://drive.google.com/file/d/1bJByk9eoS6pv8Z3N4bcLRCV3i7uk24aU/view?usp=sharing) |<br> 
+>> └──────`axpi-int8`: [Google Drive](https://github.com/AXERA-TECH/ax-models/blob/main/ax620/v5Lite-g-sim-640.joint) |<br> 
+
+
 
 Baidu Drive Password: `pogg`
 
