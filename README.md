@@ -109,7 +109,7 @@ v5Lite-g-640.joint|7.1m|Repvgg-yolov5|yolov5-head|axpi|arm-npu
 >> |──────`onnx-fp32`: | [Baidu Drive](https://pan.baidu.com/s/1gwLqiPLTDjlSqWJ7AnEB1A) | [Google Drive](https://drive.google.com/file/d/1VJBfZPikTce5vUatC2ZsAWQlmMdcArs2/view?usp=sharing) |<br> 
 >> └──────`openvino-fp16`: | [Baidu Drive](https://pan.baidu.com/s/18p8HAyGJdmo2hham250b4A) | [Google Drive](https://drive.google.com/drive/folders/1s4KPSC4B0shG0INmQ6kZuPLnlUKAATyv?usp=sharing) |<br> 
 > - [ ] `v5lite-g.pt`: | [Baidu Drive](https://pan.baidu.com/s/14zdTiTMI_9yTBgKGbv9pQw) | [Google Drive](https://drive.google.com/file/d/1oftzqOREGqDCerf7DtD5BZp9YWELlkMe/view?usp=sharing) |<br> 
->> └──────`onnx-fp32`: | [Baidu Drive](https://pan.baidu.com/s/1gwLqiPLTDjlSqWJ7AnEB1A) | [Google Drive](https://drive.google.com/file/d/1bJByk9eoS6pv8Z3N4bcLRCV3i7uk24aU/view?usp=sharing) |<br> 
+>> |──────`onnx-fp32`: | [Baidu Drive](https://pan.baidu.com/s/1gwLqiPLTDjlSqWJ7AnEB1A) | [Google Drive](https://drive.google.com/file/d/1bJByk9eoS6pv8Z3N4bcLRCV3i7uk24aU/view?usp=sharing) |<br> 
 >> └──────`axpi-int8`: [Google Drive](https://github.com/AXERA-TECH/ax-models/blob/main/ax620/v5Lite-g-sim-640.joint) |<br> 
 
 
