@@ -58,11 +58,12 @@ class yolov5_lite():
         confidences = []
         box_index = []
         boxes = []
+        outs = outs[outs[:, 4] > self.objThreshold]
         for detection in outs:
             scores = detection[5:]
             classId = np.argmax(scores)
             confidence = scores[classId]
-            if confidence > self.confThreshold and detection[4] > self.objThreshold:
+            if confidence > self.confThreshold:  # and detection[4] > self.objThreshold:
                 center_x = int((detection[0] - padw) * ratiow)
                 center_y = int((detection[1] - padh) * ratioh)
                 width = int(detection[2] * ratiow)
