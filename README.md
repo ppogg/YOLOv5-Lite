@@ -34,9 +34,11 @@ Nvidia|@RTX 2080Ti|Linux(x86)|640×640|torch|-|-|-|15ms|14ms
 Redmi K30|@Snapdragon 730G|Android(armv8)|320×320|ncnn|27ms|38ms|-|-|163ms
 Xiaomi 10|@Snapdragon 865|Android(armv8)|320×320|ncnn|10ms|14ms|-|-|163ms
 Raspberrypi 4B|@ARM Cortex-A72|Linux(arm64)|320×320|ncnn|-|84ms|-|-|371ms
-Raspberrypi 4B|@ARM Cortex-A72|Linux(arm64)|320×320|mnn|-|76ms|-|-|356ms
+Raspberrypi 4B|@ARM Cortex-A72|Linux(arm64)|320×320|mnn|-|71ms|-|-|356ms
 AXera-Pi|Cortex A7@CPU<br />3.6TOPs @NPU|Linux(arm64)|640×640|axpi|-|-|-|22ms|22ms
 
+### The tutorial of 15FPS on Raspberry Pi 4B:
+[https://zhuanlan.zhihu.com/p/672633849](https://zhuanlan.zhihu.com/p/672633849)
 
 * The above is a 4-thread test benchmark
 * Raspberrypi 4B enable bf16s optimization，[Raspberrypi 64 Bit OS](http://downloads.raspberrypi.org/raspios_arm64/images/raspios_arm64-2020-08-24/)
