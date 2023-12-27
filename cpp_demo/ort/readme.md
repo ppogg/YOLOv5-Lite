@@ -2,10 +2,12 @@
 
 ## model_zoo
 
-### mnn-fp32
+### onnx-fp32
 
-google share: [https://drive.google.com/file/d/1ot9eNlFMqMEzt_FHf0SkDHj1fOprOnTU/view?usp=sharing](https://drive.google.com/file/d/1ot9eNlFMqMEzt_FHf0SkDHj1fOprOnTU/view?usp=sharing
-baidu share: []()
+google share: [https://drive.google.com/file/d/1ot9eNlFMqMEzt_FHf0SkDHj1fOprOnTU/view?usp=sharing](https://drive.google.com/file/d/1ot9eNlFMqMEzt_FHf0SkDHj1fOprOnTU/view?usp=sharing)
+
+baidu share: [https://pan.baidu.com/s/1zIqKmOavRIrV8UJxbQWvhA](https://pan.baidu.com/s/1zIqKmOavRIrV8UJxbQWvhA)
+提取码：pogg
 
 ## Detection effect
 
