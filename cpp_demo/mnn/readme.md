@@ -4,13 +4,13 @@
 
 google share: [https://drive.google.com/drive/folders/1PpFoZ4b8mVs1GmMxgf0WUtXUWaGK_JZe?usp=sharing](https://drive.google.com/drive/folders/1PpFoZ4b8mVs1GmMxgf0WUtXUWaGK_JZe?usp=sharing)
 
-baidu share: []()
+baidu share: [https://pan.baidu.com/s/1Um163Rf-9ezqHBvZHwzyWg?pwd=pogg](https://pan.baidu.com/s/1Um163Rf-9ezqHBvZHwzyWg?pwd=pogg)
 
 ### mnn-int8(include mnnd&mnne)
 
 google share: [https://drive.google.com/drive/folders/1mSU8g94c77KKsHC-07p5V3tJOZYPQ-g6?usp=sharing](https://drive.google.com/drive/folders/1mSU8g94c77KKsHC-07p5V3tJOZYPQ-g6?usp=sharing)
 
-baidu share: []()
+baidu share: [https://pan.baidu.com/s/1V7LVt7AxyG7HjlCJJoOJ3A?pwd=pogg](https://pan.baidu.com/s/1V7LVt7AxyG7HjlCJJoOJ3A?pwd=pogg)
 
 ## Detection effect
 
