@@ -384,6 +384,17 @@ class NMS(nn.Module):
     def forward(self, x):
         return non_max_suppression(x[0], conf_thres=self.conf, iou_thres=self.iou, classes=self.classes)
 
+class NMS_Export(nn.Module):
+    # Non-Maximum Suppression (NMS) module used while exporting ONNX model
+    iou = 0.45  # IoU threshold
+    classes = None  # (optional list) filter by class
+
+    def __init__(self, conf=0.001):
+        super(NMS_Export, self).__init__()
+        self.conf = conf
+
+    def forward(self, x):
+        return non_max_suppression_export(x[0], conf_thres=self.conf, iou_thres=self.iou, classes=self.classes)
 
 class autoShape(nn.Module):
     # input-robust model wrapper for passing cv2/np/PIL/torch inputs. Includes preprocessing, inference and NMS
