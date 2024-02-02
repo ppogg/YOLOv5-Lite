@@ -49,7 +49,6 @@ def non_max_suppression_end2end(prediction, conf_thres=0.25, iou_thres=0.45, cla
 
 def non_max_suppression_mnne(prediction, conf_thres=0.25, iou_thres=0.45, classes=None, agnostic=False, nc=None):
     output = []
-    print(prediction.shape)
 
     xc = prediction[:, 4] > conf_thres  # candidates
     output = prediction[xc]
@@ -58,9 +57,6 @@ def non_max_suppression_mnne(prediction, conf_thres=0.25, iou_thres=0.45, classe
     print(output.shape)
 
     i = torchvision.ops.nms(boxes, scores, iou_thres)  # NMS
-    print(output[i].shape)
-
-    print(output[i])
 
     return output[i]
 
@@ -87,7 +83,6 @@ def non_max_suppression_mnnd(prediction, conf_thres=0.25, iou_thres=0.45, classe
         boxes, scores = x[:, :4] +c , x[:, 4]  # boxes (offset by class), scores
         i = torchvision.ops.nms(boxes, scores, iou_thres)  # NMS
         output[xi] = x[i].view(-1, 6)
-    print(output[0])
 
     return output[0]
 
@@ -118,7 +113,15 @@ def process(weight_path, img_path):
     out = sess.run(['outputs'], {'images': image.numpy()})[0]
     out = torch.from_numpy(out)
 
-    output = non_max_suppression_end2end(out, 0.50, 0.50, nc=1)
+    # 如果使用的是end2end的导出方式，则使用以下后处理
+    # output = non_max_suppression_end2end(out, 0.50, 0.50, nc=80)
+
+    # 如果使用的是mnnd的导出方式，则使用以下后处理
+    output = non_max_suppression_mnnd(out, 0.50, 0.50, nc=80)
+
+    # 如果使用的是mnne的导出方式，则使用以下后处理
+    # output = non_max_suppression_mnne(out, 0.50, 0.50, nc=80)
+   
     nimg = image[0].permute(1, 2, 0) * 255
     nimg = nimg.cpu().numpy().astype(np.uint8)
     nimg = cv2.cvtColor(nimg, cv2.COLOR_BGR2RGB)
