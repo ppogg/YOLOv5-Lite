@@ -456,8 +456,8 @@ def train(hyp, opt, device, tb_writer=None):
 
 if __name__ == '__main__':
     parser = argparse.ArgumentParser()
-    parser.add_argument('--weights', type=str, default='weights/v5lite-s.pt', help='initial weights path')
-    parser.add_argument('--cfg', type=str, default='models/v5ite-s.yaml', help='model.yaml path')
+    parser.add_argument('--weights', type=str, default='weights/v5Lite-s.pt', help='initial weights path')
+    parser.add_argument('--cfg', type=str, default='models/v5Lite-s.yaml', help='model.yaml path')
     parser.add_argument('--data', type=str, default='data/coco.yaml', help='data.yaml path')
     parser.add_argument('--hyp', type=str, default='data/hyp.scratch.yaml', help='hyperparameters path')
     parser.add_argument('--epochs', type=int, default=300)
