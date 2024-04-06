@@ -98,13 +98,13 @@ v5Lite-g-640.joint|7.1m|Repvgg-yolov5|yolov5-head|axpi|arm-npu
 
 > - [ ] `v5lite-e.pt`:   | [Baidu Drive](https://pan.baidu.com/s/1bjXo7KIFkOnB3pxixHeMPQ)  | [Google Drive](https://drive.google.com/file/d/1_DvT_qjznuE-ev_pDdGKwRV3MjZ3Zos8/view?usp=sharing) |<br> 
 >> |──────`ncnn-fp16`:   | [Baidu Drive](https://pan.baidu.com/s/1_QvWvkhHB7kdcRZ6k4at1g)  | [Google Drive](https://drive.google.com/drive/folders/1w4mThJmqjhT1deIXMQAQ5xjWI3JNyzUl?usp=sharing) |<br> 
->> |──────`ncnn-int8`: | [Baidu Drive](https://pan.baidu.com/s/1JO8qbbVx6zJ-6aq5EgM6PA) | [Google Drive](https://drive.google.com/drive/folders/1YNtNVWlRqN8Dwc_9AtRkN0LFkDeJ92gN?usp=sharing) |<br> 
+>> |──────`ncnn-int8`: | [Baidu Drive](https://pan.baidu.com/s/1JO8qbbVx6zJ-6aq5EgM6PA) | [Google Drive](https://drive.google.com/drive/folders/1YNtNVWlRqN8Dwc_9AtRkN0LFkDeJ92gN?usp=sharing) |<br>
+>> |──────`mnn-e_bf16`: | [Google Drive](https://drive.google.com/file/d/1_yGGCJFat2bjaKEwxJjrFcU2mGEhH8I3/view?usp=sharing) |<br> 
+>> |──────`mnn-d_bf16`: | [Google Drive](https://drive.google.com/file/d/1TqijmdQtWd6ZUr2CiNLuHCEQnPUw1oVu/view?usp=sharing)|<br> 
 >> └──────`onnx-fp32`: | [Baidu Drive](https://pan.baidu.com/s/1zIqKmOavRIrV8UJxbQWvhA) | [Google Drive](https://drive.google.com/file/d/1ot9eNlFMqMEzt_FHf0SkDHj1fOprOnTU/view?usp=sharing) |<br> 
 > - [ ] `v5lite-s.pt`:   | [Baidu Drive](https://pan.baidu.com/s/1j0n0K1kqfv1Ouwa2QSnzCQ)  | [Google Drive](https://drive.google.com/file/d/1ccLTmGB5AkKPjDOyxF3tW7JxGWemph9f/view?usp=sharing) |<br> 
 >> |──────`ncnn-fp16`:   | [Baidu Drive](https://pan.baidu.com/s/1kWtwx1C0OTTxbwqJyIyXWg)  | [Google Drive](https://drive.google.com/drive/folders/1w4mThJmqjhT1deIXMQAQ5xjWI3JNyzUl?usp=sharing) |<br> 
 >> |──────`ncnn-int8`: | [Baidu Drive](https://pan.baidu.com/s/1QX6-oNynrW-f3i0P0Hqe4w) | [Google Drive](https://drive.google.com/drive/folders/1YNtNVWlRqN8Dwc_9AtRkN0LFkDeJ92gN?usp=sharing) |<br> 
->> |──────`mnn-fp16`: | [Baidu Drive](https://pan.baidu.com/s/12lOtPTl4xujWm5BbFJh3zA) | [Google Drive](https://drive.google.com/drive/folders/1PpFoZ4b8mVs1GmMxgf0WUtXUWaGK_JZe?usp=sharing) |<br> 
->> |──────`mnn-int4`: | [Baidu Drive](https://pan.baidu.com/s/11fbjFi18xkq4ltAKUKDOCA) | [Google Drive](https://drive.google.com/drive/folders/1mSU8g94c77KKsHC-07p5V3tJOZYPQ-g6?usp=sharing) |<br> 
 >> └──────`tengine-fp32`: | [Baidu Drive](https://pan.baidu.com/s/123r630O8Fco7X59wFU1crA) | [Google Drive](https://drive.google.com/drive/folders/1VWmI2BC9MjH7BsrOz4VlSDVnZMXaxGOE?usp=sharing) |<br>                
 > - [ ] `v5lite-c.pt`: [Baidu Drive](https://pan.baidu.com/s/1obs6uRB79m8e3uASVR6P1A) | [Google Drive](https://drive.google.com/file/d/1lHYRQKjqKCRXghUjwWkUB0HQ8ccKH6qa/view?usp=sharing) |<br> 
 >> └──────`openvino-fp16`: | [Baidu Drive](https://pan.baidu.com/s/18p8HAyGJdmo2hham250b4A) | [Google Drive](https://drive.google.com/drive/folders/1s4KPSC4B0shG0INmQ6kZuPLnlUKAATyv?usp=sharing) |<br> 
