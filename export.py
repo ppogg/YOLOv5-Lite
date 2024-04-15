@@ -108,7 +108,7 @@ if __name__ == '__main__':
         #model_nms = torch.nn.Sequential(model, nms_export)
         #model_nms.eval()
         output_names = ['outputs']
-    elif opt.concat or opt.mnnd or opt.mnne or opt.ncnn:
+    elif opt.concat or opt.mnnd or opt.mnne:
         output_names = ['outputs']
 
     dynamic = opt.dynamic
