@@ -19,7 +19,6 @@ from models.experimental import attempt_load
 from utils.activations import Hardswish, SiLU
 from utils.general import set_logging, check_img_size
 from utils.torch_utils import select_device
-from onnxmltools.utils.float16_converter import convert_float_to_float16
 
 def export_onnx(model, img, dynamic, output_names=None):
     try:
