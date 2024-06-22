@@ -103,6 +103,7 @@ std::vector<BoxInfo> decode(cv::Mat &cv_mat, std::shared_ptr<MNN::Interpreter> &
         bbox_collection.push_back(box);
     }
 #endif
+    delete nhwc_Tensor;
     return bbox_collection;
 }
 
