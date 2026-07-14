@@ -57,6 +57,19 @@ class Detect(nn.Module):
 
         return x if self.training else (torch.cat(z, 1), x)
 
+    def ncnn_forward(self, x):
+        # Raw detection heads for NCNN export (see issue #53).
+        # Each head: (batch, grid_h*grid_w, num_classes+5, num_anchors) with dynamic grid size.
+        z = []
+        for i in range(self.nl):
+            x[i] = self.m[i](x[i])  # conv
+            bs, _, ny, nx = x[i].shape
+            x[i] = x[i].view(bs, self.no, self.na, ny, nx)
+            x[i] = x[i].permute(0, 3, 4, 1, 2).contiguous()  # (bs, ny, nx, no, na)
+            x[i] = x[i].view(bs, ny * nx, self.no, self.na)
+            z.append(x[i])
+        return tuple(z)
+
     def cat_forward(self, x):
         z = []  # inference output
         for i in range(self.nl):
