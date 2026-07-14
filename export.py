@@ -1,7 +1,8 @@
 """Exports a YOLOv5 *.pt model to ONNX and TorchScript formats
 
 Usage:
-    $ export PYTHONPATH="$PWD" && python models/export.py --weights ./weights/yolov5s.pt --img 640 --batch 1
+    $ export PYTHONPATH="$PWD" && python export.py --weights ./weights/v5lite-s.pt --img-size 320 320
+    $ export PYTHONPATH="$PWD" && python export.py --weights ./weights/v5lite-s.pt --ncnn
 """
 
 import argparse
@@ -19,24 +20,38 @@ from models.experimental import attempt_load
 from utils.activations import Hardswish, SiLU
 from utils.general import set_logging, check_img_size
 from utils.torch_utils import select_device
+from scripts.fix_ncnn_param import patch_onnx_reshape_for_ncnn
 
-def export_onnx(model, img, dynamic, output_names=None):
+NCNN_OUTPUT_NAMES = ['output', 'stride16', 'stride32']
+
+
+def export_onnx(model, img, dynamic, output_names=None, dynamic_axes=None):
     try:
         import onnx
 
         print('\nStarting ONNX export with onnx %s...' % onnx.__version__)
         f = opt.weights.replace('.pt', '.onnx')  # filename
+        if dynamic_axes is None:
+            dynamic_axes = {'images': {0: 'batch', 2: 'height', 3: 'width'},
+                            'output': {0: 'batch', 2: 'y', 3: 'x'}} if opt.dynamic else None
         torch.onnx.export(model, img, f, verbose=False, opset_version=12, input_names=['images'],
                           output_names=['classes', 'boxes'] if y is None else output_names,
-                          dynamic_axes={'images': {0: 'batch', 2: 'height', 3: 'width'},  # size(1,3,640,640)
-                                        'output': {0: 'batch', 2: 'y', 3: 'x'}} if opt.dynamic else None)
+                          dynamic_axes=dynamic_axes, dynamo=False)
 
         # Checks
         onnx_model = onnx.load(f)  # load onnx model
         onnx.checker.check_model(onnx_model)  # check onnx model
 
+        if opt.ncnn:
+            patched = patch_onnx_reshape_for_ncnn(f, nc=model.model[-1].nc)
+            print('Patched %d NCNN head Reshape node(s) to use dynamic grid size (-1)' % patched)
+
         # print(onnx.helper.printable_graph(onnx_model.graph))  # print a human readable model
         print('ONNX export success, saved as %s' % f)
+        if opt.ncnn:
+            print('Next: python -m onnxsim %s %s' % (f, f))
+            print('Then: onnx2ncnn %s model.param model.bin' % f)
+            print('If needed: python scripts/fix_ncnn_param.py model.param')
     except Exception as e:
         print('ONNX export failure: %s' % e)
 
@@ -51,6 +66,7 @@ if __name__ == '__main__':
     parser.add_argument('--concat', action='store_true', help='concat or not')
     parser.add_argument('--mnnd', action='store_true', help='mnn decode or not')
     parser.add_argument('--mnne', action='store_true', help='mnn end2end or not')
+    parser.add_argument('--ncnn', action='store_true', help='export ONNX for NCNN (issue #53)')
     parser.add_argument('--batch-size', type=int, default=1, help='batch size')
     parser.add_argument('--dynamic', action='store_true', help='dynamic ONNX axes')
     parser.add_argument('--grid', action='store_true', help='export Detect() layer grid')
@@ -83,7 +99,9 @@ if __name__ == '__main__':
             elif isinstance(m.act, nn.SiLU):
                 m.act = SiLU()
         elif isinstance(m, models.yolo.Detect):
-            if opt.concat:
+            if opt.ncnn:
+                m.forward = m.ncnn_forward
+            elif opt.concat:
                 m.forward = m.cat_forward
             elif opt.mnnd:
                 m.forward = m.mnnd_forward
@@ -107,24 +125,35 @@ if __name__ == '__main__':
         #model_nms = torch.nn.Sequential(model, nms_export)
         #model_nms.eval()
         output_names = ['outputs']
+    elif opt.ncnn:
+        output_names = NCNN_OUTPUT_NAMES
     elif opt.concat or opt.mnnd or opt.mnne:
         output_names = ['outputs']
 
-    dynamic = opt.dynamic
+    dynamic = opt.dynamic or opt.ncnn
+    dynamic_axes = None
+    if opt.ncnn:
+        dynamic_axes = {
+            'images': {0: 'batch', 2: 'height', 3: 'width'},
+            'output': {0: 'batch', 1: 'stride8_grid'},
+            'stride16': {0: 'batch', 1: 'stride16_grid'},
+            'stride32': {0: 'batch', 1: 'stride32_grid'},
+        }
 
     if opt.end2end:
         # print(model_nms)
-        export_onnx(model, img, dynamic, output_names)
+        export_onnx(model, img, dynamic, output_names, dynamic_axes)
+    elif opt.ncnn:
+        export_onnx(model, img, dynamic, output_names, dynamic_axes)
     elif opt.concat:
         # print(model)
-        export_onnx(model, img, dynamic, output_names)
+        export_onnx(model, img, dynamic, output_names, dynamic_axes)
     elif opt.mnnd:
-        export_onnx(model, img, dynamic, output_names)
+        export_onnx(model, img, dynamic, output_names, dynamic_axes)
     elif opt.mnne:
-        export_onnx(model, img, dynamic, output_names)
+        export_onnx(model, img, dynamic, output_names, dynamic_axes)
     else:
-        export_onnx(model, img, dynamic)
-
+        export_onnx(model, img, dynamic, dynamic_axes=dynamic_axes)
 
 
 
