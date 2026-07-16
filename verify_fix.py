@@ -116,10 +116,27 @@ def verify_param_rewrite():
     print('PASS: NCNN param rewrite is targeted and resolution-independent')
 
 
+def verify_consumer_output_names():
+    consumers = [
+        ROOT / 'cpp_demo' / 'ncnn' / 'v5lite-s.cpp',
+        ROOT / 'android_demo' / 'ncnn-android-v5lite' / 'app' / 'src' / 'main'
+        / 'jni' / 'yolov5.cpp',
+    ]
+    for consumer in consumers:
+        source = consumer.read_text()
+        for output in ('output', 'stride16', 'stride32'):
+            assert 'extract("%s"' % output in source, (consumer, output)
+        assert 'extract("1111"' not in source
+        assert 'extract("2222"' not in source
+
+    print('PASS: NCNN consumers use the exported output names')
+
+
 def main():
     verify_head_values()
     verify_onnx_graph()
     verify_param_rewrite()
+    verify_consumer_output_names()
     print('All Issue #53 regression checks passed.')
 
 
