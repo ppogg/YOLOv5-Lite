@@ -396,7 +396,7 @@ int Yolov5::detect(const cv::Mat &rgb, std::vector<Object> &objects, float prob_
     {
         ncnn::Mat out;
         t3 = ncnn::get_current_time();
-        ex.extract("1111", out);
+        ex.extract("stride16", out);
         t4 = ncnn::get_current_time() - t3;
 
         ncnn::Mat anchors(6);
@@ -417,7 +417,7 @@ int Yolov5::detect(const cv::Mat &rgb, std::vector<Object> &objects, float prob_
     {
         ncnn::Mat out;
         t5 = ncnn::get_current_time();
-        ex.extract("2222", out);
+        ex.extract("stride32", out);
         t6 = ncnn::get_current_time() - t5;
 
         ncnn::Mat anchors(6);

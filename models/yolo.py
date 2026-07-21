@@ -57,6 +57,19 @@ class Detect(nn.Module):
 
         return x if self.training else (torch.cat(z, 1), x)
 
+    def ncnn_forward(self, x):
+        """Export raw heads as NCNN-compatible (anchors, grid, outputs) tensors."""
+        outputs = []
+        for i in range(self.nl):
+            x[i] = self.m[i](x[i])
+            bs, _, ny, nx = x[i].shape
+            # Detect convolution channels are anchor-major: (na, no, ny, nx).
+            # NCNN maps this ONNX (N, C, H, W) output to (c, h, w), so keep
+            # anchors as channels and flatten only the spatial grid.
+            x[i] = x[i].view(bs, self.na, self.no, ny * nx)
+            outputs.append(x[i].permute(0, 1, 3, 2).contiguous())
+        return tuple(outputs)
+
     def cat_forward(self, x):
         z = []  # inference output
         for i in range(self.nl):
